@@ -19,13 +19,22 @@ return new class extends Migration
             $table->string('location_country', 2)->nullable();
             $table->string('location_city')->nullable();
             $table->string('timezone')->nullable();
-            $table->enum('availability', ['available', 'limited', 'unavailable'])->default('available');
+            $table->enum('availability', [
+                'available',
+                'limited',
+                'unavailable',
+            ])->default('available');
             $table->unsignedTinyInteger('experience_years')->nullable();
             $table->string('website_url')->nullable();
             $table->string('github_url')->nullable();
             $table->string('linkedin_url')->nullable();
             $table->string('portfolio_url')->nullable();
-            $table->enum('verification_status', ['unverified', 'pending', 'verified', 'rejected'])->default('unverified');
+            $table->enum('verification_status', [
+                'unverified',
+                'pending',
+                'verified',
+                'rejected',
+            ])->default('unverified');
             $table->decimal('rating_avg', 3, 2)->default(0.00);
             $table->unsignedInteger('rating_count')->default(0);
             $table->unsignedInteger('completed_projects')->default(0);

@@ -2,8 +2,12 @@
 
 @section('content')
     <section class="relative w-full lg:min-h-[680px] flex items-center mt-[50px] lg:mt-[120px] bg-gradient-to-b from-[#0f172a] to-[#1e293b] lg:bg-transparent">
-        <video class="absolute inset-0 w-full h-full object-cover hidden lg:block" autoplay muted loop playsinline preload="auto">
-            <source src="{{ asset('videos/home-page-video.mp4') }}" type="video/mp4">
+        <video
+            class="absolute inset-0 w-full h-full object-cover hidden lg:block"
+            muted playsinline loop preload="none"
+            poster="{{ asset('storage/images/poster.jpg') }}">
+            <source src='{{ asset('storage/videos/home-page-video.webm') }}' type='video/webm' media='(min-width:1024px)'>
+            <source src='{{ asset('storage/videos/home-page-video-2.mp4') }}'  type='video/mp4'  media='(min-width:1024px)'>
         </video>
         <div class="absolute inset-0 bg-transparent lg:bg-black/40"></div>
         <div class="relative z-10 w-full max-w-[1440px] mx-auto px-6 py-20">
