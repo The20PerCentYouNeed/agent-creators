@@ -60,7 +60,8 @@
                 <h3 class="text-3xl sm:text-5xl font-semibold text-black leading-tight">{{ __('Bring your AI agent idea to life') }}</h3>
                 <p class="mt-4 text-black/70 text-base sm:text-lg">{{ __('Choose a service, match with vetted creators, and launch with confidence. No templates required—just experts who build the right agent for your needs.') }}</p>
                 <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                    <a href="{{ url('/projects/new') }}" class="inline-flex items-center gap-2 bg-black text-white hover:bg-gray-900 px-5 py-3 rounded-xl font-medium">
+                    <a href="{{ url('/projects/new') }}"
+                    class="inline-flex items-center justify-center gap-2 bg-black text-white hover:bg-gray-900 px-5 py-3 rounded-xl font-medium">
                         {{ __('Browse creators') }}
                         <span>→</span>
                     </a>
@@ -97,11 +98,14 @@
                     <h3 class="text-3xl sm:text-5xl font-semibold leading-tight">{{ __('Become an AI Agent Creator') }}</h3>
                     <p class="mt-4 text-white/90 text-base sm:text-lg">{{ __('Get matched with real businesses, build production agents, and grow your income with a community that cares about quality and outcomes.') }}</p>
                     <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                        <a href="{{ route('register') }}" class="inline-flex items-center gap-2 bg-white text-black hover:bg-gray-100 px-5 py-3 rounded-xl font-medium">
+                        <a href="{{ route('register') }}"
+                        class="inline-flex items-center justify-center gap-2 bg-white text-black hover:bg-gray-100 px-5 py-3 rounded-xl font-medium">
                             {{ __('Start creating') }}
                             <span>→</span>
                         </a>
-                        <a href="{{ url('/creator-handbook') }}" class="inline-flex items-center gap-2 bg-white/10 text-white hover:bg-white/20 px-5 py-3 rounded-xl font-medium ring-1 ring-white/30">
+                        <a href="{{ url('/creator-handbook') }}"
+                        class="inline-flex items-center justify-center gap-2 bg-white/10 text-white
+                        hover:bg-white/20 px-5 py-3 rounded-xl font-medium ring-1 ring-white/30">
                             {{ __('Creator handbook') }}
                             <span>→</span>
                         </a>
