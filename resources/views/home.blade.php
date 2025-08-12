@@ -16,7 +16,7 @@
                     {{ __('Hire AI agent creators to build custom agents for you') }}
                 </h1>
 
-                <div class="w-full mt-8 max-w-[95%] sm:max-w-3xl lg:max-w-5xl">
+                <div class="w-full mt-8 sm:max-w-3xl lg:max-w-5xl">
                     <form action="{{ route('home') }}" method="GET">
                         <div class="group relative flex items-center w-full">
                             <input
@@ -61,7 +61,7 @@
                 <p class="mt-4 text-black/70 text-base sm:text-lg">{{ __('Choose a service, match with vetted creators, and launch with confidence. No templates required—just experts who build the right agent for your needs.') }}</p>
                 <div class="mt-6 flex flex-col sm:flex-row gap-3">
                     <a href="{{ url('/projects/new') }}"
-                    class="inline-flex items-center justify-center gap-2 bg-black text-white hover:bg-gray-900 px-5 py-3 rounded-xl font-medium">
+                    class="inline-flex items-center gap-2 bg-black text-white hover:bg-gray-900 px-5 py-3 rounded-xl font-medium">
                         {{ __('Browse creators') }}
                         <span>→</span>
                     </a>
