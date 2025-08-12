@@ -4,7 +4,7 @@
     <section class="relative w-full lg:min-h-[680px] flex items-center mt-[50px] lg:mt-[120px] bg-gradient-to-b from-[#0f172a] to-[#1e293b] lg:bg-transparent">
         <video
             class="absolute inset-0 w-full h-full object-cover hidden lg:block"
-            muted playsinline loop preload="none"
+            autoplay muted playsinline loop preload="auto"
             poster="{{ asset('storage/images/poster.jpg') }}">
             <source src='{{ asset('storage/videos/home-page-video.webm') }}' type='video/webm' media='(min-width:1024px)'>
             <source src='{{ asset('storage/videos/home-page-video-2.mp4') }}'  type='video/mp4'  media='(min-width:1024px)'>
