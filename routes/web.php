@@ -11,7 +11,7 @@ Route::get('/', function () {
 Route::prefix('{locale}')
     ->whereIn('locale', config('app.locales'))
     ->group(function () {
-        Route::view('/', 'layouts.app')->name('home');
+        Route::view('/', 'home')->name('home');
     });
 
 // API Routes.
