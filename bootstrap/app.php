@@ -11,8 +11,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        // Global SEO indexability toggle via env.
-        $middleware->append(\App\Http\Middleware\NoIndex::class);
+        //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

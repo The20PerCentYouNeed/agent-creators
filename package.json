@@ -7,7 +7,6 @@
         "dev": "vite"
     },
     "devDependencies": {
-        "@tailwindcss/forms": "^0.5.2",
         "@tailwindcss/vite": "^4.0.0",
         "alpinejs": "^3.4.2",
         "autoprefixer": "^10.4.2",
@@ -19,6 +18,7 @@
         "vite": "^7.0.4"
     },
     "dependencies": {
+        "@hotwired/turbo": "^8.0.13",
         "alpinejs": "^3.14.9"
     }
 }
