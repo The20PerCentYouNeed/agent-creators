@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,6 +13,9 @@ Route::prefix('{locale}')
     ->whereIn('locale', config('app.locales'))
     ->group(function () {
         Route::view('/', 'home')->name('home');
+
+        Route::view('/contact', 'contact-form')->name('contact');
+        Route::post('/contact', [ContactController::class, 'create'])->name('contact.create');
     });
 
 // API Routes.
@@ -24,7 +28,7 @@ Route::prefix('api')->group(function () {
             'company' => 'required|string|max:255',
             'phone' => 'nullable|string|max:20',
             'business_size' => 'nullable|string|in:small,medium,large,enterprise',
-            'industry' => 'nullable|string|in:technology,healthcare,finance,'.
+            'industry' => 'nullable|string|in:technology,healthcare,finance,' .
                 'ecommerce,education,manufacturing,other',
             'project_description' => 'nullable|string|max:1000',
         ]);

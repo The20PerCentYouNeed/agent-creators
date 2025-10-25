@@ -152,6 +152,29 @@
     "Select industry": "Επιλέξτε κλάδο",
     "Describe your project requirements and goals...": "Περιγράψτε τις απαιτήσεις και τους στόχους του έργου σας...",
     "Submitting...": "Υποβολή...",
-    "Language": "Γλώσσα"
+    "Language": "Γλώσσα",
+
+    "Frequently Asked Questions": "Συχνές Ερωτήσεις",
+    "Everything you need to know about custom AI agents": "Όλα όσα πρέπει να γνωρίζετε για τους προσαρμοσμένους AI agents",
+    "Expert AI Solutions": "Λύσεις AI Ειδικών",
+    "We deliver cutting-edge custom AI agents that transform business operations. Our expert team harnesses the power of artificial intelligence to automate workflows, enhance decision-making, and drive measurable growth for enterprises across industries.": "Παραδίδουμε προηγμένους προσαρμοσμένους AI agents που μεταμορφώνουν τις επιχειρηματικές λειτουργίες. Η ειδική ομάδα μας αξιοποιεί τη δύναμη της τεχνητής νοημοσύνης για να αυτοματοποιεί ροές εργασίας, να ενισχύει τη λήψη αποφάσεων και να προάγει μετρήσιμη ανάπτυξη για επιχειρήσεις σε όλους τους κλάδους.",
+
+    "What are custom AI agents?": "Τι είναι οι προσαρμοσμένοι AI agents;",
+    "Custom AI agents are intelligent software systems designed to perform specific business tasks autonomously. Unlike generic AI tools, they are tailored to your unique workflows, trained on your data, and integrated with your existing systems to deliver precise, context-aware solutions.": "Οι προσαρμοσμένοι AI agents είναι έξυπνα συστήματα λογισμικού σχεδιασμένα να εκτελούν συγκεκριμένες επιχειρηματικές εργασίες αυτόνομα. Σε αντίθεση με τα γενικά εργαλεία AI, προσαρμόζονται στις μοναδικές σας ροές εργασίας, εκπαιδεύονται στα δικά σας δεδομένα και ενσωματώνονται στα υπάρχοντα συστήματά σας για να παρέχουν ακριβείς, εξατομικευμένες λύσεις.",
+
+    "How can AI agents improve my business?": "Πώς μπορούν οι AI agents να βελτιώσουν την επιχείρησή μου;",
+    "AI agents automate repetitive tasks, process vast amounts of data in real-time, provide intelligent insights, enhance customer experiences 24/7, reduce operational costs, and enable your team to focus on strategic, high-value work. Many businesses see 30-70% efficiency improvements.": "Οι AI agents αυτοματοποιούν επαναλαμβανόμενες εργασίες, επεξεργάζονται τεράστιες ποσότητες δεδομένων σε πραγματικό χρόνο, παρέχουν έξυπνες πληροφορίες, βελτιώνουν τις εμπειρίες πελατών 24/7, μειώνουν το λειτουργικό κόστος και επιτρέπουν στην ομάδα σας να επικεντρωθεί σε στρατηγικές, υψηλής αξίας εργασίες. Πολλές επιχειρήσεις βλέπουν βελτιώσεις αποτελεσματικότητας 30-70%.",
+
+    "What industries do you serve?": "Σε ποιους κλάδους παρέχετε υπηρεσίες;",
+    "We work across numerous sectors including finance, healthcare, e-commerce, manufacturing, logistics, education, real estate, and professional services. Our solutions are tailored to each industry's specific requirements, regulatory compliance, and business objectives.": "Εργαζόμαστε σε πολλούς τομείς συμπεριλαμβανομένων των χρηματοοικονομικών, υγείας, ηλεκτρονικού εμπορίου, βιομηχανίας, logistics, εκπαίδευσης, ακινήτων και επαγγελματικών υπηρεσιών. Οι λύσεις μας προσαρμόζονται στις συγκεκριμένες απαιτήσεις κάθε κλάδου, τη συμμόρφωση με τους κανονισμούς και τους επιχειρηματικούς στόχους.",
+
+    "Can AI agents integrate with our existing systems?": "Μπορούν οι AI agents να ενσωματωθούν στα υπάρχοντα συστήματά μας;",
+    "Absolutely. We specialize in seamless integration with your current infrastructure including CRMs, ERPs, databases, APIs, cloud services, and legacy systems. Our agents communicate through standard protocols, ensuring compatibility without disrupting your operations.": "Απόλυτα. Ειδικευόμαστε στην απρόσκοπτη ενσωμάτωση με την τρέχουσα υποδομή σας συμπεριλαμβανομένων των CRMs, ERPs, βάσεων δεδομένων, APIs, cloud services και παλαιών συστημάτων. Οι agents μας επικοινωνούν μέσω τυποποιημένων πρωτοκόλλων, διασφαλίζοντας συμβατότητα χωρίς να διαταράσσουν τις λειτουργίες σας.",
+
+    "How long does it take to deploy an AI agent?": "Πόσος χρόνος χρειάζεται για την ανάπτυξη ενός AI agent;",
+    "Deployment timelines vary based on complexity, but most projects follow this schedule: Discovery & Design (2-3 weeks), Development & Training (4-8 weeks), Testing & Optimization (2 weeks), Deployment (1 week). Simpler agents can go live in 4-6 weeks, while enterprise solutions typically take 10-14 weeks.": "Οι χρονοδιαγράμματα ανάπτυξης διαφέρουν ανάλογα με την πολυπλοκότητα, αλλά τα περισσότερα έργα ακολουθούν αυτό το πρόγραμμα: Ανακάλυψη & Σχεδιασμός (2-3 εβδομάδες), Ανάπτυξη & Εκπαίδευση (4-8 εβδομάδες), Δοκιμές & Βελτιστοποίηση (2 εβδομάδες), Ανάπτυξη (1 εβδομάδα). Οι απλούστεροι agents μπορούν να είναι σε λειτουργία σε 4-6 εβδομάδες, ενώ οι εταιρικές λύσεις παίρνουν συνήθως 10-14 εβδομάδες.",
+
+    "What support and maintenance do you provide?": "Τι υποστήριξη και συντήρηση παρέχετε;",
+    "We offer comprehensive support packages including 24/7 monitoring, regular updates, performance optimization, bug fixes, feature enhancements, and dedicated account management. Our SLA ensures 99.9% uptime and rapid response times for critical issues.": "Προσφέρουμε ολοκληρωμένα πακέτα υποστήριξης συμπεριλαμβανομένων παρακολούθησης 24/7, τακτικών ενημερώσεων, βελτιστοποίησης απόδοσης, διόρθωσης σφαλμάτων, βελτιώσεων χαρακτηριστικών και αφοσιωμένης διαχείρισης λογαριασμού. Το SLA μας διασφαλίζει χρόνο λειτουργίας 99.9% και ταχείς χρόνους απόκρισης για κρίσιμα ζητήματα."
 }
 

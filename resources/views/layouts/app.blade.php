@@ -17,30 +17,6 @@
         @endforeach
         <link rel="alternate" hreflang="x-default" href="{{ locale_route(config('app.locale')) }}" />
 
-        <!-- Custom Styles for Placeholder Centering -->
-        <style>
-            input::placeholder,
-            textarea::placeholder,
-            select option {
-                line-height: 1.5;
-                vertical-align: middle;
-            }
-
-            input,
-            textarea,
-            select {
-                display: flex;
-                align-items: center;
-            }
-
-            /* Ensure placeholders are vertically centered */
-            .form-input {
-                display: flex;
-                align-items: center;
-                min-height: 3rem;
-            }
-        </style>
-
         <!-- Styles / Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
