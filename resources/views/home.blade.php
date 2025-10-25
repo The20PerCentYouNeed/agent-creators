@@ -485,24 +485,21 @@
                 </div>
 
                 {{-- Right Column: FAQ Accordion --}}
-                <div x-data="{ openItem: null }" class="space-y-3">
+                <div class="space-y-3">
                     {{-- FAQ 1 --}}
-                    <div x-data="{ id: 1 }" class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200
+                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200
                     dark:border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                        <button @click="openItem = (openItem === id) ? null : id" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
+                        <button @click="active = !active" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
                         text-left focus:outline-none hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                             <span class="text-base font-bold text-gray-900 dark:text-white">
                                 {{ __('What are custom AI agents?') }}
                             </span>
                             <x-heroicon-s-chevron-down
-                                class="w-5 h-5 text-gray-500 dark:text-gray-400 shrink-0 ml-3
-                                transition-transform duration-200"
-                                x-bind:class="openItem === id ? 'rotate-180' : ''"
+                                class="w-5 h-5 text-gray-500 dark:text-gray-400 shrink-0 ml-3 transition-transform duration-200"
+                                x-bind:class="active ? 'rotate-180' : ''"
                             />
                         </button>
-                        <div x-show="openItem === id" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                        x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-                        class="overflow-hidden">
+                        <div x-show="active" class="overflow-hidden">
                             <div class="px-6 pb-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                 {{ __('Custom AI agents are intelligent software systems designed to perform specific business tasks autonomously. Unlike generic AI tools, they are tailored to your unique workflows, trained on your data, and integrated with your existing systems to deliver precise, context-aware solutions.') }}
                             </div>
@@ -510,24 +507,19 @@
                     </div>
 
                     {{-- FAQ 2 --}}
-                    <div x-data="{ id: 2 }" class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200
+                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200
                     dark:border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                        <button @click="openItem = (openItem === id) ? null : id" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
+                        <button @click="active = !active" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
                         text-left focus:outline-none hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                             <span class="text-base font-bold text-gray-900 dark:text-white">
                                 {{ __('How can AI agents improve my business?') }}
                             </span>
                             <x-heroicon-s-chevron-down
-                                class="w-5 h-5 text-gray-500 dark:text-gray-400 shrink-0 ml-4
-                                transition-transform duration-200"
-                                x-bind:class="openItem === id ? 'rotate-180' : ''"
+                                class="w-5 h-5 text-gray-500 dark:text-gray-400 shrink-0 ml-4 transition-transform duration-200"
+                                x-bind:class="active ? 'rotate-180' : ''"
                             />
                         </button>
-                        <div x-show="openItem === id" x-transition:enter="transition ease-out duration-200"
-                        x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                        x-transition:leave="transition ease-in duration-150"
-                        x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-                        class="overflow-hidden">
+                        <div x-show="active" class="overflow-hidden">
                             <div class="px-6 pb-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                 {{ __('AI agents automate repetitive tasks, process vast amounts of data in real-time, provide intelligent insights, enhance customer experiences 24/7, reduce operational costs, and enable your team to focus on strategic, high-value work. Many businesses see 30-70% efficiency improvements.') }}
                             </div>
@@ -535,24 +527,19 @@
                     </div>
 
                     {{-- FAQ 3 --}}
-                    <div x-data="{ id: 3 }" class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200
+                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200
                     dark:border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                        <button @click="openItem = (openItem === id) ? null : id" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
+                        <button @click="active = !active" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
                         text-left focus:outline-none hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                             <span class="text-base font-bold text-gray-900 dark:text-white">
                                 {{ __('What industries do you serve?') }}
                             </span>
                             <x-heroicon-s-chevron-down
-                                class="w-5 h-5 text-gray-500 dark:text-gray-400 shrink-0 ml-4
-                                transition-transform duration-200"
-                                x-bind:class="openItem === id ? 'rotate-180' : ''"
+                                class="w-5 h-5 text-gray-500 dark:text-gray-400 shrink-0 ml-4 transition-transform duration-200"
+                                x-bind:class="active ? 'rotate-180' : ''"
                             />
                         </button>
-                        <div x-show="openItem === id" x-transition:enter="transition ease-out duration-200"
-                        x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                        x-transition:leave="transition ease-in duration-150"
-                        x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-                        class="overflow-hidden">
+                        <div x-show="active" class="overflow-hidden">
                             <div class="px-6 pb-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                 {{ __('We work across numerous sectors including finance, healthcare, e-commerce, manufacturing, logistics, education, real estate, and professional services. Our solutions are tailored to each industry\'s specific requirements, regulatory compliance, and business objectives.') }}
                             </div>
@@ -560,24 +547,19 @@
                     </div>
 
                     {{-- FAQ 4 --}}
-                    <div x-data="{ id: 4 }" class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200
+                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200
                     dark:border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                        <button @click="openItem = (openItem === id) ? null : id" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
+                        <button @click="active = !active" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
                         text-left focus:outline-none hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                             <span class="text-base font-bold text-gray-900 dark:text-white">
                                 {{ __('Can AI agents integrate with our existing systems?') }}
                             </span>
                             <x-heroicon-s-chevron-down
-                                class="w-5 h-5 text-gray-500 dark:text-gray-400 shrink-0 ml-4
-                                transition-transform duration-200"
-                                x-bind:class="openItem === id ? 'rotate-180' : ''"
+                                class="w-5 h-5 text-gray-500 dark:text-gray-400 shrink-0 ml-4 transition-transform duration-200"
+                                x-bind:class="active ? 'rotate-180' : ''"
                             />
                         </button>
-                        <div x-show="openItem === id" x-transition:enter="transition ease-out duration-200"
-                        x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                        x-transition:leave="transition ease-in duration-150"
-                        x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-                        class="overflow-hidden">
+                        <div x-show="active" class="overflow-hidden">
                             <div class="px-6 pb-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                 {{ __('Absolutely. We specialize in seamless integration with your current infrastructure including CRMs, ERPs, databases, APIs, cloud services, and legacy systems. Our agents communicate through standard protocols, ensuring compatibility without disrupting your operations.') }}
                             </div>
@@ -585,24 +567,19 @@
                     </div>
 
                     {{-- FAQ 5 --}}
-                    <div x-data="{ id: 5 }" class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200
+                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200
                     dark:border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                        <button @click="openItem = (openItem === id) ? null : id" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
+                        <button @click="active = !active" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
                         text-left focus:outline-none hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                             <span class="text-base font-bold text-gray-900 dark:text-white">
                                 {{ __('How long does it take to deploy an AI agent?') }}
                             </span>
                             <x-heroicon-s-chevron-down
-                                class="w-5 h-5 text-gray-500 dark:text-gray-400 shrink-0 ml-4
-                                transition-transform duration-200"
-                                x-bind:class="openItem === id ? 'rotate-180' : ''"
+                                class="w-5 h-5 text-gray-500 dark:text-gray-400 shrink-0 ml-4 transition-transform duration-200"
+                                x-bind:class="active ? 'rotate-180' : ''"
                             />
                         </button>
-                        <div x-show="openItem === id" x-transition:enter="transition ease-out duration-200"
-                        x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                        x-transition:leave="transition ease-in duration-150"
-                        x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-                        class="overflow-hidden">
+                        <div x-show="active" class="overflow-hidden">
                             <div class="px-6 pb-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                 {{ __('Deployment timelines vary based on complexity, but most projects follow this schedule: Discovery & Design (2-3 weeks), Development & Training (4-8 weeks), Testing & Optimization (2 weeks), Deployment (1 week). Simpler agents can go live in 4-6 weeks, while enterprise solutions typically take 10-14 weeks.') }}
                             </div>
@@ -610,24 +587,19 @@
                     </div>
 
                     {{-- FAQ 6 --}}
-                    <div x-data="{ id: 6 }" class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200
+                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200
                     dark:border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                        <button @click="openItem = (openItem === id) ? null : id" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
+                        <button @click="active = !active" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
                         text-left focus:outline-none hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                             <span class="text-base font-bold text-gray-900 dark:text-white">
                                 {{ __('What support and maintenance do you provide?') }}
                             </span>
                             <x-heroicon-s-chevron-down
-                                class="w-5 h-5 text-gray-500 dark:text-gray-400 shrink-0 ml-4
-                                transition-transform duration-200"
-                                x-bind:class="openItem === id ? 'rotate-180' : ''"
+                                class="w-5 h-5 text-gray-500 dark:text-gray-400 shrink-0 ml-4 transition-transform duration-200"
+                                x-bind:class="active ? 'rotate-180' : ''"
                             />
                         </button>
-                        <div x-show="openItem === id" x-transition:enter="transition ease-out duration-200"
-                        x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                        x-transition:leave="transition ease-in duration-150"
-                        x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-                        class="overflow-hidden">
+                        <div x-show="active" class="overflow-hidden">
                             <div class="px-6 pb-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                 {{ __('We offer comprehensive support packages including 24/7 monitoring, regular updates, performance optimization, bug fixes, feature enhancements, and dedicated account management. Our SLA ensures 99.9% uptime and rapid response times for critical issues.') }}
                             </div>
