@@ -67,6 +67,22 @@
     </section>
     @endif
 
+    {{-- Solution --}}
+    @if($caseStudy->solution)
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
+                {{ __('Solution proposed') }}
+            </h2>
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <div class="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                    {!! \Illuminate\Support\Str::markdown($caseStudy->getTranslation('solution', app()->getLocale())) !!}
+                </div>
+            </div>
+        </div>
+    </section>
+    @endif
+
     {{-- Key Features --}}
     <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
         <div class="max-w-7xl mx-auto">

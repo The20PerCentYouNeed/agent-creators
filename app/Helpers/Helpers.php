@@ -20,6 +20,7 @@ if (!function_exists('localized_url')) {
 
         if (current_locale() !== 'el') {
             $path = current_locale() . $segments;
+
             return config('app.url') . '/' . $path;
         }
 
