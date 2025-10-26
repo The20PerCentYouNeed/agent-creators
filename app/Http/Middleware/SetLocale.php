@@ -2,14 +2,21 @@
 
 namespace App\Http\Middleware;
 
+use Barryvdh\Debugbar\LaravelDebugbar;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\URL;
 use Symfony\Component\HttpFoundation\Response;
 
 class SetLocale
 {
+    protected $debugbar;
+
+    public function __construct(LaravelDebugbar $debugbar)
+    {
+        $this->debugbar = $debugbar;
+    }
+
     /**
      * Handle an incoming request.
      */
@@ -17,16 +24,19 @@ class SetLocale
     {
         $locale = $request->segment(1);
 
-        $availableLocales = config('app.locales', ['en']);
-
-        if (in_array($locale, $availableLocales)) {
-            App::setLocale($locale);
-            URL::defaults(['locale' => $locale]);
-        } else {
-            $locale = config('app.fallback_locale', 'en');
-            App::setLocale($locale);
-            URL::defaults(['locale' => $locale]);
+        if (!in_array($locale, config('app.locales'))) {
+            App::setLocale(config('app.locale', 'en'));
+            return $next($request);
         }
+
+        if ($locale === config('app.locale')) {
+            $segments = array_slice($request->segments(), 1);
+            return redirect('/' . implode('/', $segments));
+        }
+
+        App::setLocale($locale);
+        $segments = array_slice($request->segments(), 1);
+        $request->setPath(implode('/', $segments));
 
         return $next($request);
     }

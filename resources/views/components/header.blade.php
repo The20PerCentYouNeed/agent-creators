@@ -9,7 +9,7 @@
                     <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg flex items-center justify-center">
                         <x-heroicon-o-bolt class="w-5 h-5 text-white" />
                     </div>
-                    <a href="{{ route('home') }}" class="text-xl font-bold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+                    <a href="{{ localized_route('home') }}" class="text-xl font-bold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
                         {{ __('AI Agents') }}
                     </a>
                 </div>
@@ -26,8 +26,8 @@
                     </a>
                     <a href="#process" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
                     dark:hover:text-blue-400 transition-colors cursor-pointer">{{ __('How It Works') }}</a>
-                    <a href="#testimonials" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
-                    dark:hover:text-blue-400 transition-colors cursor-pointer">{{ __('Testimonials') }}</a>
+                    <a href="{{ localized_route('case-studies.index') }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
+                    dark:hover:text-blue-400 transition-colors cursor-pointer">{{ __('Case Studies') }}</a>
                 </div>
 
                 <!-- Right Side Elements -->
@@ -48,8 +48,9 @@
                             @endforeach
                         </div>
                     </div>
+
                     <a
-                        href="{{ route('contact') }}"
+                        href="{{ localized_route('contact') }}"
                         class="px-6 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-violet-600
                         rounded-lg hover:from-blue-700 hover:to-violet-700 transition-all shadow-lg shadow-blue-500/25
                         hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5 cursor-pointer"
@@ -116,8 +117,8 @@
                         <a href="#process" @click="mobileMenuOpen = false" class="block px-4 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer">
                             {{ __('How It Works') }}
                         </a>
-                        <a href="#testimonials" @click="mobileMenuOpen = false" class="block px-4 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer">
-                            {{ __('Testimonials') }}
+                        <a href="{{ localized_route('case-studies.index') }}" @click="mobileMenuOpen = false" class="block px-4 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer">
+                            {{ __('Case Studies') }}
                         </a>
                     </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +12,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
     }
 
     /**
@@ -19,5 +19,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Request::macro('setPath', function ($path) {
+            $this->pathInfo = '/' . trim($path, '/');
+
+            $this->server->set('REQUEST_URI', $this->pathInfo . '?' . $this->getQueryString());
+        });
     }
 }

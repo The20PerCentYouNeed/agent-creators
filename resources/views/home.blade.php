@@ -32,7 +32,7 @@
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-                <a href="{{ route('contact') }}" class="px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r
+                <a href="{{ localized_route('contact') }}" class="px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r
                 from-blue-600 to-violet-600 rounded-lg hover:from-blue-700 hover:to-violet-700 transition-all
                 shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/40 hover:-translate-y-0.5 cursor-pointer">
                     {{ __('Start Your AI Journey') }}
@@ -47,20 +47,32 @@
             {{-- Stats --}}
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                 <div class="text-center">
-                    <div class="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">50+</div>
-                    <div class="text-sm text-gray-600 dark:text-gray-400">{{ __('AI Agents Deployed') }}</div>
+                    <div class="flex justify-center mb-3">
+                        <x-heroicon-o-arrow-trending-up class="w-10 h-10 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <div class="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">+40%</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">{{ __('Increase in Productivity') }}</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-4xl font-bold text-violet-600 dark:text-violet-400 mb-2">95%</div>
-                    <div class="text-sm text-gray-600 dark:text-gray-400">{{ __('Client Satisfaction') }}</div>
+                    <div class="flex justify-center mb-3">
+                        <x-heroicon-o-currency-dollar class="w-10 h-10 text-violet-600 dark:text-violet-400" />
+                    </div>
+                    <div class="text-4xl font-bold text-violet-600 dark:text-violet-400 mb-2">-30%</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">{{ __('Operating Cost') }}</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-4xl font-bold text-pink-600 dark:text-pink-400 mb-2">24/7</div>
+                    <div class="flex justify-center mb-3">
+                        <x-heroicon-o-chat-bubble-left-right class="w-10 h-10 text-pink-600 dark:text-pink-400" />
+                    </div>
+                    <div class="text-4xl font-bold text-pink-600 dark:text-pink-400 mb-2">+60%</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">{{ __('Improvement of Customer Experience') }}</div>
+                </div>
+                <div class="text-center">
+                    <div class="flex justify-center mb-3">
+                        <x-heroicon-o-arrow-path class="w-10 h-10 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <div class="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">24/7</div>
                     <div class="text-sm text-gray-600 dark:text-gray-400">{{ __('Automated Support') }}</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">70%</div>
-                    <div class="text-sm text-gray-600 dark:text-gray-400">{{ __('Cost Reduction') }}</div>
                 </div>
             </div>
         </div>
@@ -363,93 +375,63 @@
         </div>
     </section>
 
-    {{-- Testimonials Section --}}
-    <section id="testimonials" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+    {{-- Case Studies Section --}}
+    <section id="case-studies" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-                    {{ __('Trusted by Leading Companies') }}
+                    {{ __('Case Studies') }}
                 </h2>
                 <p class="text-xl text-gray-600 dark:text-gray-400">
-                    {{ __('See what our clients say about their AI transformation') }}
+                    {{ __('Explore our AI-powered solutions and their impact') }}
                 </p>
             </div>
 
+            @php
+                $caseStudies = \App\Models\CaseStudy::orderBy('order')->take(3)->get();
+            @endphp
+
             <div class="grid md:grid-cols-3 gap-8">
-                {{-- Testimonial 1 --}}
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-                    <div class="flex mb-4">
-                        <x-heroicon-s-star class="w-5 h-5 text-yellow-400" />
-                        <x-heroicon-s-star class="w-5 h-5 text-yellow-400" />
-                        <x-heroicon-s-star class="w-5 h-5 text-yellow-400" />
-                        <x-heroicon-s-star class="w-5 h-5 text-yellow-400" />
-                        <x-heroicon-s-star class="w-5 h-5 text-yellow-400" />
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6">
-                        "{{ __('The AI agent reduced our customer support costs by 65% while improving response times. It\'s been a game-changer for our business.') }}"
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-violet-600 rounded-full
-                        flex items-center justify-center text-white font-bold mr-4">
-                            SM
+                @foreach($caseStudies as $caseStudy)
+                <a href="{{ localized_route('case-studies.show', $caseStudy->slug) }}" class="group">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all hover:-translate-y-1 h-full flex flex-col">
+                        <div class="mb-4">
+                            <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">
+                                {{ $caseStudy->category }}
+                            </span>
                         </div>
-                        <div>
-                            <div class="font-bold text-gray-900 dark:text-white">Sarah Mitchell</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">
-                                {{ __('CEO, TechCorp') }}
-                            </div>
+
+                        @if($caseStudy->image_url)
+                        <div class="w-full h-48 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg mb-6 flex items-center justify-center overflow-hidden">
+                            <img src="{{ $caseStudy->image_url }}" alt="{{ $caseStudy->title }}" class="w-full h-full object-cover">
                         </div>
-                    </div>
-                </div>
-                {{-- Testimonial 2 --}}
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-                    <div class="flex mb-4">
-                        <x-heroicon-s-star class="w-5 h-5 text-yellow-400" />
-                        <x-heroicon-s-star class="w-5 h-5 text-yellow-400" />
-                        <x-heroicon-s-star class="w-5 h-5 text-yellow-400" />
-                        <x-heroicon-s-star class="w-5 h-5 text-yellow-400" />
-                        <x-heroicon-s-star class="w-5 h-5 text-yellow-400" />
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6">
-                        "{{ __('Implementation was seamless and the results exceeded our expectations. Our sales team now focuses on high-value activities.') }}"
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gradient-to-br from-violet-600 to-pink-600 rounded-full flex
-                        items-center justify-center text-white font-bold mr-4">
-                            JC
+                        @else
+                        <div class="w-full h-48 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg mb-6 flex items-center justify-center">
+                            <x-heroicon-o-sparkles class="w-16 h-16 text-white" />
                         </div>
-                        <div>
-                            <div class="font-bold text-gray-900 dark:text-white">James Chen</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">
-                                {{ __('VP Sales, InnovateLab') }}
-                            </div>
+                        @endif
+
+                        @if($caseStudy->logo_url)
+                        <div class="flex justify-center mb-4">
+                            <img src="{{ $caseStudy->logo_url }}" alt="{{ $caseStudy->title }} logo" class="h-12">
+                        </div>
+                        @endif
+
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                            {{ $caseStudy->title }}
+                        </h3>
+
+                        <p class="text-gray-600 dark:text-gray-400 flex-grow">
+                            {{ $caseStudy->description }}
+                        </p>
+
+                        <div class="mt-4 flex items-center text-blue-600 dark:text-blue-400 font-semibold">
+                            <span class="mr-2">{{ __('Learn More') }}</span>
+                            <x-heroicon-o-arrow-right class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
                         </div>
                     </div>
-                </div>
-                {{-- Testimonial 3 --}}
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-                    <div class="flex mb-4">
-                        <x-heroicon-s-star class="w-5 h-5 text-yellow-400" />
-                        <x-heroicon-s-star class="w-5 h-5 text-yellow-400" />
-                        <x-heroicon-s-star class="w-5 h-5 text-yellow-400" />
-                        <x-heroicon-s-star class="w-5 h-5 text-yellow-400" />
-                        <x-heroicon-s-star class="w-5 h-5 text-yellow-400" />
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6">
-                        "{{ __('Outstanding support and incredibly powerful AI capabilities. The ROI was evident within the first month of deployment.') }}"
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gradient-to-br from-emerald-600 to-teal-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
-                            EP
-                        </div>
-                        <div>
-                            <div class="font-bold text-gray-900 dark:text-white">Emily Parker</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">
-                                {{ __('COO, GrowthHub') }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </a>
+                @endforeach
             </div>
         </div>
     </section>

@@ -8,7 +8,7 @@
                     <div class="flex items-center justify-center w-8 h-8 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg">
                         <x-heroicon-o-bolt class="w-5 h-5 text-white" />
                     </div>
-                    <a href="{{ route('home') }}" class="text-xl font-bold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+                    <a href="{{ localized_route('home') }}" class="text-xl font-bold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
                         {{ __('AI Agents') }}
                     </a>
                 </div>

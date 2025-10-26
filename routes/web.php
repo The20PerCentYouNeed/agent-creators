@@ -1,22 +1,17 @@
 <?php
 
+use App\Http\Controllers\CaseStudyController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    $locale = config('app.locale') ?? config('app.fallback_locale');
+Route::view('/', 'home')->name('home');
 
-    return redirect("/{$locale}");
-});
+Route::view('/contact', 'contact-form')->name('contact');
+Route::post('/contact', [ContactController::class, 'create'])->name('contact.create');
 
-Route::prefix('{locale}')
-    ->whereIn('locale', config('app.locales'))
-    ->group(function () {
-        Route::view('/', 'home')->name('home');
-
-        Route::view('/contact', 'contact-form')->name('contact');
-        Route::post('/contact', [ContactController::class, 'create'])->name('contact.create');
-    });
+Route::get('/case-studies', [CaseStudyController::class, 'index'])->name('case-studies.index');
+Route::get('/case-studies/{CaseStudy:slug}', [CaseStudyController::class, 'show'])
+    ->name('case-studies.show');
 
 // API Routes.
 Route::prefix('api')->group(function () {
