@@ -15,7 +15,7 @@
                     </svg>
                 </div>
                 <h1 class="text-2xl md:text-5xl font-bold text-gray-900 dark:text-white">
-                    {{ __('careers_title') }}
+                    {{ __('Careers') }}
                 </h1>
             </div>
         </div>
@@ -28,10 +28,10 @@
             {{-- Careers Introduction --}}
             <div class="bg-gradient-to-br from-blue-50 to-violet-50 dark:from-blue-950/30 dark:to-violet-950/30 rounded-2xl p-6 md:p-8 border border-blue-200 dark:border-blue-800 shadow-lg">
                 <p class="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                    {{ __('careers_description_part1') }}
+                    {{ __('We are developing an international team of creators, consultants, and AI builders.') }}
                 </p>
                 <p class="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                    {{ __('careers_description_part2') }}
+                    {{ __('If you combine technology with pedagogical thinking or strategy, you might belong to the next generation of our partners.') }}
                 </p>
             </div>
 
@@ -47,7 +47,7 @@
                         </svg>
                     </div>
                     <h2 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                        {{ __('open_positions_title') }}
+                        {{ __('Open Positions:') }}
                     </h2>
                 </div>
 
@@ -58,7 +58,7 @@
                             <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
                         </svg>
                         <p class="text-base md:text-lg text-gray-700 dark:text-gray-300">
-                            {{ __('position_ai_assistant_designer') }}
+                            AI Assistant Designer
                         </p>
                     </div>
                     <div class="flex items-start space-x-3">
@@ -66,7 +66,7 @@
                             <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
                         </svg>
                         <p class="text-base md:text-lg text-gray-700 dark:text-gray-300">
-                            {{ __('position_content_strategist_learning_architect') }}
+                            Content Strategist / Learning Architect
                         </p>
                     </div>
                     <div class="flex items-start space-x-3">
@@ -74,7 +74,7 @@
                             <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
                         </svg>
                         <p class="text-base md:text-lg text-gray-700 dark:text-gray-300">
-                            {{ __('position_business_development_specialist') }}
+                            Business Development Specialist
                         </p>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                         class="inline-block px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold
                         text-blue-600 bg-white rounded-lg hover:bg-gray-100 transition-all shadow-xl
                         hover:shadow-2xl hover:-translate-y-0.5">
-                        {{ __('cta_send_cv') }}
+                        {{ __('Send CV') }}
                     </a>
                 </div>
             </div>
