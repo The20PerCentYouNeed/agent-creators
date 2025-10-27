@@ -12,12 +12,12 @@
             <div class="inline-flex items-center space-x-2 px-4 py-2 bg-blue-100 dark:bg-blue-950/50
             rounded-full mb-8 border border-blue-200 dark:border-blue-800">
                 <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
-                <span class="text-sm font-medium text-blue-900 dark:text-blue-300">
+                <span class="text-xs md:text-sm font-medium text-blue-900 dark:text-blue-300">
                     {{ __('Transform Your Business with AI') }}
                 </span>
             </div>
 
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <h1 class="text-4xl md:text-7xl font-bold mb-6 leading-tight">
                 <span class="bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600 bg-clip-text text-transparent">
                     {{ __('Custom AI Agents') }}
                 </span>
@@ -187,12 +187,12 @@
 
             <div class="grid md:grid-cols-2 gap-8">
                 {{-- Solution 1 --}}
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all">
-                    <div class="flex items-center space-x-4 mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-violet-600 rounded-xl flex items-center justify-center">
-                            <x-heroicon-o-user class="w-8 h-8 text-white" />
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all">
+                    <div class="flex flex-row items-center space-x-4 mb-6">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-600 to-violet-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <x-heroicon-o-user class="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
                             {{ __('Customer Support Agent') }}
                         </h3>
                     </div>
@@ -215,12 +215,12 @@
                     </ul>
                 </div>
                 {{-- Solution 2 --}}
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all">
-                    <div class="flex items-center space-x-4 mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-violet-600 to-pink-600 rounded-xl flex items-center justify-center">
-                            <x-heroicon-o-chart-bar-square class="w-8 h-8 text-white" />
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all">
+                    <div class="flex flex-row items-center space-x-4 mb-6">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-violet-600 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <x-heroicon-o-chart-bar-square class="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
                             {{ __('Sales Assistant') }}
                         </h3>
                     </div>
@@ -243,12 +243,12 @@
                     </ul>
                 </div>
                 {{-- Solution 3 --}}
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all">
-                    <div class="flex items-center space-x-4 mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-emerald-600 to-teal-600 rounded-xl flex items-center justify-center">
-                            <x-heroicon-o-document-text class="w-8 h-8 text-white" />
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all">
+                    <div class="flex flex-row items-center space-x-4 mb-6">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-emerald-600 to-teal-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <x-heroicon-o-document-text class="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
                             {{ __('Document Processing') }}
                         </h3>
                     </div>
@@ -271,12 +271,12 @@
                     </ul>
                 </div>
                 {{-- Solution 4 --}}
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all">
-                    <div class="flex items-center space-x-4 mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-amber-600 to-orange-600 rounded-xl flex items-center justify-center">
-                            <x-heroicon-o-briefcase class="w-8 h-8 text-white" />
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all">
+                    <div class="flex flex-row items-center space-x-4 mb-6">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-amber-600 to-orange-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <x-heroicon-o-briefcase class="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
                             {{ __('Business Operations') }}
                         </h3>
                     </div>

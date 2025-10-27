@@ -9,6 +9,14 @@ Route::view('/', 'home')->name('home');
 Route::view('/contact', 'contact-form')->name('contact');
 Route::post('/contact', [ContactController::class, 'create'])->name('contact.create');
 
+Route::view('/privacy-policy', 'privacy-policy')->name('privacy-policy');
+Route::view('/terms-of-service', 'terms-of-service')->name('terms-of-service');
+Route::view('/cookie-policy', 'cookie-policy')->name('cookie-policy');
+Route::view('/pricing', 'static-pages.pricing')->name('pricing');
+Route::view('/documentation', 'static-pages.documentation')->name('documentation');
+Route::view('/about', 'static-pages.about')->name('about');
+Route::view('/careers', 'static-pages.careers')->name('careers');
+
 Route::get('/case-studies', [CaseStudyController::class, 'index'])->name('case-studies.index');
 Route::get('/case-studies/{CaseStudy:slug}', [CaseStudyController::class, 'show'])
     ->name('case-studies.show');
@@ -23,8 +31,8 @@ Route::prefix('api')->group(function () {
             'company' => 'required|string|max:255',
             'phone' => 'nullable|string|max:20',
             'business_size' => 'nullable|string|in:small,medium,large,enterprise',
-            'industry' => 'nullable|string|in:technology,healthcare,finance,' .
-                'ecommerce,education,manufacturing,other',
+            'industry' => 'nullable|string|in:technology,healthcare,finance,'.
+                ' ecommerce,education,manufacturing,other',
             'project_description' => 'nullable|string|max:1000',
         ]);
 
@@ -33,7 +41,7 @@ Route::prefix('api')->group(function () {
         \Illuminate\Support\Facades\Log::info('New lead received:', $validated);
 
         // You could also send an email notification here.
-        // Mail::to('leads@yourapp.com')->send(new NewLeadMail($validated));
+        // Mail::to('leads@yourapp.com')->send(new NewLeadMail($validated)).
         return response()->json([
             'success' => true,
             'message' => 'Thank you for your interest! We\'ll contact you soon.',

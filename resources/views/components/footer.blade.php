@@ -1,9 +1,8 @@
 <footer class="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-        <div class="grid gap-8 mb-8 md:grid-cols-4">
-
+    <div class="max-w-7xl mx-auto ">
+        <div class="flex flex-col md:flex-row items-start justify-center lg:justify-between lg:gap-30">
             <!-- Brand Section -->
-            <div>
+            <div class="w-full lg:w-[35%]">
                 <div class="flex items-center mb-4 space-x-2">
                     <div class="flex items-center justify-center w-8 h-8 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg">
                         <x-heroicon-o-bolt class="w-5 h-5 text-white" />
@@ -16,104 +15,106 @@
                     {{ __('Building intelligent AI agents that transform how businesses operate.') }}
                 </p>
             </div>
+            <div class="w-full flex flex-wrap lg:grid gap-10 lg:gap-8 mb-8 lg:grid-cols-3 mt-10 lg:mt-0">
 
-            <!-- Product Links -->
-            <div>
-                <h4 class="mb-4 font-bold text-gray-900 dark:text-white">
-                    {{ __('Product') }}
-                </h4>
-                <ul class="space-y-2 text-sm">
-                    <li>
-                        <a href="#features"
-                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                            {{ __('Features') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#solutions"
-                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                            {{ __('Solutions') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"
-                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                            {{ __('Pricing') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"
-                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                            {{ __('Documentation') }}
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                <!-- Product Links -->
+                <div>
+                    <h4 class="mb-4 font-bold text-gray-900 dark:text-white">
+                        {{ __('Information') }}
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>
+                            <a href="#features"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
+                                {{ __('Features') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#solutions"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
+                                {{ __('Solutions') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ localized_route('pricing') }}"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
+                                {{ __('Pricing') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ localized_route('documentation') }}"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
+                                {{ __('Documentation') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-            <!-- Company Links -->
-            <div>
-                <h4 class="mb-4 font-bold text-gray-900 dark:text-white">
-                    {{ __('Company') }}
-                </h4>
-                <ul class="space-y-2 text-sm">
-                    <li>
-                        <a href="#"
-                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                            {{ __('About') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"
-                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                            {{ __('Blog') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"
-                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                            {{ __('Careers') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"
-                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                            {{ __('Contact') }}
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                <!-- Company Links -->
+                <div>
+                    <h4 class="mb-4 font-bold text-gray-900 dark:text-white">
+                        {{ __('Company') }}
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>
+                            <a href="{{ localized_route('about') }}"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
+                                {{ __('About') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
+                                {{ __('Blog') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ localized_route('careers') }}"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
+                                {{ __('Careers') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ localized_route('contact') }}"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
+                                {{ __('Contact') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-            <!-- Legal Links -->
-            <div>
-                <h4 class="mb-4 font-bold text-gray-900 dark:text-white">
-                    {{ __('Legal') }}
-                </h4>
-                <ul class="space-y-2 text-sm">
-                    <li>
-                        <a href="#"
-                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                            {{ __('Privacy') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"
-                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                            {{ __('Terms') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"
-                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                            {{ __('Security') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"
-                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                            {{ __('Compliance') }}
-                        </a>
-                    </li>
-                </ul>
+                <!-- Legal Links -->
+                <div>
+                    <h4 class="mb-4 font-bold text-gray-900 dark:text-white">
+                        {{ __('Legal') }}
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>
+                            <a href="#"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
+                                {{ __('Privacy') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
+                                {{ __('Terms') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
+                                {{ __('Security') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
+                                {{ __('Compliance') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 

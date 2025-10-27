@@ -65,7 +65,7 @@
                 <!-- Burger Menu Button -->
                 <button
                     @click="mobileMenuOpen = !mobileMenuOpen"
-                    class="flex items-center justify-center w-10 h-10 text-gray-600
+                    class="flex items-center justify-start w-10 h-10 text-gray-600
                     dark:text-gray-300 hover:text-blue-600
                     dark:hover:text-blue-400 transition-colors cursor-pointer"
                 >

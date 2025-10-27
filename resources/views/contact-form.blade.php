@@ -55,19 +55,40 @@
                         </div>
                     </div>
 
-                    {{-- Trust Indicators --}}
-                    <div class="border-t border-white/20 pt-4 space-y-2">
-                        <div class="flex items-center space-x-2 text-blue-100 text-sm">
-                            <x-heroicon-o-check-circle class="w-4 h-4" />
-                            <span>{{ __('Zero upfront costs') }}</span>
-                        </div>
-                        <div class="flex items-center space-x-2 text-blue-100 text-sm">
-                            <x-heroicon-o-check-circle class="w-4 h-4" />
-                            <span>{{ __('Response within 24 hours') }}</span>
-                        </div>
-                        <div class="flex items-center space-x-2 text-blue-100 text-sm">
-                            <x-heroicon-o-check-circle class="w-4 h-4" />
-                            <span>{{ __('100% secure & confidential') }}</span>
+                    {{-- Contact Information --}}
+                    <div class="border-t border-white/20 pt-6 mt-6">
+                        <h3 class="text-base font-semibold text-white mb-4">{{ __('Get in Touch') }}</h3>
+                        <div class="space-y-3">
+                            {{-- Email --}}
+                            <a href="mailto:info@eliaskalyvas.gr" class="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors group">
+                                <div class="flex-shrink-0 w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                    </svg>
+                                </div>
+                                <span class="text-sm md:text-base">info@eliaskalyvas.gr</span>
+                            </a>
+
+                            {{-- Website --}}
+                            <a href="https://www.eliaskalyvas.gr" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors group">
+                                <div class="flex-shrink-0 w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.513-.737.85.242.266.36.539.435.806.071.264.145.597.293 1.095.073.25.061.535.093.777.029.249.077.485.14.707.044.152.096.29.142.407.047.113.09.198.121.261.033.063.052.097.057.104L10 12.5a8 8 0 01-4.084-1.936 6.003 6.003 0 01.837-4.118A8 8 0 0110 2z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <span class="text-sm md:text-base">www.eliaskalyvas.gr</span>
+                            </a>
+
+                            {{-- Location --}}
+                            <div class="flex items-center space-x-3 text-blue-100">
+                                <div class="flex-shrink-0 w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <span class="text-sm md:text-base">{{ __('Athens, Greece') }}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
