@@ -68,7 +68,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                        2.1 {{ __('General Terms') }}
+                        {{ __('General Terms') }}
                     </h3>
                 </div>
 
@@ -88,7 +88,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                        2.2 {{ __('Intellectual Property') }}
+                        {{ __('Intellectual Property') }}
                     </h3>
                 </div>
 
@@ -108,7 +108,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                        2.3 {{ __('Use of Services') }}
+                        {{ __('Use of Services') }}
                     </h3>
                 </div>
 
@@ -132,7 +132,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                        2.4 {{ __('Limitation of Liability') }}
+                        {{ __('Limitation of Liability') }}
                     </h3>
                 </div>
 
@@ -167,7 +167,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                        2.5 {{ __('Terms Modifications') }}
+                        {{ __('Terms Modifications') }}
                     </h3>
                 </div>
 

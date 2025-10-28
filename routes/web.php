@@ -18,6 +18,12 @@ Route::view('/about', 'static-pages.about')->name('about');
 Route::view('/careers', 'static-pages.careers')->name('careers');
 Route::view('/security', 'static-pages.security')->name('security');
 Route::view('/compliance', 'static-pages.compliance')->name('compliance');
+Route::view('/case-studies/ai-ecommerce-assistant', 'case-studies.e-commerce-assistant')
+    ->name('case-studies.ai-ecommerce-assistant');
+Route::view('/case-studies/ai-healthcare-appointment-bot', 'case-studies.healthcare-appointment-bot')
+    ->name('case-studies.ai-healthcare-appointment-bot');
+Route::view('/case-studies/ai-real-estate-matcher', 'case-studies.real-estate-matcher')
+    ->name('case-studies.ai-real-estate-matcher');
 
 Route::get('/case-studies', [CaseStudyController::class, 'index'])->name('case-studies.index');
 Route::get('/case-studies/{CaseStudy:slug}', [CaseStudyController::class, 'show'])
