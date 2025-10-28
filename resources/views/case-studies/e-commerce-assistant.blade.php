@@ -50,7 +50,7 @@
     <section class="py-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
         <div class="max-w-7xl mx-auto">
             <div class="w-full rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-violet-100 dark:from-blue-950/30 dark:to-violet-950/30 p-8">
-                <img src="{{ asset('chatbot.png') }}" alt="{{ __('AI Assistant Chat Interfaces') }}" class="w-full h-auto object-contain">
+                <img src="{{ asset('images/chatbot.png') }}" alt="{{ __('AI Assistant Chat Interfaces') }}" class="w-full h-auto object-contain">
             </div>
         </div>
     </section>
@@ -316,7 +316,7 @@
                 <p class="text-gray-400 text-center mb-8">{{ __('Client → AI Assistant → Communication Channels → CRM → Report Dashboard') }}</p>
 
                 <div class="flex items-center justify-center">
-                    <img src="{{ asset('agent-diagram.png') }}" alt="{{ __('AI Agent Architecture Diagram') }}" class="w-full max-w-5xl h-auto">
+                    <img src="{{ asset('images/agent-diagram.png') }}" alt="{{ __('AI Agent Architecture Diagram') }}" class="w-full max-w-5xl h-auto">
                 </div>
             </div>
         </div>
