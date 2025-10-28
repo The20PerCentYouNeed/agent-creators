@@ -2,21 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CaseStudy;
-
 class CaseStudyController extends Controller
 {
     public function index()
     {
-        $caseStudies = CaseStudy::orderBy('order')->get();
+        $caseStudies = collect(config('case-studies'));
 
         return view('case-studies.index', compact('caseStudies'));
     }
 
     public function show(string $slug)
     {
-        $caseStudy = CaseStudy::where('slug', $slug)->firstOrFail();
-        
+        $caseStudies = collect(config('case-studies'));
+        $caseStudy = $caseStudies->firstWhere('slug', $slug);
+
+        if (!$caseStudy) {
+            abort(404);
+        }
+
         return view('case-studies.show', compact('caseStudy'));
     }
 }
