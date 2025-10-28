@@ -24,13 +24,13 @@
                     </h4>
                     <ul class="space-y-2 text-sm">
                         <li>
-                            <a href="#features"
+                            <a href="{{ localized_route('home') . '#features' }}"
                             class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
                                 {{ __('Features') }}
                             </a>
                         </li>
                         <li>
-                            <a href="#solutions"
+                            <a href="{{ localized_route('home') . '#solutions' }}"
                             class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
                                 {{ __('Solutions') }}
                             </a>
