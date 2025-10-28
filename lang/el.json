@@ -382,6 +382,54 @@
     "AI Agents are designed with human-centered approach. Capabilities of human intervention are maintained in all decisions and processes during project work.": "Οι AI Agents σχεδιάζονται με επίκεντρο τον άνθρωπο. Πάντα διατηρείται δυνατότητα ανθρώπινης παρέμβασης στις αποφάσεις και στις ροές εργασίας.",
     "Reports & Transparency": "Αναφορές & Διαφάνεια",
     "Clients and collaborators receive technical documentation and explicit compliance reports prior to project implementation. The company keeps annual compliance policy updates in accordance with international standards.": "Οι πελάτες και συνεργάτες λαμβάνουν τεχνική τεκμηρίωση και ρητή συμμόρφωσης πριν την υλοποίηση κάθε έργου. Η εταιρεία ενημερώνει ετησίως την πολιτική συμμόρφωσης με βάση τα διεθνή πρότυπα.",
-    "Questions about our Compliance?": "Ερωτήσεις σχετικά με τη Συμμόρφωσή μας;"
+    "Questions about our Compliance?": "Ερωτήσεις σχετικά με τη Συμμόρφωσή μας;",
+
+    "AI Agents Pricing": "Τιμολόγηση AI Agents",
+    "Every AI Agent is designed specifically for your business needs. We develop intelligent, multilingual solutions that adapt to your workflows, enhance productivity, and provide superior customer experiences.": "Κάθε AI Agent είναι σχεδιασμένος ειδικά για τις επιχειρηματικές σας ανάγκες. Αναπτύσσουμε έξυπνες, πολυγλωσσικές λύσεις που προσαρμόζονται στις ροές εργασίας σας, ενισχύουν την παραγωγικότητα και παρέχουν ανώτερες εμπειρίες πελατών.",
+    "By selecting, deploying, and training the right technology for your specific business objectives.": "Επιλέγοντας, αναπτύσσοντας και εκπαιδεύοντας την κατάλληλη τεχνολογία για τους συγκεκριμένους επιχειρηματικούς σας στόχους.",
+
+    "Custom AI Chatbot": "Προσαρμοσμένο AI Chatbot",
+    "Perfect for websites, landing pages, or platforms that need direct customer communication with your audience.": "Ιδανικό για ιστότοπους, landing pages ή πλατφόρμες που χρειάζονται άμεση επικοινωνία με το κοινό σας.",
+    "The Agent learns your tone, information needs, and objectives to provide immediate 24/7 support with natural language and tone of voice.": "Ο Agent μαθαίνει τον τρόπο επικοινωνίας σας, τις ανάγκες πληροφόρησης και τους στόχους σας για να παρέχει άμεση υποστήριξη 24/7 με φυσική γλώσσα και επικοινωνιακό στιλ.",
+    "Deliverables:": "Παραδοτέα:",
+    "Website installation (FAQs, livechat, etc.)": "Εγκατάσταση σε ιστότοπο (FAQs, livechat, κλπ.)",
+    "WordPress, Webflow, or custom site customization": "Παραμετροποίηση για WordPress, Webflow ή custom site",
+    "Basic conversation analysis & statistics dashboard": "Βασική ανάλυση συνομιλιών & στατιστικό dashboard",
+    "Implementation Cost:": "Ενδεικτικό Κόστος:",
+    "Monthly Support & Monitoring:": "Προσφερόμενη υποστήριξη & monitoring:",
+
+    "AI Agent for Email Integration": "AI Agent για Email Integration",
+    "An Agent that connects with your email (Outlook, Gmail, etc.) and automatically responds to business inquiries or sends targeted messages.": "Ένας Agent που συνδέεται με το email σας (Outlook, Gmail κ.λπ.) και απαντά αυτόματα σε επιχειρησιακά αιτήματα ή στέλνει προσαρμοσμένα μηνύματα.",
+    "Additionally, it classifies emails by priority and creates proactive outreach and tone of voice adjustments.": "Κατά συνέπεια, το περιβάλλον ταξινομεί τα emails κατά προτεραιότητα και δημιουργεί proactive outreach και προσαρμογές tone of voice.",
+    "Email integration and security setup": "Ανάλυση και ασφαλή διασύνδεση για email API",
+    "Full-featured AI integration & tone calibration": "Πλήρης ενσωμάτωση AI & tone calibration",
+    "Integration with CRM or outreach pipeline (custom)": "Διασύνδεση με CRM ή outreach pipeline (προσαρμοσμένο)",
+    "Live Tuning Support:": "Υποστήριξη & live tuning:",
+
+    "Custom Pricing": "Προσαρμοσμένη Πρόταση",
+    "Do you have an Agent that integrates with your company's systems? Video input or automation with third-party platforms?": "Αν θέλετε έναν Agent που θα διασυνδέεται με τα συστήματα της εταιρείας σας; Video input ή αυτοματισμό με platforms τρίτων;",
+    "We create advanced custom solutions for optimal performance in medium-to-large business environments.": "Δημιουργούμε εξειδικευμένα πλάνα αιχμής για βέλτιστη απόδοση σε μεσαίο-μεγάλο επιχειρηματικό περιβάλλον.",
+    "[Schedule Technical Meeting for Your AI Agent]": "[Ζητήστε Τεχνική Μελέτη & Επίσημη Κοστολόγηση]",
+    "Completely Custom Solution": "Πλήρως Προσαρμοσμένη Λύση",
+    "Contact Us for Quote": "Επικοινωνήστε για Προσφορά",
+
+    "Important Notes": "Σημαντικές Πληροφορίες",
+    "What You Get:": "Τι περιλαμβάνεται:",
+    "Complete Agent development and implementation": "Πλήρης ανάπτυξη και υλοποίηση του Agent",
+    "Training and optimization for your specific use case": "Εκπαίδευση και βελτιστοποίηση για τον συγκεκριμένο σας σκοπό",
+    "Integration with existing systems and workflows": "Ενσωμάτωση με υπάρχοντα συστήματα και ροές εργασίας",
+    "Comprehensive documentation and training": "Πλήρης τεκμηρίωση και εκπαίδευση",
+    "Implementation Timeline:": "Χρονοδιάγραμμα Υλοποίησης:",
+    "Discovery & Requirements: 1-2 weeks": "Ανακάλυψη & Απαιτήσεις: 1-2 εβδομάδες",
+    "Development & Training: 3-6 weeks": "Ανάπτυξη & Εκπαίδευση: 3-6 εβδομάδες",
+    "Testing & Optimization: 1-2 weeks": "Δοκιμές & Βελτιστοποίηση: 1-2 εβδομάδες",
+    "Deployment & Launch: 1 week": "Ανάπτυξη & Εκκίνηση: 1 εβδομάδα",
+
+    "Ready to Get Your Custom AI Agent?": "Έτοιμοι να Αποκτήσετε τον Προσαρμοσμένο σας AI Agent;",
+    "Schedule a consultation to discuss your specific needs and get a detailed proposal for your AI Agent solution.": "Προγραμματίστε μια συμβουλευτική συνάντηση για να συζητήσουμε τις συγκεκριμένες ανάγκες σας και να λάβετε μια λεπτομερή πρόταση για τη λύση AI Agent σας.",
+    "Schedule Free Consultation": "Προγραμματίστε Δωρεάν Συμβουλευτική",
+    "Schedule Technical Meeting": "Προγραμματίστε Τεχνική Συνάντηση",
+
+    "month": "μήνα"
 }
 
