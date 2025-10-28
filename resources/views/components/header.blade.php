@@ -16,15 +16,15 @@
 
                 <!-- Centered Navigation -->
                 <div class="absolute left-1/2 -translate-x-1/2 flex items-center space-x-8">
-                    <a href="#features" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
+                    <a href="{{ localized_route('home') . '#features' }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
                     dark:hover:text-blue-400 transition-colors cursor-pointer">
                         {{ __('Features') }}
                     </a>
-                    <a href="#solutions" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
+                    <a href="{{ localized_route('home') . '#solutions' }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
                     dark:hover:text-blue-400 transition-colors cursor-pointer">
                         {{ __('Solutions') }}
                     </a>
-                    <a href="#process" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
+                    <a href="{{ localized_route('home') . '#process' }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
                     dark:hover:text-blue-400 transition-colors cursor-pointer">{{ __('How It Works') }}</a>
                     <a href="{{ localized_route('case-studies.index') }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
                     dark:hover:text-blue-400 transition-colors cursor-pointer">{{ __('Case Studies') }}</a>

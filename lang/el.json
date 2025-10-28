@@ -261,6 +261,127 @@
     "CTA:": "CTA:",
     "View Positions": "Δείτε τις θέσεις",
     "or": "ή",
-    "Send CV": "Αποστείλετε CV"
+    "Send CV": "Αποστείλετε CV",
+
+    "Privacy Policy": "Πολιτική Απορρήτου",
+    "Elias Kalyvas Learning & Development (L&D) respects and protects your privacy and personal data. The information we collect and process is exclusively for communication and providing our services. We manage your personal data in accordance with the General Data Protection Regulation (GDPR 2016/679) and Greek legislation.": "Η Elias Kalyvas Learning & Development (L&D) σέβεται και προστατεύει την ιδιωτικότητά σας και τα προσωπικά σας δεδομένα. Οι πληροφορίες που συλλέγουμε και επεξεργαζόμαστε αποκλειστικά για την επικοινωνία και την παροχή των υπηρεσιών μας. Διαχειριζόμαστε τα προσωπικά σας δεδομένα, σύμφωνα με τον Γενικό Κανονισμό Προστασίας Δεδομένων (GDPR 2016/679) και την ελληνική νομοθεσία.",
+
+    "What data we collect": "Τι είδους δεδομένα συλλέγουμε",
+    "We collect only the necessary data for communication and service provision. Specifically, we may collect the following:": "Συλλέγουμε μόνο τα απαραίτητα δεδομένα για την επικοινωνία και την παροχή υπηρεσιών. Αυτά μπορεί να περιλαμβάνουν: - Ονοματεπώνυμο και επωνυμία εταιρείας",
+    "Name and surname": "Ονοματεπώνυμο και επωνυμία εταιρείας",
+    "Contact email and phone": "Email επικοινωνίας και τηλέφωνο",
+    "Message content or requests": "Περιεχόμενο μηνυμάτων ή αιτημάτων",
+    "Technical data (IP address, browser, cookies, analytics)": "Τεχνικά δεδομένα (IP address, browser, cookies, analytics)",
+
+    "Data is collected through:": "Τα δεδομένα συλλέγονται μέσω:",
+    "Contact forms or collaboration requests": "Φόρμων επικοινωνίας ή αιτήσεων συνεργασίας",
+    "Newsletter subscriptions": "Εγγραφών σε ενημερωτικά δελτία (newsletters)",
+    "Automatic cookies or analytics tools for user experience improvement": "Αυτόματων cookies ή analytics tools για τη βελτίωση της εμπειρίας χρήσης",
+
+    "How we use the data": "Πώς χρησιμοποιούνται τα δεδομένα",
+    "Your data is used exclusively for:": "Τα δεδομένα σας χρησιμοποιούνται αποκλειστικά για:",
+    "Communication with you": "την επικοινωνία μαζί σας",
+    "Providing technical or business support": "την παροχή τεχνικής ή επιχειρησιακής υποστήριξης",
+    "Sending informational material": "την αποστολή ενημερωτικού υλικού",
+    "Performance analysis and service improvement": "την ανάλυση επικεφθότητας και τη βελτίωση των υπηρεσιών",
+
+    "We do not sell, do not rent and do not transfer data to third parties without your express consent.": "Δεν πωλούμε, δεν ενοικιάζουμε και δεν παραχωρούμε δεδομένα σε τρίτους χωρίς τη ρητή συγκατάθεσή σας.",
+
+    "The website may use cookies for:": "Ο ιστότοπος ενδέχεται να χρησιμοποιεί cookies για:",
+    "Storing user preferences": "την αποθήκευση προτιμήσεων χρήστη",
+    "Measuring visitor traffic through tools like Google Analytics": "τη μέτρηση επισκεψιμότητας μέσω εργαλείων όπως Google Analytics",
+    "Security and performance optimization": "την ασφάλεια και βελτιστοποίηση της απόδοσης",
+
+    "You can disable cookies from your browser settings at any time.": "Μπορείτε να απενεργοποιήσετε τα cookies από τις ρυθμίσεις του browser σας οποιαδήποτε στιγμή.",
+
+    "Data Retention & Deletion": "Διατήρηση & Διαγραφή Δεδομένων",
+    "Data is stored for as long as necessary to fulfill the purpose for which it was collected or until you request its deletion. You can exercise your rights (access, correction, deletion, restriction, portability) by sending an email to info@eliaskalyvas.gr.": "Τα δεδομένα αποθηκεύονται για όσο διάστημα απαιτείται ώστε να εκπληρωθεί ο σκοπός για τον οποίο συλλέχθηκαν ή μέχρι να ζητήσετε τη διαγραφή τους. Μπορείτε να ασκήσετε τα δικαιώματά σας (πρόσβαση, διόρθωση, διαγραφή, περιορισμός, φορητότητα) αποστέλλοντας email στο info@eliaskalyvas.gr.",
+
+    "Policy Updates": "Ενημερώσεις Πολιτικής",
+    "This Privacy Policy is updated regularly to reflect changes in legislation or our services. The date of the last update is noted at the end of this page.": "Η παρούσα Πολιτική ενημερώνεται τακτικά ώστε να αντικατοπτρίζει αλλαγές στη νομοθεσία ή στις υπηρεσίες μας. Η ημερομηνία τελευταίας ενημέρωσης αναγράφεται στο τέλος της σελίδας.",
+
+    "Questions about our Privacy Policy?": "Ερωτήσεις σχετικά με την Πολιτική Απορρήτου μας;",
+
+    "Last updated: October 2025": "Τελευταία ενημέρωση: Οκτώβριος 2025",
+
+    "Terms of Use": "Όροι Χρήσης",
+    "Summary": "Συνοπτικό",
+    "The use of the website and services of Elias Kalyvas L&D implies acceptance of these terms. The content is intended for informational and educational purposes.": "Η χρήση του ιστότοπου και των υπηρεσιών της Elias Kalyvas L&D συνεπάγεται την αποδοχή των παρόντων όρων. Το περιεχόμενο προορίζεται για ενημερωτικούς και εκπαιδευτικούς σκοπούς.",
+    "Detailed Terms": "Αναλυτικό Κείμενο",
+
+    "General Terms": "Γενικοί Όροι",
+    "The use of the agent-creators.ai website and the digital services of Elias Kalyvas L&D means acceptance of these terms. If you do not agree with any of these, please do not use the services.": "Η χρήση του ιστότοπου agent-creators.ai και των ψηφιακών υπηρεσιών της Elias Kalyvas L&D σημαίνει αποδοχή των παρόντων όρων. Εάν δεν συμφωνείτε με κάποιον από αυτούς, παρακαλούμε μην χρησιμοποιείτε τις υπηρεσίες.",
+
+    "Intellectual Property": "Πνευματική Ιδιοκτησία",
+    "All content (texts, images, logos, videos, files, graphics and AI-generated material) constitutes intellectual property of Elias Kalyvas L&D or its partners. Any use, copying or republishing without written permission is prohibited.": "Όλο το περιεχόμενο (κείμενα, εικόνες, σήματα, βίντεο, αρχεία, γραφικά και AI-generated υλικό) αποτελεί πνευματική ιδιοκτησία της Elias Kalyvas L&D ή των συνεργατών της. Απαγορεύεται οποιαδήποτε χρήση, αντιγραφή ή αναδημοσίευση χωρίς γραπτή άδεια.",
+
+    "Use of Services": "Χρήση των Υπηρεσιών",
+    "The AI Agents and tools provided through the website are intended for informational and demonstration use. For commercial or customized utilization a collaboration agreement is required.": "Οι AI Agents και τα εργαλεία που παρέχονται μέσω του ιστότοπου προορίζονται για ενημερωτική και επιδεικτική χρήση. Για εμπορική ή προσαρμοσμένη αξιοποίηση απαιτείται σύμβαση συνεργασίας.",
+    "The company bears no responsibility for the use of results from AI systems outside agreed frameworks.": "Η εταιρεία δεν φέρει ευθύνη για τη χρήση των αποτελεσμάτων που προκύπτουν από AI συστήματα εκτός συμφωνημένων πλαισίων.",
+
+    "Limitation of Liability": "Περιορισμός Ευθύνης",
+    "Elias Kalyvas L&D makes every effort to ensure the accuracy and reliability of the content. However, it is not responsible for:": "Η Elias Kalyvas L&D καταβάλλει κάθε δυνατή προσπάθεια για την ακρίβεια και την αξιοπιστία του περιεχομένου. Ωστόσο, δεν ευθύνεται για:",
+    "Temporary service interruptions": "προσωρινές διακοπές λειτουργίας",
+    "Errors, delays or inaccuracies": "σφάλματα, καθυστερήσεις ή ανακρίβειες",
+    "Data loss or damages from unauthorized use": "απώλειες δεδομένων ή ζημιές από μη εξουσιοδοτημένη χρήση",
+
+    "Terms Modifications": "Τροποποιήσεις Όρων",
+    "The company reserves the right to modify the terms of use at any time without notice. Changes will be published immediately on the site.": "Η εταιρεία διατηρεί το δικαίωμα να τροποποιεί τους όρους χρήσης οποιαδήποτε στιγμή χωρίς προειδοποίηση. Οι αλλαγές θα δημοσιεύονται άμεσα στο site.",
+
+    "Questions about our Terms of Use?": "Ερωτήσεις σχετικά με τους Όρους Χρήσης μας;",
+
+    "Security Policy": "Πολιτική Ασφαλείας",
+    "Data and system security is a fundamental pillar of our operation. We implement multi-layered protection measures and continuous monitoring.": "Η ασφάλεια των δεδομένων και των συστημάτων αποτελεί βασικό πυλώνα της λειτουργίας μας. Εφαρμόζουμε πολυεπίπεδα μέτρα προστασίας και συνεχείς ελέγχους.",
+
+    "Detailed Text": "Αναλυτικό Κείμενο",
+    "Introduction": "Εισαγωγή",
+    "Data and infrastructure security is a cornerstone of Elias Kalyvas L&D operations. All services are developed based on the Security by Design principle.": "Η ασφάλεια των δεδομένων και των υποδομών μας αποτελεί ακρογωνιαίο λίθο της λειτουργίας της Elias Kalyvas L&D. Όλες οι υπηρεσίες αναπτύσσονται με βάση την αρχή Security by Design.",
+
+    "Protection Measures": "Μέτρα Προστασίας",
+    "We implement technical and organizational measures such as:": "Εφαρμόζουμε τεχνικά και οργανωτικά μέτρα όπως:",
+    "TLS 1.3 encryption in all communications": "TLS 1.3 encryption σε όλες τις επικοινωνίες",
+    "OAuth 2.0 authentication for secure access": "OAuth 2.0 authentication για ασφαλή πρόσβαση",
+    "Multi-level firewall": "Firewall πολλαπλών επιπέδων",
+    "Daily system monitoring": "Καθημερινή παρακολούθηση συστημάτων",
+    "Automated notifications for suspicious activity": "Αυτοματοποιημένες ειδοποιήσεις για ύποπτη δραστηριότητα",
+    "Regular penetration tests and audit logs": "Τακτικά penetration tests και audit logs",
+
+    "AI Agents Security": "Ασφάλεια AI Agents",
+    "AI Agents are developed in modular architecture, allowing:": "Οι AI Agents αναπτύσσονται σε modular architecture, επιτρέποντας:",
+    "Complete environment isolation": "πλήρη απομόνωση περιβαλλόντων",
+    "Easy maintenance": "ευκολία συντήρησης",
+    "Secure transfer or delivery to client": "ασφαλή μεταφορά ή παράδοση σε πελάτη",
+    "Each project is accompanied by a security plan and access control (access policy).": "Κάθε έργο συνοδεύεται από σχέδιο ασφαλείας και έλεγχο πρόσβασης (access policy).",
+
+    "Incident Management": "Διαχείριση Περιστατικών",
+    "In case of data breach or cyber attack, an incident response plan is implemented with:": "Σε περίπτωση παραβίασης δεδομένων ή κυβερνοεπίθεσης, εφαρμόζεται διαδικασία incident response plan με:",
+    "Immediate notification of interested parties": "άμεση ειδοποίηση ενδιαφερόμενων μερών",
+    "Service restoration": "αποκατάσταση λειτουργίας",
+    "Security policy review": "αναθεώρηση πολιτικών ασφαλείας",
+
+    "Questions about our Security Policy?": "Ερωτήσεις σχετικά με την Πολιτική Ασφαλείας μας;",
+
+    "Compliance Statement": "ΣΥΜΜΟΡΦΩΣΗ (Compliance Statement)",
+    "Compliance Summary": "Συνοπτικό",
+    "Elias Kalyvas L&D complies with international standards for data security and protection in the development and deployment of AI solutions.": "Η Elias Kalyvas L&D συμμορφώνεται με τα διεθνή πρότυπα για την ασφάλεια δεδομένων και την προστασία στην ανάπτυξη και εφαρμογή AI λύσεων.",
+    "Detailed Compliance Framework": "Αναλυτικό Κείμενο",
+    "Compliance Purpose": "Σκοπός",
+    "Elias Kalyvas L&D is committed to complying with international standards for ethics, data security, and protection in the development and deployment of AI solutions.": "Η Elias Kalyvas L&D δεσμεύεται στη συμμόρφωση με τα διεθνή πρότυπα για την ηθική, ασφάλεια και προστασία δεδομένων στην ανάπτυξη και εφαρμογή AI λύσεων. Κάθε έργο αναπτύσσεται με διαφάνεια και σεβασμό στον χρήστη.",
+    "Regulatory Standards": "Κανονιστικά Πρότυπα",
+    "The company complies with:": "Η εταιρεία συμμορφώνεται με:",
+    "GDPR (EU 2016/679) — General Data Protection Regulation": "GDPR (EU 2016/679) — Προστασία Προσωπικών Δεδομένων",
+    "ISO/IEC 27001 — Information Security Management": "ISO/IEC 27001 — Διαχείριση Ασφάλειας Πληροφοριών",
+    "AI Ethics Principles — Transparency, Human Oversight, Fairness, Security": "AI Ethics Principles — Διαφάνεια, Ανθρώπινη επίβλεψη, Δικαιοσύνη, Ασφάλεια",
+    "Internal Policies": "Εσωτερικές Πολιτικές",
+    "Each project is subject to:": "Κάθε έργο υπόκειται σε:",
+    "Data Protection Impact Assessment (DPIA)": "Data Protection Impact Assessment (DPIA)",
+    "Ethical Review for data use assessment": "Ethical Review για την αξιολόγηση χρήσης δεδομένων",
+    "Audit Trail for operational transparency": "Audit Trail για διαφάνεια λειτουργίας",
+    "Confidentiality Clauses for all collaborators": "Confidentiality Clauses για όλους τους συνεργάτες",
+    "Ethics and Human Oversight": "Ηθική και Ανθρώπινη Επίβλεψη",
+    "AI Agents are designed with human-centered approach. Capabilities of human intervention are maintained in all decisions and processes during project work.": "Οι AI Agents σχεδιάζονται με επίκεντρο τον άνθρωπο. Πάντα διατηρείται δυνατότητα ανθρώπινης παρέμβασης στις αποφάσεις και στις ροές εργασίας.",
+    "Reports & Transparency": "Αναφορές & Διαφάνεια",
+    "Clients and collaborators receive technical documentation and explicit compliance reports prior to project implementation. The company keeps annual compliance policy updates in accordance with international standards.": "Οι πελάτες και συνεργάτες λαμβάνουν τεχνική τεκμηρίωση και ρητή συμμόρφωσης πριν την υλοποίηση κάθε έργου. Η εταιρεία ενημερώνει ετησίως την πολιτική συμμόρφωσης με βάση τα διεθνή πρότυπα.",
+    "Questions about our Compliance?": "Ερωτήσεις σχετικά με τη Συμμόρφωσή μας;"
 }
 

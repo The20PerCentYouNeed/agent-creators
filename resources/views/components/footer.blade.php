@@ -90,25 +90,25 @@
                     </h4>
                     <ul class="space-y-2 text-sm">
                         <li>
-                            <a href="#"
+                            <a href="{{ localized_route('privacy-policy') }}"
                             class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
                                 {{ __('Privacy') }}
                             </a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="{{ localized_route('terms') }}"
                             class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
                                 {{ __('Terms') }}
                             </a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="{{ localized_route('security') }}"
                             class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
                                 {{ __('Security') }}
                             </a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="{{ localized_route('compliance') }}"
                             class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
                                 {{ __('Compliance') }}
                             </a>
