@@ -35,7 +35,7 @@
             <!-- Close Button -->
             <button
                 @click="closeChat"
-                class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors"
+                class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors cursor-pointer"
                 aria-label="Close chat"
             >
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
