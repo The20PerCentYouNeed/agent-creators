@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>AI Agents for Your Business | Custom AI Solutions</title>
         <meta name="description" content="{{ __('Transform your business with custom AI agents. Automate workflows, enhance customer service, and scale operations with intelligent automation.') }}">
@@ -26,6 +27,9 @@
         @yield('content')
 
         <x-footer />
+
+        <!-- Chatbot Widget -->
+        <x-chatbot />
 
         <!-- Smooth Scroll Script -->
         <script>

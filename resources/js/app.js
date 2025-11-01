@@ -164,4 +164,159 @@ Alpine.data("leadForm", () => ({
     },
 }));
 
+Alpine.data("chatbot", () => ({
+    isOpen: false,
+    isOnline: true,
+    messages: [
+        {
+            id: 1,
+            type: "bot",
+            text: "Hello! How can I help you today? Feel free to ask me anything about AI agent creators and our platform.",
+            timestamp: new Date().toLocaleTimeString("en-US", {
+                hour: "2-digit",
+                minute: "2-digit",
+            }),
+            read: true,
+        },
+    ],
+    messageInput: "",
+    isTyping: false,
+    activeTab: null,
+
+    init() {
+        // Any initialization logic
+    },
+
+    toggleChat() {
+        this.isOpen = !this.isOpen;
+        if (this.isOpen) {
+            this.$nextTick(() => {
+                this.scrollToBottom();
+                this.$refs.messageInput?.focus();
+            });
+        }
+    },
+
+    closeChat() {
+        this.isOpen = false;
+    },
+
+    scrollToBottom() {
+        this.$nextTick(() => {
+            const messagesContainer = this.$refs.messagesContainer;
+            if (messagesContainer) {
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+        });
+    },
+
+    async sendMessage() {
+        if (!this.messageInput.trim()) {
+            return;
+        }
+
+        const userMessage = {
+            id: Date.now(),
+            type: "user",
+            text: this.messageInput.trim(),
+            timestamp: new Date().toLocaleTimeString("en-US", {
+                hour: "2-digit",
+                minute: "2-digit",
+            }),
+            read: false,
+        };
+
+        this.messages.push(userMessage);
+        const messageText = this.messageInput;
+        this.messageInput = "";
+        this.scrollToBottom();
+
+        // Show typing indicator
+        this.isTyping = true;
+
+        try {
+            // TODO: Replace with actual API endpoint when backend is ready
+            const response = await fetch("/api/chatbot/message", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN":
+                        document
+                            .querySelector('meta[name="csrf-token"]')
+                            ?.getAttribute("content") || "",
+                },
+                body: JSON.stringify({
+                    message: messageText,
+                    conversation_id: this.getConversationId(),
+                }),
+            });
+
+            // Simulate network delay for now
+            await new Promise((resolve) => setTimeout(resolve, 1500));
+
+            this.isTyping = false;
+
+            // TODO: Replace with actual response from API
+            // For now, simulating a bot response
+            const botMessage = {
+                id: Date.now() + 1,
+                type: "bot",
+                text: "Thank you for your message! This is a placeholder response. The actual AI assistant integration is coming soon.",
+                timestamp: new Date().toLocaleTimeString("en-US", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                }),
+                read: true,
+            };
+
+            this.messages.push(botMessage);
+            this.scrollToBottom();
+        } catch (error) {
+            this.isTyping = false;
+            console.error("Error sending message:", error);
+
+            // Add error message
+            const errorMessage = {
+                id: Date.now() + 1,
+                type: "bot",
+                text: "Sorry, I'm having trouble connecting right now. Please try again later.",
+                timestamp: new Date().toLocaleTimeString("en-US", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                }),
+                read: true,
+            };
+
+            this.messages.push(errorMessage);
+            this.scrollToBottom();
+        }
+    },
+
+    handleKeyPress(event) {
+        if (event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault();
+            this.sendMessage();
+        }
+    },
+
+    getConversationId() {
+        // Get or create conversation ID from localStorage
+        let conversationId = localStorage.getItem("chatbot_conversation_id");
+        if (!conversationId) {
+            conversationId =
+                "conv_" +
+                Date.now() +
+                "_" +
+                Math.random().toString(36).substring(7);
+            localStorage.setItem("chatbot_conversation_id", conversationId);
+        }
+        return conversationId;
+    },
+
+    selectQuickAction(action) {
+        this.messageInput = action;
+        this.$refs.messageInput?.focus();
+    },
+}));
+
 Alpine.start();
