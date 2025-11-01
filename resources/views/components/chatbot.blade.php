@@ -150,11 +150,10 @@
 
         <!-- Message Input -->
         <div class="p-4 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-            <form @submit.prevent="sendMessage" class="flex gap-2">
+            <form @submit.prevent="sendMessage" @keydown.prevent.enter="sendMessage" data-url="{{ localized_route('chat.store') }}" class="flex gap-2">
                 <input
                     x-ref="messageInput"
                     x-model="messageInput"
-                    @keydown="handleKeyPress"
                     type="text"
                     placeholder="Type your message here..."
                     class="flex-1 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-violet-500 placeholder-gray-500 dark:placeholder-gray-400"

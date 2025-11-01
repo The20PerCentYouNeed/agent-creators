@@ -235,8 +235,7 @@ Alpine.data("chatbot", () => ({
         this.isTyping = true;
 
         try {
-            // TODO: Replace with actual API endpoint when backend is ready
-            const response = await fetch("/api/chatbot/message", {
+            const response = await fetch(this.$el.dataset.url, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -247,25 +246,22 @@ Alpine.data("chatbot", () => ({
                 },
                 body: JSON.stringify({
                     message: messageText,
-                    conversation_id: this.getConversationId(),
                 }),
             });
 
-            // Simulate network delay for now
-            await new Promise((resolve) => setTimeout(resolve, 1500));
-
             this.isTyping = false;
 
-            // TODO: Replace with actual response from API
-            // For now, simulating a bot response
+            if (!response.ok) {
+                throw new Error("Failed to get response");
+            }
+
+            const data = await response.json();
+
             const botMessage = {
                 id: Date.now() + 1,
                 type: "bot",
-                text: "Thank you for your message! This is a placeholder response. The actual AI assistant integration is coming soon.",
-                timestamp: new Date().toLocaleTimeString("en-US", {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                }),
+                text: data.message,
+                timestamp: data.timestamp,
                 read: true,
             };
 
@@ -289,13 +285,6 @@ Alpine.data("chatbot", () => ({
 
             this.messages.push(errorMessage);
             this.scrollToBottom();
-        }
-    },
-
-    handleKeyPress(event) {
-        if (event.key === "Enter" && !event.shiftKey) {
-            event.preventDefault();
-            this.sendMessage();
         }
     },
 

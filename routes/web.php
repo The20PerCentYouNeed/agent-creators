@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CaseStudyController;
+use App\Http\Controllers\ChatBotController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,5 @@ Route::view('/case-studies/ai-real-estate-matcher', 'case-studies.real-estate-ma
 Route::get('/case-studies', [CaseStudyController::class, 'index'])->name('case-studies.index');
 Route::get('/case-studies/{CaseStudy:slug}', [CaseStudyController::class, 'show'])
     ->name('case-studies.show');
+
+Route::post('/chat', [ChatBotController::class, 'store'])->name('chat.store');
