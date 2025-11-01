@@ -33,7 +33,7 @@ class ChatBotController extends Controller
         ]);
 
         do {
-            sleep(1);
+            usleep(500000);
             $run = OpenAI::threads()->runs()->retrieve($threadId, $run->id);
         } while (in_array($run->status, ['queued', 'in_progress']));
 
@@ -50,7 +50,6 @@ class ChatBotController extends Controller
         $assistantMessage = $messages->data[0];
         $responseText = $assistantMessage->content[0]->text->value;
 
-        dd($responseText);
         return response()->json([
             'message' => $responseText,
             'timestamp' => now()->format('h:i A'),
