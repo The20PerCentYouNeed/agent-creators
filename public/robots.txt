@@ -1,3 +1,2 @@
 User-agent: *
-Allow: /
-Sitemap: https://agent-creators.ai/sitemap.xml
+Disallow: /
