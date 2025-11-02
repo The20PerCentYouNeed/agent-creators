@@ -10,7 +10,7 @@
 
         <div class="relative max-w-7xl mx-auto">
             <div class="mb-6">
-                <a href="{{ localized_route('case-studies.index') }}" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+                <a href="{{ localized_route('home') . '#case-studies' }}" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
                     <x-heroicon-o-arrow-left class="w-5 h-5 mr-2" />
                     {{ __('Back to Case Studies') }}
                 </a>

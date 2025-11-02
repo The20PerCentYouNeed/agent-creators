@@ -393,7 +393,7 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 @foreach($caseStudies as $caseStudy)
-                <a href="{{ localized_route('case-studies.ai-ecommerce-assistant') }}" class="group">
+                <a href="{{ localized_route('case-studies.' . $caseStudy['slug']) }}" class="group">
                     <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all hover:-translate-y-1 h-full flex flex-col">
                         <div class="mb-4">
                             <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">

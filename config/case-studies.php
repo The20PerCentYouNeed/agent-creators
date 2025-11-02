@@ -2,7 +2,7 @@
 
 return [
     [
-        'slug' => 'ecommerce-assistant',
+        'slug' => 'ai-ecommerce-assistant',
         'category' => 'E-Commerce',
         'title' => 'AI Shopping Assistant for Online Retail',
         'description' => 'A conversational AI agent that helps customers find products, '

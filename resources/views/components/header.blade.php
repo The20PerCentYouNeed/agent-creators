@@ -26,7 +26,7 @@
                     </a>
                     <a href="{{ localized_route('home') . '#process' }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
                     dark:hover:text-blue-400 transition-colors cursor-pointer">{{ __('How It Works') }}</a>
-                    <a href="{{ localized_route('case-studies.index') }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
+                    <a href="{{ localized_route('home') . '#case-studies' }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
                     dark:hover:text-blue-400 transition-colors cursor-pointer">{{ __('Case Studies') }}</a>
                 </div>
 
