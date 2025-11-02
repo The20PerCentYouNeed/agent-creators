@@ -16,16 +16,16 @@
 
                 <!-- Centered Navigation -->
                 <div class="absolute left-1/2 -translate-x-1/2 flex items-center space-x-8">
-                    <a href="{{ localized_route('home') . '#features' }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
+                    <a href="{{ localized_route('home') . '#services' }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
                     dark:hover:text-blue-400 transition-colors cursor-pointer">
-                        {{ __('Features') }}
+                        {{ __('Services') }}
                     </a>
                     <a href="{{ localized_route('home') . '#solutions' }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
                     dark:hover:text-blue-400 transition-colors cursor-pointer">
                         {{ __('Solutions') }}
                     </a>
                     <a href="{{ localized_route('home') . '#process' }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
-                    dark:hover:text-blue-400 transition-colors cursor-pointer">{{ __('How It Works') }}</a>
+                    dark:hover:text-blue-400 transition-colors cursor-pointer">{{ __('How We Work') }}</a>
                     <a href="{{ localized_route('home') . '#case-studies' }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
                     dark:hover:text-blue-400 transition-colors cursor-pointer">{{ __('Case Studies') }}</a>
                 </div>
@@ -108,14 +108,14 @@
                 <div class="px-4 py-6 space-y-4">
                     <!-- Navigation Links -->
                     <div class="space-y-3">
-                        <a href="#features" @click="mobileMenuOpen = false" class="block px-4 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer">
-                            {{ __('Features') }}
+                        <a href="#services" @click="mobileMenuOpen = false" class="block px-4 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer">
+                            {{ __('Services') }}
                         </a>
                         <a href="#solutions" @click="mobileMenuOpen = false" class="block px-4 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer">
                             {{ __('Solutions') }}
                         </a>
                         <a href="#process" @click="mobileMenuOpen = false" class="block px-4 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer">
-                            {{ __('How It Works') }}
+                            {{ __('How We Work') }}
                         </a>
                         <a href="{{ localized_route('home') . '#case-studies' }}" @click="mobileMenuOpen = false" class="block px-4 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer">
                             {{ __('Case Studies') }}

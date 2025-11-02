@@ -24,9 +24,9 @@
                     </h4>
                     <ul class="space-y-2 text-sm">
                         <li>
-                            <a href="{{ localized_route('home') . '#features' }}"
+                            <a href="{{ localized_route('home') . '#services' }}"
                             class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer">
-                                {{ __('Features') }}
+                                {{ __('Services') }}
                             </a>
                         </li>
                         <li>

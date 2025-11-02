@@ -37,7 +37,7 @@
                 shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/40 hover:-translate-y-0.5 cursor-pointer">
                     {{ __('Start Your AI Journey') }}
                 </a>
-                <a href="#solutions" class="px-8 py-4 text-lg font-semibold text-gray-700 dark:text-gray-200
+                <a href="#industries" class="px-8 py-4 text-lg font-semibold text-gray-700 dark:text-gray-200
                 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all
                 border border-gray-200 dark:border-gray-700 shadow-lg cursor-pointer">
                     {{ __('Explore Solutions') }}
@@ -79,11 +79,11 @@
     </section>
 
     {{-- Features Section --}}
-    <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-                    {{ __('Powerful AI Capabilities') }}
+                    {{ __('What We Build') }}
                 </h2>
                 <p class="text-xl text-gray-600 dark:text-gray-400">
                     {{ __('Everything you need to automate and scale your business operations') }}
@@ -173,7 +173,7 @@
         </div>
     </section>
 
-    {{-- Solutions Section --}}
+    {{-- Industries Section --}}
     <section id="solutions" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
@@ -307,7 +307,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-                    {{ __('How It Works') }}
+                    {{ __('Our Process') }}
                 </h2>
                 <p class="text-xl text-gray-600 dark:text-gray-400">
                     {{ __('From concept to deployment in four simple steps') }}
@@ -402,7 +402,7 @@
                         </div>
 
                         @if($caseStudy['image_url'])
-                        <div class="w-full h-48 bg-gradient-to-br {{ $caseStudy['gradient'] }} rounded-lg mb-6 flex items-center justify-center overflow-hidden">
+                        <div class="w-full bg-gradient-to-br {{ $caseStudy['gradient'] }} rounded-lg mb-6 flex items-center justify-center overflow-hidden">
                             <picture>
                                 <source srcset="{{ $caseStudy['image_url'] }}" type="image/webp">
                                 <img src="{{ str_replace('.webp', '.jpg', $caseStudy['image_url']) }}" alt="{{ __($caseStudy['title']) }}" class="w-full h-full object-cover" loading="lazy">
