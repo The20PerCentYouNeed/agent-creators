@@ -83,7 +83,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-                    {{ __('What We Build') }}
+                    {{ __('Our Services') }}
                 </h2>
                 <p class="text-xl text-gray-600 dark:text-gray-400">
                     {{ __('Everything you need to automate and scale your business operations') }}
