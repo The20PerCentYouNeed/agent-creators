@@ -402,7 +402,7 @@
                         </div>
 
                         @if($caseStudy['image_url'])
-                        <div class="w-full bg-gradient-to-br {{ $caseStudy['gradient'] }} rounded-lg mb-6 flex items-center justify-center overflow-hidden">
+                        <div class="w-full lg:h-46 bg-gradient-to-br {{ $caseStudy['gradient'] }} rounded-lg mb-6 flex items-center justify-center overflow-hidden">
                             <picture>
                                 <source srcset="{{ $caseStudy['image_url'] }}" type="image/webp">
                                 <img src="{{ str_replace('.webp', '.jpg', $caseStudy['image_url']) }}" alt="{{ __($caseStudy['title']) }}" class="w-full h-full object-cover" loading="lazy">
