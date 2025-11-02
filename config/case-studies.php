@@ -12,14 +12,15 @@ return [
         'gradient' => 'from-blue-600 to-violet-600',
     ],
     [
-        'slug' => 'healthcare-appointment-bot',
-        'category' => 'Healthcare',
-        'title' => 'Medical Appointment Scheduling Agent',
-        'description' => 'Intelligent booking system that manages patient appointments, '
-            .'sends reminders, and handles rescheduling, reducing no-shows by 60%.',
+        'slug' => 'procurement-optimization-agent',
+        'category' => 'Supply Chain',
+        'title' => 'Intelligent Procurement Optimization Agent',
+        'description' => 'AI-powered procurement assistant that analyzes supplier policies, '
+            .'applies volume discounts, and recommends cost-effective ordering strategies, '
+            .'saving 15-25% on procurement costs.',
         'image_url' => null,
         'logo_url' => null,
-        'gradient' => 'from-emerald-600 to-teal-600',
+        'gradient' => 'from-blue-600 to-violet-600',
     ],
     [
         'slug' => 'real-estate-matcher',

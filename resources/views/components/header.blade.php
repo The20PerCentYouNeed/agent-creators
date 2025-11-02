@@ -69,8 +69,8 @@
                     dark:text-gray-300 hover:text-blue-600
                     dark:hover:text-blue-400 transition-colors cursor-pointer"
                 >
-                    <x-heroicon-o-bars-3 class="w-6 h-6" x-show="!mobileMenuOpen" />
-                    <x-heroicon-o-x-mark class="w-6 h-6" x-show="mobileMenuOpen" />
+                    <x-heroicon-o-bars-3 class="w-8 h-8" x-show="!mobileMenuOpen" />
+                    <x-heroicon-o-x-mark class="w-8 h-8" x-show="mobileMenuOpen" />
                 </button>
 
                 <!-- Centered Logo -->
@@ -117,7 +117,7 @@
                         <a href="#process" @click="mobileMenuOpen = false" class="block px-4 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer">
                             {{ __('How It Works') }}
                         </a>
-                        <a href="{{ localized_route('case-studies.index') }}" @click="mobileMenuOpen = false" class="block px-4 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer">
+                        <a href="{{ localized_route('home') . '#case-studies' }}" @click="mobileMenuOpen = false" class="block px-4 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer">
                             {{ __('Case Studies') }}
                         </a>
                     </div>

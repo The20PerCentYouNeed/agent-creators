@@ -397,13 +397,13 @@
                     <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all hover:-translate-y-1 h-full flex flex-col">
                         <div class="mb-4">
                             <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">
-                                {{ $caseStudy['category'] }}
+                                {{ __($caseStudy['category']) }}
                             </span>
                         </div>
 
                         @if($caseStudy['image_url'])
                         <div class="w-full h-48 bg-gradient-to-br {{ $caseStudy['gradient'] }} rounded-lg mb-6 flex items-center justify-center overflow-hidden">
-                            <img src="{{ $caseStudy['image_url'] }}" alt="{{ $caseStudy['title'] }}" class="w-full h-full object-cover">
+                            <img src="{{ $caseStudy['image_url'] }}" alt="{{ __($caseStudy['title']) }}" class="w-full h-full object-cover">
                         </div>
                         @else
                         <div class="w-full h-48 bg-gradient-to-br {{ $caseStudy['gradient'] }} rounded-lg mb-6 flex items-center justify-center">
@@ -413,16 +413,16 @@
 
                         @if($caseStudy['logo_url'])
                         <div class="flex justify-center mb-4">
-                            <img src="{{ $caseStudy['logo_url'] }}" alt="{{ $caseStudy['title'] }} logo" class="h-12">
+                            <img src="{{ $caseStudy['logo_url'] }}" alt="{{ __($caseStudy['title']) }} logo" class="h-12">
                         </div>
                         @endif
 
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                            {{ $caseStudy['title'] }}
+                            {{ __($caseStudy['title']) }}
                         </h3>
 
                         <p class="text-gray-600 dark:text-gray-400 flex-grow">
-                            {{ $caseStudy['description'] }}
+                            {{ __($caseStudy['description']) }}
                         </p>
 
                         <div class="mt-4 flex items-center text-blue-600 dark:text-blue-400 font-semibold">
