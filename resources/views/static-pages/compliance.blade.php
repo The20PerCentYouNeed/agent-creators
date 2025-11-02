@@ -68,7 +68,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                        4.1 {{ __('Compliance Purpose') }}
+                        {{ __('Compliance Purpose') }}
                     </h3>
                 </div>
 
@@ -88,7 +88,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                        4.2 {{ __('Regulatory Standards') }}
+                        {{ __('Regulatory Standards') }}
                     </h3>
                 </div>
 
@@ -123,7 +123,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                        4.3 {{ __('Internal Policies') }}
+                        {{ __('Internal Policies') }}
                     </h3>
                 </div>
 
@@ -162,7 +162,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                        4.4 {{ __('Ethics and Human Oversight') }}
+                        {{ __('Ethics and Human Oversight') }}
                     </h3>
                 </div>
 
@@ -182,7 +182,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                        4.5 {{ __('Reports & Transparency') }}
+                        {{ __('Reports & Transparency') }}
                     </h3>
                 </div>
 

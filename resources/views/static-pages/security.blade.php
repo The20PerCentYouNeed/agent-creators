@@ -68,7 +68,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                        3.1 {{ __('Introduction') }}
+                        {{ __('Introduction') }}
                     </h3>
                 </div>
 
@@ -88,7 +88,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                        3.2 {{ __('Protection Measures') }}
+                        {{ __('Protection Measures') }}
                     </h3>
                 </div>
 
@@ -135,7 +135,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                        3.3 {{ __('AI Agents Security') }}
+                        {{ __('AI Agents Security') }}
                     </h3>
                 </div>
 
@@ -174,7 +174,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                        3.4 {{ __('Incident Management') }}
+                        {{ __('Incident Management') }}
                     </h3>
                 </div>
 
