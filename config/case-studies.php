@@ -23,13 +23,13 @@ return [
         'gradient' => 'from-blue-600 to-violet-600',
     ],
     [
-        'slug' => 'real-estate-matcher',
-        'category' => 'Real Estate',
-        'title' => 'Property Matching & Lead Qualifier',
-        'description' => 'AI-powered agent that qualifies leads, matches properties to '
-            .'buyer preferences, and schedules viewings, saving agents 20 hours per week.',
+        'slug' => 'dental-clinic-assistant',
+        'category' => 'Healthcare',
+        'title' => 'AI Assistant for Patient Communication & Appointment Management',
+        'description' => 'Technical research and proposed solution for a dental clinic seeking to automate '
+            .'patient communication, appointment scheduling, and information delivery through an intelligent AI assistant.',
         'image_url' => null,
         'logo_url' => null,
-        'gradient' => 'from-amber-600 to-orange-600',
+        'gradient' => 'from-blue-600 to-violet-600',
     ],
 ];

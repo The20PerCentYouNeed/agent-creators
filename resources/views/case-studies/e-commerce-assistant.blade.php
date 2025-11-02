@@ -22,13 +22,13 @@
                 </span>
             </div>
 
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 leading-tight">
                 <span class="text-white">
                     {{ __('Case Study: AI Assistant for E-Commerce Business') }}
                 </span>
             </h1>
 
-            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mb-8">
+            <p class="text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mb-8">
                 {{ __('Case study of developing a custom AI Agent that connects website, email, and messaging apps, reducing response time by 70%.') }}
             </p>
 
@@ -47,9 +47,9 @@
     </section>
 
     {{-- Featured Visual --}}
-    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
+    <section class="py-8 md:py-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
         <div class="max-w-7xl mx-auto">
-            <div class="w-full rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-violet-100 dark:from-blue-950/30 dark:to-violet-950/30 p-8">
+            <div class="w-full rounded-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-violet-100 dark:from-blue-950/30 dark:to-violet-950/30 p-4 md:p-8">
                 <picture>
                     <source srcset="{{ asset('images/chatbot.webp') }}" type="image/webp">
                     <img src="{{ asset('images/chatbot.png') }}" alt="{{ __('AI Assistant Chat Interfaces') }}" class="w-full h-auto object-contain" loading="lazy" width="1200" height="800">
@@ -59,22 +59,22 @@
     </section>
 
     {{-- Project Overview --}}
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+    <section class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center gap-3 mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                     {{ __('PROJECT OVERVIEW') }}
                 </h2>
             </div>
 
-            <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 md:p-8 border border-gray-200 dark:border-gray-700">
+                <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                     {{ __('An e-commerce business wanted to organize and automate communication with customers coming from different channels — website, email, and messaging apps. The goal was to maintain the human experience, but reduce delays and the need for manual management.') }}
                 </p>
 
                 <div class="grid md:grid-cols-2 gap-6 mb-8">
-                    <div class="p-6 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/20 border border-blue-200 dark:border-blue-800">
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">{{ __('Key Facts') }}</h3>
+                    <div class="p-4 md:p-6 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/20 border border-blue-200 dark:border-blue-800">
+                        <h3 class="text-base md:text-lg font-bold text-gray-900 dark:text-white mb-4">{{ __('Key Facts') }}</h3>
                         <div class="space-y-3">
                             <div class="flex items-start gap-3">
                                 <x-heroicon-o-check-circle class="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
@@ -112,24 +112,24 @@
     </section>
 
     {{-- The Challenge --}}
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
+    <section class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center gap-3 mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                     {{ __('THE CHALLENGE') }}
                 </h2>
             </div>
 
-            <div class="bg-gradient-to-br from-gray-50 to-gray-100/50 dark:from-gray-800 dark:to-gray-900/20 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100/50 dark:from-gray-800 dark:to-gray-900/20 rounded-2xl p-4 md:p-8 border border-gray-200 dark:border-gray-700">
+                <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                     {{ __('The customer service team faced an increasing volume of requests, repetitive questions, and the inability to respond immediately across all channels.') }}
                 </p>
 
-                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                     {{ __('Communication via email, website chat, and messaging apps was disconnected, without a common management point.') }}
                 </p>
 
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">{{ __('Main obstacles') }}:</h3>
+                <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-4">{{ __('Main obstacles') }}:</h3>
                 <ul class="space-y-3">
                     <li class="flex items-start gap-3">
                         <x-heroicon-o-x-circle class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
@@ -149,22 +149,22 @@
     </section>
 
     {{-- The Solution --}}
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+    <section class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center gap-3 mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                     {{ __('THE SOLUTION') }}
                 </h2>
             </div>
 
             <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 mb-8">
-                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                     {{ __('Creating a multi-channel AI Assistant that acts as a unified communication hub, learns from requests, and improves the service experience.') }}
                 </p>
 
                 <div class="flex items-center gap-3 mb-6">
                     <x-heroicon-o-map class="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">{{ __('Implementation Stages') }}</h3>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white">{{ __('Implementation Stages') }}</h3>
                 </div>
 
                 <div class="space-y-6">
@@ -223,20 +223,20 @@
     </section>
 
     {{-- Technical Infrastructure --}}
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
+    <section class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center gap-3 mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                     {{ __('TECHNICAL INFRASTRUCTURE') }}
                 </h2>
             </div>
 
-            <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-4 md:p-8 border border-gray-200 dark:border-gray-700">
+                <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                     {{ __('User → Website / Email / Messaging → AI Agent → CRM / CMS / API Hub') }}
                 </p>
 
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">{{ __('Technologies') }}:</h3>
+                <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-6">{{ __('Technologies') }}:</h3>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div class="flex items-center gap-3 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
@@ -269,35 +269,35 @@
     </section>
 
     {{-- Timeline & Support --}}
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+    <section class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center gap-3 mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                     {{ __('TIMELINE & SUPPORT') }}
                 </h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
                     <div class="flex items-center gap-3 mb-4">
                         <x-heroicon-o-calendar class="w-8 h-8 text-blue-600 dark:text-blue-400" />
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">{{ __('Goal') }}</h3>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white">{{ __('Goal') }}</h3>
                     </div>
                     <p class="text-3xl font-bold text-gray-600 dark:text-gray-300">{{ __('2 weeks timeline') }}</p>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
                     <div class="flex items-center gap-3 mb-4">
                         <x-heroicon-o-chat-bubble-left-ellipsis class="w-8 h-8 text-blue-600 dark:text-blue-400" />
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">{{ __('Phases') }}</h3>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white">{{ __('Phases') }}</h3>
                     </div>
                     <p class="text-gray-600 dark:text-gray-300">{{ __('Analysis → Design → Development → Integration → Testing') }}</p>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
                     <div class="flex items-center gap-3 mb-4">
                         <x-heroicon-o-arrow-path class="w-8 h-8 text-blue-600 dark:text-blue-400" />
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">{{ __('Maintenance') }}</h3>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white">{{ __('Maintenance') }}</h3>
                     </div>
                     <p class="text-gray-600 dark:text-gray-300">{{ __('Continuous performance monitoring and monthly AI retraining.') }}</p>
                 </div>
@@ -306,16 +306,16 @@
     </section>
 
     {{-- Visual Diagram --}}
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
+    <section class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center gap-3 mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                     {{ __('DIAGRAM / VISUAL INSIGHT') }}
                 </h2>
             </div>
 
-            <div class="bg-gradient-to-br from-gray-900 to-gray-950 dark:from-gray-950 dark:to-black rounded-2xl p-12 border border-gray-700">
-                <h3 class="text-2xl font-bold text-white text-center mb-4">{{ __('Infographic flow:') }}</h3>
+            <div class="bg-gradient-to-br from-gray-900 to-gray-950 dark:from-gray-950 dark:to-black rounded-2xl p-6 md:p-12 border border-gray-700">
+                <h3 class="text-xl md:text-2xl font-bold text-white text-center mb-4">{{ __('Infographic flow:') }}</h3>
                 <p class="text-gray-400 text-center mb-8">{{ __('Client → AI Assistant → Communication Channels → CRM → Report Dashboard') }}</p>
 
                 <div class="flex items-center justify-center">
@@ -329,12 +329,12 @@
     </section>
 
     {{-- CTA Section --}}
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600">
+    <section class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-2xl md:text-4xl font-bold text-white mb-6">
+            <h2 class="text-xl md:text-2xl lg:text-4xl font-bold text-white mb-6">
                 {{ __('Ready to Transform Your Business?') }}
             </h2>
-            <p class="text-base md:text-xl text-white/90 mb-8">
+            <p class="text-sm md:text-base lg:text-xl text-white/90 mb-8">
                 {{ __('Get started with custom AI agents designed specifically for your needs') }}
             </p>
             <a href="{{ localized_route('contact') }}" class="inline-block px-8 py-4 text-lg font-semibold text-blue-600 bg-white rounded-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5">

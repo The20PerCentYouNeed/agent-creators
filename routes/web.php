@@ -22,7 +22,7 @@ Route::view('/case-studies/ai-ecommerce-assistant', 'case-studies.e-commerce-ass
     ->name('case-studies.ai-ecommerce-assistant');
 Route::view('/case-studies/procurement-optimization-agent', 'case-studies.procurement-optimization-agent')
     ->name('case-studies.procurement-optimization-agent');
-Route::view('/case-studies/real-estate-matcher', 'case-studies.real-estate-matcher')
-    ->name('case-studies.real-estate-matcher');
+Route::view('/case-studies/dental-clinic-assistant', 'case-studies.dental-clinic-assistant')
+    ->name('case-studies.dental-clinic-assistant');
 
 Route::post('/chat', [ChatBotController::class, 'store'])->name('chat.store');

@@ -22,13 +22,13 @@
                 </span>
             </div>
 
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 leading-tight">
                 <span class="text-white">
                     {{ __('Case Study: Intelligent Procurement Optimization Agent') }}
                 </span>
             </h1>
 
-            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mb-8">
+            <p class="text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mb-8">
                 {{ __('Developing an AI Agent that analyzes automated ordering systems, applies supplier policies, and recommends optimized procurement strategies — saving costs and improving efficiency.') }}
             </p>
 
@@ -47,22 +47,22 @@
     </section>
 
     {{-- Project Overview --}}
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+    <section class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center gap-3 mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                     {{ __('PROJECT OVERVIEW') }}
                 </h2>
             </div>
 
-            <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 md:p-8 border border-gray-200 dark:border-gray-700">
+                <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                     {{ __('A distribution company with an automated ERP ordering system needed to optimize procurement decisions. While the system automatically generated orders based on inventory levels, it didn\'t account for supplier commercial policies, volume discounts, and promotional offers — resulting in missed savings opportunities.') }}
                 </p>
 
                 <div class="grid md:grid-cols-2 gap-6 mb-8">
-                    <div class="p-6 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/20 border border-blue-200 dark:border-blue-800">
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">{{ __('Key Facts') }}</h3>
+                    <div class="p-4 md:p-6 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/20 border border-blue-200 dark:border-blue-800">
+                        <h3 class="text-base md:text-lg font-bold text-gray-900 dark:text-white mb-4">{{ __('Key Facts') }}</h3>
                         <div class="space-y-3">
                             <div class="flex items-start gap-3">
                                 <x-heroicon-o-check-circle class="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
@@ -100,20 +100,20 @@
     </section>
 
     {{-- The Challenge --}}
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
+    <section class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center gap-3 mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                     {{ __('THE CHALLENGE') }}
                 </h2>
             </div>
 
-            <div class="bg-gradient-to-br from-gray-50 to-gray-100/50 dark:from-gray-800 dark:to-gray-900/20 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100/50 dark:from-gray-800 dark:to-gray-900/20 rounded-2xl p-4 md:p-8 border border-gray-200 dark:border-gray-700">
+                <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                     {{ __('The automated ordering system operated efficiently but lacked intelligence. It generated orders based solely on inventory levels and reorder points, without considering:') }}
                 </p>
 
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">{{ __('Critical gaps identified') }}:</h3>
+                <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-4">{{ __('Critical gaps identified') }}:</h3>
                 <ul class="space-y-3">
                     <li class="flex items-start gap-3">
                         <x-heroicon-o-x-circle class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
@@ -141,22 +141,22 @@
     </section>
 
     {{-- The Solution --}}
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+    <section class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center gap-3 mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                     {{ __('THE SOLUTION') }}
                 </h2>
             </div>
 
             <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 mb-8">
-                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                     {{ __('We proposed an intelligent AI Assistant that would act as a "smart colleague" — analyzing automated orders in real-time, comparing them against supplier policies, and proposing more cost-effective alternatives through an interactive chatbot interface.') }}
                 </p>
 
                 <div class="flex items-center gap-3 mb-6">
                     <x-heroicon-o-map class="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">{{ __('Proposed Implementation Plan') }}</h3>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white">{{ __('Proposed Implementation Plan') }}</h3>
                 </div>
 
                 <div class="space-y-6">
@@ -215,19 +215,19 @@
     </section>
 
     {{-- How It Works --}}
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
+    <section class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center gap-3 mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                     {{ __('HOW IT WORKS') }}
                 </h2>
             </div>
 
-            <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">{{ __('The Agent\'s Process') }}:</h3>
+            <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-4 md:p-8 border border-gray-200 dark:border-gray-700">
+                <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-6">{{ __('The Agent\'s Process') }}:</h3>
 
                 <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
                         <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
                             <x-heroicon-o-document-text class="w-6 h-6 text-blue-600 dark:text-blue-400" />
                         </div>
@@ -235,7 +235,7 @@
                         <p class="text-gray-600 dark:text-gray-300">{{ __('Monitors automated ordering system for new orders. Reads product codes, quantities, unit prices, and supplier data.') }}</p>
                     </div>
 
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
                         <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
                             <x-heroicon-o-calculator class="w-6 h-6 text-blue-600 dark:text-blue-400" />
                         </div>
@@ -243,7 +243,7 @@
                         <p class="text-gray-600 dark:text-gray-300">{{ __('Applies relevant supplier commercial policies. Calculates volume discounts, promotional offers, and pallet optimizations.') }}</p>
                     </div>
 
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
                         <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
                             <x-heroicon-o-light-bulb class="w-6 h-6 text-blue-600 dark:text-blue-400" />
                         </div>
@@ -252,7 +252,7 @@
                     </div>
                 </div>
 
-                <div class="mt-8 p-6 bg-blue-50 dark:bg-blue-950/30 rounded-xl border border-blue-200 dark:border-blue-800">
+                <div class="mt-8 p-4 md:p-6 bg-blue-50 dark:bg-blue-950/30 rounded-xl border border-blue-200 dark:border-blue-800">
                     <h4 class="font-bold text-gray-900 dark:text-white mb-3">{{ __('Example Scenario') }}:</h4>
                     <div class="space-y-2 text-gray-700 dark:text-gray-300">
                         <p><span class="font-semibold">{{ __('Automated Order') }}:</span> {{ __('10 boxes of Product X') }}</p>
@@ -266,20 +266,20 @@
     </section>
 
     {{-- Technical Infrastructure --}}
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+    <section class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center gap-3 mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                     {{ __('TECHNICAL INFRASTRUCTURE') }}
                 </h2>
             </div>
 
-            <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 md:p-8 border border-gray-200 dark:border-gray-700">
+                <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                     {{ __('ERP System (Auto Orders) → AI Agent → Policy Analysis → Chatbot Interface → User Decision') }}
                 </p>
 
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">{{ __('Key Components') }}:</h3>
+                <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-6">{{ __('Key Components') }}:</h3>
 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="space-y-4">
@@ -319,7 +319,7 @@
                     </div>
                 </div>
 
-                <div class="mt-8 p-6 bg-blue-50 dark:bg-blue-950/30 rounded-xl border border-blue-200 dark:border-blue-800">
+                <div class="mt-8 p-4 md:p-6 bg-blue-50 dark:bg-blue-950/30 rounded-xl border border-blue-200 dark:border-blue-800">
                     <h4 class="font-bold text-gray-900 dark:text-white mb-3">{{ __('Security & Permissions') }}:</h4>
                     <ul class="space-y-2 text-gray-700 dark:text-gray-300">
                         <li class="flex items-start gap-2">
@@ -341,30 +341,30 @@
     </section>
 
     {{-- Results & Impact --}}
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
+    <section class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center gap-3 mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                     {{ __('EXPECTED IMPACT') }}
                 </h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/20 rounded-2xl p-4 md:p-8 border border-blue-200 dark:border-blue-800">
                     <div class="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">15-25%</div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{{ __('Cost Reduction') }}</h3>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2">{{ __('Cost Reduction') }}</h3>
                     <p class="text-gray-600 dark:text-gray-300">{{ __('Through optimized volume purchases and policy application') }}</p>
                 </div>
 
-                <div class="bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/20 rounded-2xl p-4 md:p-8 border border-blue-200 dark:border-blue-800">
                     <div class="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">100%</div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{{ __('Policy Coverage') }}</h3>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2">{{ __('Policy Coverage') }}</h3>
                     <p class="text-gray-600 dark:text-gray-300">{{ __('Every order analyzed against all applicable supplier policies') }}</p>
                 </div>
 
-                <div class="bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/20 rounded-2xl p-4 md:p-8 border border-blue-200 dark:border-blue-800">
                     <div class="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">{{ __('Real-time') }}</div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{{ __('Decision Support') }}</h3>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2">{{ __('Decision Support') }}</h3>
                     <p class="text-gray-600 dark:text-gray-300">{{ __('Instant recommendations as orders are generated') }}</p>
                 </div>
             </div>
@@ -372,12 +372,12 @@
     </section>
 
     {{-- CTA Section --}}
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600">
+    <section class="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-violet-600 to-pink-600">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-2xl md:text-4xl font-bold text-white mb-6">
+            <h2 class="text-xl md:text-2xl lg:text-4xl font-bold text-white mb-6">
                 {{ __('Ready to Optimize Your Procurement?') }}
             </h2>
-            <p class="text-base md:text-xl text-white/90 mb-8">
+            <p class="text-sm md:text-base lg:text-xl text-white/90 mb-8">
                 {{ __('Let\'s discuss how AI can help your business make smarter purchasing decisions') }}
             </p>
             <a href="{{ localized_route('contact') }}" class="inline-block px-8 py-4 text-lg font-semibold text-blue-600 bg-white rounded-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
