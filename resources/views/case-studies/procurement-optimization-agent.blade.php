@@ -24,7 +24,7 @@
 
             <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 leading-tight">
                 <span class="text-white">
-                    {{ __('Case Study: Intelligent Procurement Optimization Agent') }}
+                    {{ __('Case Study: Intelligent Procurement Optimization AI Agent') }}
                 </span>
             </h1>
 

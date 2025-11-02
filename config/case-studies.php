@@ -14,7 +14,7 @@ return [
     [
         'slug' => 'procurement-optimization-agent',
         'category' => 'Supply Chain',
-        'title' => 'Intelligent Procurement Optimization Agent',
+        'title' => 'Intelligent Procurement Optimization AI Agent',
         'description' => 'AI-powered procurement assistant that analyzes supplier policies, '
             . 'applies volume discounts, and recommends cost-effective ordering strategies, '
             . 'saving 15-25% on procurement costs.',
