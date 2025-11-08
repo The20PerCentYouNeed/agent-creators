@@ -10,9 +10,7 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
-    public function register(): void
-    {
-    }
+    public function register(): void {}
 
     /**
      * Bootstrap any application services.
@@ -20,9 +18,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Request::macro('setPath', function ($path) {
-            $this->pathInfo = '/' . trim($path, '/');
+            $this->pathInfo = '/'.trim($path, '/');
 
-            $this->server->set('REQUEST_URI', $this->pathInfo . '?' . $this->getQueryString());
+            $this->server->set('REQUEST_URI', $this->pathInfo.'?'.$this->getQueryString());
         });
     }
 }
