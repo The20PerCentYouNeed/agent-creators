@@ -68,29 +68,30 @@ class AgentSeeder extends Seeder
 
     private function createDailyMetrics(Agent $agent): void
     {
-        // Generate metrics with an upward trend for marketing purposes
+        // Generate metrics with guaranteed upward trend for marketing purposes
+        $baseRequests = 300; // Fixed base to ensure consistency
+
         for ($daysAgo = 29; $daysAgo >= 0; $daysAgo--) {
             $date = Carbon::now()->subDays($daysAgo)->format('Y-m-d');
 
-            // Growth factor: increases as we get closer to today (from 0.5 to 1.5)
-            $growthFactor = 0.5 + (29 - $daysAgo) / 29; // 0.5 at day 29, 1.5 at day 0
+            // Strong growth factor: increases linearly as we get closer to today
+            // Day 29: 300 requests, Day 0 (today): 1200+ requests (4x growth!)
+            $dayProgress = 29 - $daysAgo; // 0 at day 29, 29 at today
+            $totalRequests = $baseRequests + ($dayProgress * 30) + rand(0, 50); // Guaranteed increase each day
 
-            // Base numbers that will be multiplied by growth factor
-            $baseRequests = rand(400, 800);
-            $totalRequests = (int) ($baseRequests * $growthFactor);
-            $failureRate = rand(2, 8); // 2-8% failure rate (92-98% success)
+            $failureRate = rand(2, 6); // 2-6% failure rate (94-98% success)
             $failedRequests = (int) ($totalRequests * ($failureRate / 100));
             $successfulRequests = $totalRequests - $failedRequests;
 
-            // Response times improve slightly over time (newer = better optimized)
-            $baseResponseTime = rand(1000, 1800);
-            $avgResponseTime = (int) ($baseResponseTime / $growthFactor * 0.9); // Slight improvement over time
+            // Response times improve over time (decrease = better)
+            $avgResponseTime = 1800 - ($dayProgress * 20) + rand(-50, 50); // Gets faster over time
             $p50 = (int) ($avgResponseTime * 0.8);
             $p95 = (int) ($avgResponseTime * 1.5);
             $p99 = (int) ($avgResponseTime * 2);
 
-            $totalTokensInput = rand(50000, 150000) * $growthFactor;
-            $totalTokensOutput = rand(100000, 300000) * $growthFactor;
+            // Token usage grows with requests
+            $totalTokensInput = $totalRequests * rand(100, 200);
+            $totalTokensOutput = $totalRequests * rand(200, 400);
             $totalTokens = $totalTokensInput + $totalTokensOutput;
 
             AgentMetric::create([
@@ -100,7 +101,7 @@ class AgentSeeder extends Seeder
                 'successful_requests' => $successfulRequests,
                 'failed_requests' => $failedRequests,
                 'error_rate' => $failureRate,
-                'avg_response_time_ms' => $avgResponseTime,
+                'avg_response_time_ms' => max(500, $avgResponseTime), // Never below 500ms
                 'p50_response_time_ms' => $p50,
                 'p95_response_time_ms' => $p95,
                 'p99_response_time_ms' => $p99,
@@ -108,10 +109,10 @@ class AgentSeeder extends Seeder
                 'total_tokens_output' => (int) $totalTokensOutput,
                 'total_tokens' => (int) $totalTokens,
                 'total_cost' => ($totalTokens / 1000) * 0.002,
-                'unique_users' => rand(50, (int) ($totalRequests * 0.7)),
-                'avg_satisfaction_score' => rand(400, 500) / 100, // 4.0-5.0
-                'escalation_count' => rand(0, (int) ($totalRequests * 0.05)),
-                'peak_hour' => rand(9, 17),
+                'unique_users' => (int) ($totalRequests * 0.6) + rand(10, 50),
+                'avg_satisfaction_score' => rand(420, 500) / 100, // 4.2-5.0
+                'escalation_count' => rand(0, (int) ($totalRequests * 0.03)),
+                'peak_hour' => rand(10, 16),
             ]);
         }
     }
