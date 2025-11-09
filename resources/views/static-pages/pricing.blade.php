@@ -178,7 +178,7 @@
                     <div class="border-t border-gray-200 dark:border-gray-600 pt-6">
                         <div class="text-center">
                             <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">{{ __('Completely Custom Solution') }}</p>
-                            <p class="text-lg font-bold text-gray-900 dark:text-white">{{ __('Contact Us for Quote') }}</p>
+                            <a href="{{ localized_route('contact') }}" class="text-lg font-bold text-gray-900 dark:text-white">{{ __('Contact Us for Quote') }}</a>
                         </div>
                     </div>
                 </div>
