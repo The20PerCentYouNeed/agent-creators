@@ -9,6 +9,8 @@ class PeakHoursChart extends ChartWidget
 {
     protected static ?string $heading = 'Peak Usage Hours';
 
+    protected static ?string $description = 'Number of requests per hour of day (24-hour format)';
+
     protected static bool $isDiscovered = false;
 
     public ?string $filter = '7';
@@ -37,7 +39,7 @@ class PeakHoursChart extends ChartWidget
                     'backgroundColor' => 'rgb(59, 130, 246)',
                 ],
             ],
-            'labels' => array_map(fn ($h) => $h.':00', $hours),
+            'labels' => array_map(fn ($h) => $h . ':00', $hours),
         ];
     }
 

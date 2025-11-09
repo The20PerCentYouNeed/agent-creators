@@ -9,6 +9,8 @@ class CostTrendChart extends ChartWidget
 {
     protected static ?string $heading = 'Cost Over Time';
 
+    protected static ?string $description = 'Daily API costs in USD';
+
     protected static bool $isDiscovered = false;
 
     public ?string $filter = '30';

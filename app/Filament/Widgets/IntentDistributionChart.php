@@ -9,6 +9,8 @@ class IntentDistributionChart extends ChartWidget
 {
     protected static ?string $heading = 'Top Intents';
 
+    protected static ?string $description = 'Number of interactions per intent category';
+
     protected static bool $isDiscovered = false;
 
     public ?string $filter = '30';
@@ -53,6 +55,20 @@ class IntentDistributionChart extends ChartWidget
     protected function getType(): string
     {
         return 'pie';
+    }
+
+    protected function getOptions(): array
+    {
+        return [
+            'scales' => [
+                'x' => [
+                    'display' => false,
+                ],
+                'y' => [
+                    'display' => false,
+                ],
+            ],
+        ];
     }
 
     protected function getFilters(): ?array

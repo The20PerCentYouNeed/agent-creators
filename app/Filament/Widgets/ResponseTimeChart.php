@@ -9,6 +9,8 @@ class ResponseTimeChart extends ChartWidget
 {
     protected static ?string $heading = 'Response Time Trends (Last 30 Days)';
 
+    protected static ?string $description = 'Agent response times in milliseconds (Average, Median, 95th and 99th percentiles)';
+
     protected static ?int $sort = 3;
 
     protected function getData(): array

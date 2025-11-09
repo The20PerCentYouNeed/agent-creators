@@ -9,6 +9,8 @@ class RequestsChart extends ChartWidget
 {
     protected static ?string $heading = 'Requests Over Time (Last 30 Days)';
 
+    protected static ?string $description = 'Total, successful, and failed request counts by day';
+
     protected static ?int $sort = 2;
 
     protected function getData(): array

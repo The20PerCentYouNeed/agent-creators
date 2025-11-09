@@ -9,6 +9,8 @@ class SentimentDistributionChart extends ChartWidget
 {
     protected static ?string $heading = 'Sentiment Analysis';
 
+    protected static ?string $description = 'User satisfaction breakdown (Positive, Neutral, Negative)';
+
     protected static bool $isDiscovered = false;
 
     public ?string $filter = '30';
@@ -31,9 +33,9 @@ class SentimentDistributionChart extends ChartWidget
                     'label' => 'Interactions',
                     'data' => $sentiments->pluck('count')->toArray(),
                     'backgroundColor' => [
-                        'rgb(34, 197, 94)', // positive
-                        'rgb(156, 163, 175)', // neutral
-                        'rgb(239, 68, 68)', // negative
+                        'rgb(34, 197, 94)',
+                        'rgb(156, 163, 175)',
+                        'rgb(239, 68, 68)',
                     ],
                 ],
             ],
