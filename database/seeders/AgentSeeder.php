@@ -69,12 +69,32 @@ class AgentSeeder extends Seeder
                     ->addDays($daysOffset)
                     ->setTime(rand(8, 20), rand(0, 59), rand(0, 59));
 
+                $errorMessages = [
+                    'Rate limit exceeded for OpenAI API',
+                    'Connection timeout while processing request',
+                    'Invalid API key or authentication failed',
+                    'Maximum context length exceeded (8192 tokens)',
+                    'Model server unavailable - retrying',
+                    'Failed to parse JSON response from AI model',
+                    'Insufficient quota for API usage',
+                    'Network error: Unable to reach AI service',
+                    'Request validation failed: missing required parameters',
+                    'Internal server error during model inference',
+                    'Token limit exceeded for user session',
+                    'Database connection lost during transaction',
+                ];
+
+                $isTimeout = rand(1, 100) <= 30;
+
                 AgentInteraction::factory()
                     ->for($agent)
                     ->failed()
                     ->create([
                         'created_at' => $createdAt,
                         'updated_at' => $createdAt,
+                        'status' => $isTimeout ? 'timeout' : 'error',
+                        'error_message' => fake()->randomElement($errorMessages),
+                        'response_time_ms' => $isTimeout ? rand(30000, 60000) : rand(1000, 5000),
                     ]);
             }
         }
