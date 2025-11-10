@@ -2,16 +2,19 @@
 
 namespace App\Filament\Widgets;
 
+use Carbon\Carbon;
 use App\Models\AgentMetric;
 use Filament\Widgets\ChartWidget;
 
 class CostTrendChart extends ChartWidget
 {
-    protected static ?string $heading = 'Cost Over Time';
+    protected ?string $heading = 'Cost Over Time';
 
-    protected static ?string $description = 'Daily API costs in USD';
+    protected ?string $description = 'Daily API costs in USD';
 
     protected static bool $isDiscovered = false;
+
+    protected int|string|array $columnSpan = 1;
 
     public ?string $filter = '30';
 
@@ -36,7 +39,7 @@ class CostTrendChart extends ChartWidget
                     'fill' => true,
                 ],
             ],
-            'labels' => $data->pluck('date')->map(fn ($date) => \Carbon\Carbon::parse($date)->format('M j'))->toArray(),
+            'labels' => $data->pluck('date')->map(fn ($date) => Carbon::parse($date)->format('M j'))->toArray(),
         ];
     }
 

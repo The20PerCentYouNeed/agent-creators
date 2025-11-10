@@ -7,11 +7,13 @@ use Filament\Widgets\ChartWidget;
 
 class CostByAgentChart extends ChartWidget
 {
-    protected static ?string $heading = 'Cost Distribution by Agent';
+    protected ?string $heading = 'Cost Distribution by Agent';
 
-    protected static ?string $description = 'Total API costs per agent (in USD)';
+    protected ?string $description = 'Total API costs per agent (in USD)';
 
     protected static bool $isDiscovered = false;
+
+    protected int|string|array $columnSpan = 1;
 
     public ?string $filter = '30';
 
@@ -49,27 +51,6 @@ class CostByAgentChart extends ChartWidget
     protected function getType(): string
     {
         return 'doughnut';
-    }
-
-    protected function getOptions(): array
-    {
-        return [
-            'plugins' => [
-                'legend' => [
-                    'display' => true,
-                    'position' => 'bottom',
-                ],
-            ],
-            'scales' => [
-                'x' => [
-                    'display' => false,
-                ],
-                'y' => [
-                    'display' => false,
-                ],
-            ],
-            'maintainAspectRatio' => true,
-        ];
     }
 
     protected function getFilters(): ?array

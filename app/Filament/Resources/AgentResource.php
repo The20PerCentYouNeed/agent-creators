@@ -2,11 +2,24 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Slider;
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
+use App\Filament\Resources\AgentResource\Pages\ListAgents;
+use App\Filament\Resources\AgentResource\Pages\CreateAgent;
+use App\Filament\Resources\AgentResource\Pages\ViewAgent;
+use App\Filament\Resources\AgentResource\Pages\EditAgent;
 use App\Filament\Resources\AgentResource\Pages;
 use App\Models\Agent;
+use Filament\Actions\DeleteBulkAction;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
 
@@ -14,29 +27,33 @@ class AgentResource extends Resource
 {
     protected static ?string $model = Agent::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-cpu-chip';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-cpu-chip';
 
     protected static ?string $navigationLabel = 'Agents';
+
+    protected static string | \UnitEnum | null $navigationGroup = 'Management';
 
     protected static ?int $navigationSort = 2;
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\Section::make('Basic Information')
-                    ->description('General agent details and categorization')
+        return $schema
+            ->columns(1)
+            ->components([
+                Section::make('Basic Information')
                     ->icon('heroicon-o-information-circle')
+                    ->description('General agent details and categorization')
+                    ->columnSpanFull()
                     ->schema([
-                        Forms\Components\TextInput::make('name')
+                        TextInput::make('name')
                             ->label('Agent Name')
                             ->required()
                             ->maxLength(255)
                             ->placeholder('e.g., Customer Support Bot'),
 
-                        Forms\Components\Select::make('type')
+                        Select::make('type')
                             ->label('Agent Type')
                             ->required()
                             ->options([
@@ -48,13 +65,13 @@ class AgentResource extends Resource
                             ])
                             ->native(false),
 
-                        Forms\Components\Textarea::make('description')
+                        Textarea::make('description')
                             ->label('Description')
                             ->rows(3)
                             ->columnSpanFull()
                             ->placeholder('Describe what this agent does...'),
 
-                        Forms\Components\Select::make('status')
+                        Select::make('status')
                             ->label('Status')
                             ->required()
                             ->options([
@@ -66,11 +83,12 @@ class AgentResource extends Resource
                             ->native(false),
                     ])->columns(2),
 
-                Forms\Components\Section::make('AI Configuration')
+                Section::make('AI Configuration')
                     ->description('Configure the AI model and behavior')
                     ->icon('heroicon-o-cpu-chip')
+                    ->columnSpanFull()
                     ->schema([
-                        Forms\Components\Select::make('model')
+                        Select::make('model')
                             ->label('AI Model')
                             ->required()
                             ->options([
@@ -87,17 +105,7 @@ class AgentResource extends Resource
                             ->native(false)
                             ->helperText('Select which AI model powers this agent'),
 
-                        Forms\Components\TextInput::make('temperature')
-                            ->label('Temperature')
-                            ->numeric()
-                            ->minValue(0)
-                            ->maxValue(2)
-                            ->step(0.1)
-                            ->default(0.7)
-                            ->suffix('°')
-                            ->helperText('0 = Focused & Deterministic | 2 = Creative & Random'),
-
-                        Forms\Components\TextInput::make('max_tokens')
+                        TextInput::make('max_tokens')
                             ->label('Max Tokens')
                             ->numeric()
                             ->minValue(100)
@@ -106,7 +114,16 @@ class AgentResource extends Resource
                             ->default(2000)
                             ->helperText('Maximum length of agent responses'),
 
-                        Forms\Components\Textarea::make('system_instructions')
+                        Slider::make('temperature')
+                            ->label('Temperature')
+                            ->range(minValue: 0, maxValue: 2)
+                            ->step(0.1)
+                            ->default(0.7)
+                            ->tooltips()
+                            ->helperText('0 = Focused & Deterministic | 2 = Creative & Random')
+                            ->columnSpan(1),
+
+                        Textarea::make('system_instructions')
                             ->label('System Instructions')
                             ->required()
                             ->rows(8)
@@ -115,11 +132,12 @@ class AgentResource extends Resource
                             ->helperText('Define how the agent should behave and respond'),
                     ])->columns(2),
 
-                Forms\Components\Section::make('Knowledge Base')
+                Section::make('Knowledge Base')
                     ->description('Upload files to enhance agent knowledge')
                     ->icon('heroicon-o-document-text')
+                    ->columnSpanFull()
                     ->schema([
-                        Forms\Components\FileUpload::make('knowledge_base_files')
+                        FileUpload::make('knowledge_base_files')
                             ->label('Knowledge Base Files')
                             ->disk('knowledge-base')
                             ->multiple()
@@ -131,11 +149,12 @@ class AgentResource extends Resource
                             ->helperText('Upload PDFs, TXT, CSV, JSON, or Markdown files (Max 10MB per file). Files are stored securely and not publicly accessible.'),
                     ]),
 
-                Forms\Components\Section::make('Advanced')
+                Section::make('Advanced')
                     ->description('Technical configuration')
                     ->icon('heroicon-o-cog-6-tooth')
+                    ->columnSpanFull()
                     ->schema([
-                        Forms\Components\Select::make('platform')
+                        Select::make('platform')
                             ->label('Platform/Framework')
                             ->options([
                                 'openai_api' => 'OpenAI API',
@@ -147,7 +166,7 @@ class AgentResource extends Resource
                             ])
                             ->native(false),
 
-                        Forms\Components\TextInput::make('api_key')
+                        TextInput::make('api_key')
                             ->label('API Key')
                             ->password()
                             ->revealable()
@@ -161,61 +180,65 @@ class AgentResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->searchable()
                     ->sortable()
                     ->weight('bold')
-                    ->icon('heroicon-o-cpu-chip'),
+                    ->url(fn ($record) => static::getUrl('edit', ['record' => $record])),
 
-                Tables\Columns\TextColumn::make('description')
+                TextColumn::make('description')
                     ->limit(50)
                     ->toggleable(),
 
-                Tables\Columns\BadgeColumn::make('type')
+                TextColumn::make('type')
                     ->searchable()
-                    ->colors([
-                        'primary' => 'customer_support',
-                        'success' => 'sales',
-                        'info' => 'research',
-                        'warning' => 'automation',
-                        'danger' => 'data_analysis',
-                    ])
+                    ->badge()
+                    ->color(fn ($state) => match ($state) {
+                        'customer_support' => 'primary',
+                        'sales' => 'success',
+                        'research' => 'info',
+                        'automation' => 'warning',
+                        'data_analysis' => 'danger',
+                        default => 'gray',
+                    })
                     ->formatStateUsing(fn ($state) => str_replace('_', ' ', ucwords($state, '_'))),
 
-                Tables\Columns\TextColumn::make('platform')
+                TextColumn::make('platform')
                     ->searchable()
                     ->formatStateUsing(fn ($state) => $state ? str_replace('_', ' ', ucwords($state, '_')) : 'N/A')
                     ->toggleable(),
 
-                Tables\Columns\BadgeColumn::make('status')
-                    ->colors([
-                        'success' => 'active',
-                        'warning' => 'paused',
-                        'danger' => 'archived',
-                    ])
+                TextColumn::make('status')
+                    ->badge()
+                    ->color(fn ($state) => match ($state) {
+                        'active' => 'success',
+                        'paused' => 'warning',
+                        'archived' => 'danger',
+                        default => 'gray',
+                    })
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('interactions_count')
+                TextColumn::make('interactions_count')
                     ->counts('interactions')
                     ->label('Total Interactions')
                     ->sortable()
                     ->toggleable(),
 
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->since()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                Tables\Filters\SelectFilter::make('status')
+                SelectFilter::make('status')
                     ->options([
                         'active' => 'Active',
                         'paused' => 'Paused',
                         'archived' => 'Archived',
                     ]),
 
-                Tables\Filters\SelectFilter::make('type')
+                SelectFilter::make('type')
                     ->options([
                         'customer_support' => 'Customer Support',
                         'research' => 'Research',
@@ -224,15 +247,10 @@ class AgentResource extends Resource
                         'data_analysis' => 'Data Analysis',
                     ]),
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+            ->recordAction(null)
+            ->recordUrl(fn ($record) => static::getUrl('edit', ['record' => $record]))
+            ->toolbarActions([
+                DeleteBulkAction::make(),
             ])
             ->defaultSort('created_at', 'desc');
     }
@@ -247,10 +265,10 @@ class AgentResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListAgents::route('/'),
-            'create' => Pages\CreateAgent::route('/create'),
-            'view' => Pages\ViewAgent::route('/{record}'),
-            'edit' => Pages\EditAgent::route('/{record}/edit'),
+            'index' => ListAgents::route('/'),
+            'create' => CreateAgent::route('/create'),
+            'view' => ViewAgent::route('/{record}'),
+            'edit' => EditAgent::route('/{record}/edit'),
         ];
     }
 }

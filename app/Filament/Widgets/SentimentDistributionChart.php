@@ -7,11 +7,13 @@ use Filament\Widgets\ChartWidget;
 
 class SentimentDistributionChart extends ChartWidget
 {
-    protected static ?string $heading = 'Sentiment Analysis';
+    protected ?string $heading = 'Sentiment Analysis';
 
-    protected static ?string $description = 'User satisfaction breakdown (Positive, Neutral, Negative)';
+    protected ?string $description = 'User satisfaction breakdown (Positive, Neutral, Negative)';
 
     protected static bool $isDiscovered = false;
+
+    protected int|string|array $columnSpan = 1;
 
     public ?string $filter = '30';
 

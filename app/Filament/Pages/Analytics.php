@@ -2,25 +2,33 @@
 
 namespace App\Filament\Pages;
 
+use App\Filament\Widgets\CostAnalysisStats;
+use App\Filament\Widgets\CostTrendChart;
+use App\Filament\Widgets\PeakHoursChart;
+use App\Filament\Widgets\CostByAgentChart;
+use App\Filament\Widgets\IntentDistributionChart;
+use App\Filament\Widgets\SentimentDistributionChart;
+use App\Filament\Widgets\AgentPerformanceOverview;
 use App\Models\Agent;
 use App\Models\AgentInteraction;
 use App\Models\AgentMetric;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
+use Filament\Pages\Dashboard\Concerns\HasFiltersForm;
 use Filament\Pages\Page;
+use Filament\Schemas\Schema;
 
-class Analytics extends Page implements HasForms
+class Analytics extends Page
 {
-    use InteractsWithForms;
+    use HasFiltersForm;
 
-    protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-chart-bar';
 
-    protected static string $view = 'filament.pages.analytics';
+    protected string $view = 'filament.pages.analytics';
 
     protected static ?string $navigationLabel = 'Analytics';
+
+    protected static string | \UnitEnum | null $navigationGroup = 'Monitoring';
 
     protected static ?int $navigationSort = 4;
 
@@ -30,17 +38,15 @@ class Analytics extends Page implements HasForms
 
     protected function getHeaderWidgets(): array
     {
-        return [];
-    }
-
-    protected function getFooterWidgets(): array
-    {
-        return [];
-    }
-
-    public function getWidgets(): array
-    {
-        return [];
+        return [
+            CostAnalysisStats::class,
+            CostTrendChart::class,
+            PeakHoursChart::class,
+            CostByAgentChart::class,
+            IntentDistributionChart::class,
+            SentimentDistributionChart::class,
+            AgentPerformanceOverview::class,
+        ];
     }
 
     public ?string $startDate = null;
@@ -49,41 +55,23 @@ class Analytics extends Page implements HasForms
 
     public ?int $agentId = null;
 
-    public function mount(): void
+    public function filtersForm(Schema $schema): Schema
     {
-        $this->startDate = now()->subDays(30)->format('Y-m-d');
-        $this->endDate = now()->format('Y-m-d');
-
-        $this->form->fill([
-            'start_date' => $this->startDate,
-            'end_date' => $this->endDate,
-            'agent_id' => $this->agentId,
-        ]);
-    }
-
-    public function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                DatePicker::make('start_date')
+        return $schema
+            ->components([
+                DatePicker::make('startDate')
                     ->label('Start Date')
                     ->default(now()->subDays(30))
-                    ->maxDate(now())
-                    ->reactive()
-                    ->afterStateUpdated(fn ($state) => $this->startDate = $state),
+                    ->maxDate(now()),
 
-                DatePicker::make('end_date')
+                DatePicker::make('endDate')
                     ->label('End Date')
                     ->default(now())
-                    ->maxDate(now())
-                    ->reactive()
-                    ->afterStateUpdated(fn ($state) => $this->endDate = $state),
+                    ->maxDate(now()),
 
-                Select::make('agent_id')
+                Select::make('agentId')
                     ->label('Agent Filter')
-                    ->options(fn () => [null => 'All Agents'] + Agent::pluck('name', 'id')->toArray())
-                    ->reactive()
-                    ->afterStateUpdated(fn ($state) => $this->agentId = $state),
+                    ->options(fn () => [null => 'All Agents'] + Agent::pluck('name', 'id')->toArray()),
             ])
             ->columns(3);
     }

@@ -2,14 +2,15 @@
 
 namespace App\Filament\Widgets;
 
+use Carbon\Carbon;
 use App\Models\AgentMetric;
 use Filament\Widgets\ChartWidget;
 
 class RequestsChart extends ChartWidget
 {
-    protected static ?string $heading = 'Requests Over Time (Last 30 Days)';
+    protected ?string $heading = 'Requests Over Time (Last 30 Days)';
 
-    protected static ?string $description = 'Total, successful, and failed request counts by day';
+    protected ?string $description = 'Total, successful, and failed request counts by day';
 
     protected static ?int $sort = 2;
 
@@ -44,7 +45,7 @@ class RequestsChart extends ChartWidget
                     'backgroundColor' => 'rgba(239, 68, 68, 0.1)',
                 ],
             ],
-            'labels' => $data->pluck('date')->map(fn ($date) => \Carbon\Carbon::parse($date)->format('M j'))->toArray(),
+            'labels' => $data->pluck('date')->map(fn ($date) => Carbon::parse($date)->format('M j'))->toArray(),
         ];
     }
 

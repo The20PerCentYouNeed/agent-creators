@@ -2,14 +2,15 @@
 
 namespace App\Filament\Widgets;
 
+use Carbon\Carbon;
 use App\Models\AgentMetric;
 use Filament\Widgets\ChartWidget;
 
 class ResponseTimeChart extends ChartWidget
 {
-    protected static ?string $heading = 'Response Time Trends (Last 30 Days)';
+    protected ?string $heading = 'Response Time Trends (Last 30 Days)';
 
-    protected static ?string $description = 'Agent response times in milliseconds (Average, Median, 95th and 99th percentiles)';
+    protected ?string $description = 'Agent response times in milliseconds (Average, Median, 95th and 99th percentiles)';
 
     protected static ?int $sort = 3;
 
@@ -49,7 +50,7 @@ class ResponseTimeChart extends ChartWidget
                     'backgroundColor' => 'rgba(239, 68, 68, 0.1)',
                 ],
             ],
-            'labels' => $data->pluck('date')->map(fn ($date) => \Carbon\Carbon::parse($date)->format('M j'))->toArray(),
+            'labels' => $data->pluck('date')->map(fn ($date) => Carbon::parse($date)->format('M j'))->toArray(),
         ];
     }
 

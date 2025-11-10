@@ -7,13 +7,15 @@ use Filament\Pages\Page;
 
 class Alerts extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-bell-alert';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-bell-alert';
 
-    protected static string $view = 'filament.pages.alerts';
+    protected string $view = 'filament.pages.alerts';
 
     protected static ?string $navigationLabel = 'Alerts';
 
-    protected static ?int $navigationSort = 6;
+    protected static string | \UnitEnum | null $navigationGroup = 'Monitoring';
+
+    protected static ?int $navigationSort = 5;
 
     protected static ?string $title = 'Performance Alerts';
 

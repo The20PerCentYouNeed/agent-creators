@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use Filament\Tables\Columns\TextColumn;
 use App\Models\Agent;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -40,12 +41,12 @@ class AgentPerformanceOverview extends BaseWidget
                     ->active()
             )
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->label('Agent Name')
                     ->searchable()
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('type')
+                TextColumn::make('type')
                     ->label('Type')
                     ->badge()
                     ->colors([
@@ -58,17 +59,17 @@ class AgentPerformanceOverview extends BaseWidget
                     ->formatStateUsing(fn ($state) => str_replace('_', ' ', ucwords($state, '_')))
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('platform')
+                TextColumn::make('platform')
                     ->label('Platform')
                     ->formatStateUsing(fn ($state) => str_replace('_', ' ', ucwords($state, '_')))
                     ->toggleable(),
 
-                Tables\Columns\TextColumn::make('total_interactions')
+                TextColumn::make('total_interactions')
                     ->label('Requests (7d)')
                     ->formatStateUsing(fn ($state) => number_format($state ?? 0))
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('success_rate')
+                TextColumn::make('success_rate')
                     ->label('Success Rate')
                     ->getStateUsing(function ($record) {
                         $total = $record->total_interactions ?? 0;
@@ -85,17 +86,17 @@ class AgentPerformanceOverview extends BaseWidget
                             END '.$direction);
                     }),
 
-                Tables\Columns\TextColumn::make('avg_response_time')
+                TextColumn::make('avg_response_time')
                     ->label('Avg Response')
                     ->formatStateUsing(fn ($state) => $state ? round($state).'ms' : 'N/A')
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('total_cost')
+                TextColumn::make('total_cost')
                     ->label('Cost (7d)')
                     ->money('usd')
                     ->sortable(),
 
-                Tables\Columns\BadgeColumn::make('status')
+                TextColumn::make('status')
                     ->label('Status')
                     ->colors([
                         'success' => 'active',

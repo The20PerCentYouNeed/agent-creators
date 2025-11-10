@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use Filament\Tables\Filters\SelectFilter;
 use App\Models\AgentInteraction;
 use Filament\Pages\Page;
 use Filament\Tables\Columns\BadgeColumn;
@@ -14,11 +15,13 @@ class Interactions extends Page implements HasTable
 {
     use InteractsWithTable;
 
-    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-left-right';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-chat-bubble-left-right';
 
-    protected static string $view = 'filament.pages.interactions';
+    protected string $view = 'filament.pages.interactions';
 
     protected static ?string $navigationLabel = 'Interactions';
+
+    protected static string | \UnitEnum | null $navigationGroup = 'Management';
 
     protected static ?int $navigationSort = 3;
 
@@ -39,12 +42,6 @@ class Interactions extends Page implements HasTable
                     ->limit(60)
                     ->searchable()
                     ->wrap(),
-
-                TextColumn::make('agent_response')
-                    ->label('Response')
-                    ->limit(60)
-                    ->wrap()
-                    ->toggleable(),
 
                 BadgeColumn::make('status')
                     ->colors([
@@ -67,7 +64,7 @@ class Interactions extends Page implements HasTable
 
                 TextColumn::make('response_time_ms')
                     ->label('Response Time')
-                    ->formatStateUsing(fn ($state) => $state.'ms')
+                    ->formatStateUsing(fn ($state) => $state . 'ms')
                     ->sortable(),
 
                 TextColumn::make('tokens_total')
@@ -83,16 +80,15 @@ class Interactions extends Page implements HasTable
 
                 TextColumn::make('created_at')
                     ->label('Time')
-                    ->dateTime()
-                    ->sortable()
-                    ->since(),
+                    ->dateTime('M d, Y H:i')
+                    ->sortable(),
             ])
             ->filters([
-                \Filament\Tables\Filters\SelectFilter::make('agent_id')
+                SelectFilter::make('agent_id')
                     ->relationship('agent', 'name')
                     ->label('Agent'),
 
-                \Filament\Tables\Filters\SelectFilter::make('status')
+                SelectFilter::make('status')
                     ->options([
                         'success' => 'Success',
                         'error' => 'Error',
@@ -100,7 +96,7 @@ class Interactions extends Page implements HasTable
                         'partial' => 'Partial',
                     ]),
 
-                \Filament\Tables\Filters\SelectFilter::make('sentiment')
+                SelectFilter::make('sentiment')
                     ->options([
                         'positive' => 'Positive',
                         'neutral' => 'Neutral',
