@@ -11,6 +11,8 @@ class AlertsStatsWidget extends StatsOverviewWidget
 {
     protected int|string|array $columnSpan = 'full';
 
+    protected static bool $isDiscovered = false;
+
     protected function getStats(): array
     {
         $today = Carbon::today();

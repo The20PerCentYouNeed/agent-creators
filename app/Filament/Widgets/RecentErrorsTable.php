@@ -11,6 +11,8 @@ class RecentErrorsTable extends TableWidget
 {
     protected int|string|array $columnSpan = 'full';
 
+    protected static bool $isDiscovered = false;
+
     protected static ?string $heading = 'Recent Errors & Alerts';
 
     public function table(Table $table): Table
