@@ -322,7 +322,7 @@
                             <span class="text-2xl font-bold text-white">1</span>
                         </div>
                         <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">
-                            {{ __('Discovery') }}
+                            {{ __('Investigation') }}
                         </h3>
                         <p class="text-gray-600 dark:text-gray-400">
                             {{ __('We analyze your business needs, workflows, and identify automation opportunities.') }}
@@ -364,7 +364,7 @@
                             <span class="text-2xl font-bold text-white">4</span>
                         </div>
                         <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">
-                            {{ __('Deploy & Scale') }}
+                            {{ __('Scale') }}
                         </h3>
                         <p class="text-gray-600 dark:text-gray-400">
                             {{ __('Launch your AI agents and scale seamlessly as your business grows with ongoing support.') }}
