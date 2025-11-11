@@ -302,6 +302,124 @@
         </div>
     </section>
 
+    {{-- Dashboard Demo Section --}}
+    <section id="dashboard-demo" class="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-violet-50/50 to-pink-50/30 dark:from-blue-950/30 dark:via-violet-950/40 dark:to-pink-950/20 overflow-hidden">
+        {{-- Subtle Static Background Accent --}}
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-violet-500/8 to-pink-500/5 dark:from-blue-500/10 dark:via-violet-500/15 dark:to-pink-500/10"></div>
+
+        <div class="relative max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                {{-- Left: Text & Buttons --}}
+                <div class="space-y-8">
+                    <div>
+                        <div class="inline-flex items-center space-x-2 px-4 py-2 bg-blue-100 dark:bg-blue-950/50 rounded-full mb-6 border border-blue-200 dark:border-blue-800">
+                            <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
+                            <span class="text-xs md:text-sm font-medium text-blue-900 dark:text-blue-300">
+                                {{ __('Live Demo Available') }}
+                            </span>
+                        </div>
+
+                        <h2 class="text-3xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+                            {{ __('Try Our Live Dashboard') }}
+                        </h2>
+
+                        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+                            {{ __('Experience the full power of our AI agent management dashboard. Track performance, monitor interactions, analyze costs, and optimize your agents - all in real-time.') }}
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a
+                            href="{{ route('demo.login') }}"
+                            class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-violet-600 rounded-lg hover:from-blue-700 hover:to-violet-700 transition-all shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/40 hover:-translate-y-0.5"
+                        >
+                            {{ __('Visit the Demo') }}
+                            <x-heroicon-o-arrow-right class="w-5 h-5 ml-2" />
+                        </a>
+
+                        <a
+                            href="{{ localized_route('contact') }}"
+                            class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all border border-gray-200 dark:border-gray-700 shadow-lg"
+                        >
+                            {{ __('Schedule Personal Demo') }}
+                        </a>
+                    </div>
+
+                    {{-- Features List --}}
+                    <div class="grid sm:grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-start space-x-3">
+                            <x-heroicon-o-check-circle class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">{{ __('Real-time Analytics') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">{{ __('Live performance metrics') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <x-heroicon-o-check-circle class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">{{ __('Cost Tracking') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">{{ __('Monitor API usage & costs') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <x-heroicon-o-check-circle class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">{{ __('Performance Alerts') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">{{ __('Get notified of issues') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <x-heroicon-o-check-circle class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">{{ __('Easy Management') }}</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">{{ __('Intuitive interface') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Right: Browser Mockup --}}
+                <div class="relative group/mockup">
+                    {{-- Background Glow --}}
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-violet-400/20
+                    dark:from-blue-600/10 dark:to-violet-600/10 rounded-3xl blur-3xl"></div>
+
+                    {{-- Browser Window with 3D Transform --}}
+                    <div class="relative bg-gray-100 dark:bg-gray-800 rounded-2xl
+                    shadow-lg overflow-hidden transition-all duration-1000
+                    [transform-style:preserve-3d] group-hover/mockup:[transform:perspective(1500px)_rotateY(0deg)_rotateX(0deg)_translateZ(0)_scale(1.02)]
+                    group-hover/mockup:shadow-xl
+                    motion-reduce:transition-none motion-reduce:group-hover/mockup:transform-none
+                    md:[transform:perspective(1500px)_rotateY(-10deg)_rotateX(5deg)_translateZ(0)]">
+                        {{-- Browser Header --}}
+                        <div class="bg-gray-800 dark:bg-gray-900 px-4 py-2 flex items-center space-x-2">
+                            {{-- Traffic Lights --}}
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            {{-- URL Bar --}}
+                            <div class="flex-1 mx-4 px-4 py-1 bg-gray-700 dark:bg-gray-950 rounded-md text-sm text-gray-300 truncate">
+                                demo.{{ config('app.name', 'aiagents') }}.com
+                            </div>
+                        </div>
+
+                        {{-- Dashboard Screenshot/Content --}}
+                        <div class="bg-white dark:bg-gray-900 px-4 py-2 overflow-hidden">
+                            <img
+                                src="{{ asset('images/dashboard.webp') }}"
+                                alt="Dashboard Preview"
+                                class="w-full h-full object-cover object-top rounded-lg"
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- Process Section --}}
     <section id="process" class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
         <div class="max-w-7xl mx-auto">
