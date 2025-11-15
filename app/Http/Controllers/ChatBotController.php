@@ -44,7 +44,7 @@ class ChatBotController extends Controller
         }
 
         // Handle the run with function calls.
-        $maxIterations = 10;
+        $maxIterations = 15;
         $iteration = 0;
 
         do {
