@@ -28,7 +28,7 @@
                     dark:hover:text-blue-400 transition-colors cursor-pointer">
                         {{ __('Dashboard') }}
                     </a>
-                    <a href="{{ localized_route('home') . '#process' }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
+                    <a href="{{ localized_route('home') . '#how-we-work' }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
                     dark:hover:text-blue-400 transition-colors cursor-pointer">{{ __('How We Work') }}</a>
                     <a href="{{ localized_route('home') . '#case-studies' }}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600
                     dark:hover:text-blue-400 transition-colors cursor-pointer">{{ __('Case Studies') }}</a>
@@ -121,7 +121,7 @@
                         <a href="#dashboard-demo" @click="mobileMenuOpen = false" class="block px-4 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer">
                             {{ __('Dashboard') }}
                         </a>
-                        <a href="#process" @click="mobileMenuOpen = false" class="block px-4 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer">
+                        <a href="#how-we-work" @click="mobileMenuOpen = false" class="block px-4 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer">
                             {{ __('How We Work') }}
                         </a>
                         <a href="{{ localized_route('home') . '#case-studies' }}" @click="mobileMenuOpen = false" class="block px-4 py-3 text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer">

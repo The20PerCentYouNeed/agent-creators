@@ -37,7 +37,7 @@
                 shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/40 hover:-translate-y-0.5 cursor-pointer">
                     {{ __('Start Your AI Journey') }}
                 </a>
-                <a href="#process" class="px-8 py-4 text-lg font-semibold text-gray-700 dark:text-gray-200
+                <a href="#how-we-work" class="px-8 py-4 text-lg font-semibold text-gray-700 dark:text-gray-200
                 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all
                 border border-gray-200 dark:border-gray-700 shadow-lg cursor-pointer">
                     {{ __('Explore Solutions') }}
@@ -421,7 +421,7 @@
     </section>
 
     {{-- Process Section --}}
-    <section id="process" class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
+    <section id="how-we-work" class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
