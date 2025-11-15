@@ -9,11 +9,14 @@
         x-transition:leave="transition ease-in duration-200"
         x-transition:leave-start="opacity-100 transform translate-y-0 scale-100"
         x-transition:leave-end="opacity-0 transform translate-y-4 scale-95"
-        class="absolute bottom-20 right-0 w-96 h-[650px] max-md:fixed max-md:inset-0 max-md:w-full max-md:h-full max-md:z-[60] bg-white dark:bg-gray-900 rounded-2xl max-md:rounded-none shadow-2xl flex flex-col overflow-hidden"
+        class="absolute bottom-18 right-0 w-100 h-[680px] max-md:fixed max-md:inset-0
+        max-md:w-full max-md:h-full max-md:z-[60] bg-white
+        dark:bg-gray-900 rounded-2xl max-md:rounded-none shadow-2xl flex flex-col overflow-hidden"
         style="display: none;"
     >
         <!-- Chat Header -->
-        <div class="bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 text-white px-6 py-4 flex items-center justify-between rounded-t-2xl max-md:rounded-none">
+        <div class="bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 text-white
+        px-6 py-4 flex items-center justify-between rounded-t-2xl max-md:rounded-none">
             <div class="flex items-center gap-3">
                 <!-- Bot Avatar -->
                 <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
@@ -74,7 +77,7 @@
 
                     <!-- Message Bubble -->
                     <div
-                        class="flex flex-col max-w-[70%]"
+                        class="flex flex-col max-w-[80%]"
                         :class="message.type === 'user' ? 'items-end' : 'items-start'"
                     >
                         <div
@@ -118,7 +121,7 @@
             </div>
         </div>
 
-        <!-- Quick Actions -->
+        {{-- <!-- Quick Actions -->
         <div class="px-4 py-3 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
             <div class="flex gap-2 overflow-x-auto pb-2">
                 <button
@@ -146,11 +149,11 @@
                     📚 FAQs
                 </button>
             </div>
-        </div>
+        </div> --}}
 
         <!-- Message Input -->
         <div class="p-4 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-            <form @submit.prevent="sendMessage" @keydown.prevent.enter="sendMessage" data-url="{{ localized_route('chat.store') }}" class="flex gap-2">
+            <form @submit.prevent="sendMessage" @keydown.prevent.enter="sendMessage" data-url="{{ localized_route('chat.store') }}" class="flex gap-2 items-center">
                 <input
                     x-ref="messageInput"
                     x-model="messageInput"
@@ -161,7 +164,9 @@
                 <button
                     type="submit"
                     :disabled="!messageInput.trim()"
-                    class="w-10 h-10 bg-gradient-to-r from-blue-600 to-violet-600 text-white rounded-full flex items-center justify-center hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    class="w-10 h-10 bg-gradient-to-r from-blue-600 to-violet-600
+                    text-white rounded-full flex items-center justify-center cursor-pointer
+                    hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     aria-label="Send message"
                 >
                     <svg class="w-5 h-5 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -175,7 +180,7 @@
     <!-- Floating Chat Button -->
     <button
         @click="toggleChat"
-        class="w-16 h-16 bg-gradient-to-br from-blue-600 via-violet-600 to-purple-600 text-white
+        class="w-14 h-14 bg-gradient-to-br from-blue-600 via-violet-600 to-purple-600 text-white
         rounded-full shadow-2xl flex items-center justify-center cursor-pointer
         hover:scale-110 transition-transform duration-200 relative"
         :class="{ 'max-md:hidden': isOpen }"
@@ -184,7 +189,7 @@
         <!-- Chat Icon (when closed) -->
         <svg
             x-show="!isOpen"
-            class="w-8 h-8"
+            class="w-8 h-8 absolute inset-0 m-auto"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -192,17 +197,18 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
         </svg>
 
-        <!-- X Icon (when open) -->
+        <!-- Chevron Down Icon (when open) -->
         <svg
             x-show="isOpen"
-            class="w-8 h-8"
+            class="w-8 h-8 absolute inset-0 m-auto"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
             style="display: none;"
         >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
+
 
         <!-- Notification Badge (optional - can be used later) -->
         <!-- <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">3</span> -->
