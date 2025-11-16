@@ -11,6 +11,7 @@
     "Testimonials": "Μαρτυρίες",
     "Log in": "Σύνδεση",
     "Get Started": "Ξεκινήστε",
+    "Try asking:": "Δοκίμασε να ρωτήσεις:",
 
     "Transform Your Business with AI": "Μεταμορφώστε την Επιχείρησή σας με AI",
     "Custom AI Agents": "Προσαρμοσμένοι AI Agents",
@@ -665,6 +666,14 @@
     "Works with existing WordPress site and can connect to future systems as needed": "Λειτουργεί με την υπάρχουσα ιστοσελίδα WordPress και μπορεί να συνδεθεί με μελλοντικά συστήματα όπως χρειάζεται",
     "Need a Custom AI Solution for Your Business?": "Χρειάζεστε μια Προσαρμοσμένη Λύση AI για την Επιχείρησή σας;",
     "We specialize in researching, designing, and implementing AI assistants tailored to your industry and specific challenges": "Ειδικευόμαστε στην έρευνα, σχεδιασμό και υλοποίηση AI assistants προσαρμοσμένων στον κλάδο σας και τις συγκεκριμένες προκλήσεις σας",
-    "Discuss Your Project": "Συζητήστε το Έργο σας"
+    "Discuss Your Project": "Συζητήστε το Έργο σας",
+
+    "Hello! How can I help you today? Feel free to ask me anything about AI agent creators and our platform.": "Γεια! Πώς μπορώ να βοηθήσω σήμερα; Μπορείς να με ρωτήσεις οτιδήποτε σχετικά με τους AI agents και την πλατφόρμα μας.",
+
+    "What is an AI agent?": "Τι είναι ένας AI agent;",
+    "How can an AI agent help my business?": "Πώς μπορεί ένας AI agent να βοηθήσει την επιχείρησή μου;",
+    "How much does it cost to build an AI agent?": "Πόσο κοστίζει να φτιάξω έναν AI agent;",
+    "How do we get started?": "Πώς ξεκινάμε;",
+    "Can I see examples of agents you’ve built?": "Μπορώ να δω παραδείγματα agents που έχετε φτιάξει;"
 }
 

@@ -4,6 +4,16 @@ import Alpine from "alpinejs";
 
 window.Alpine = Alpine;
 
+Alpine.magic("root", (el) => {
+    let closestRootEl = (node) => {
+        if (node.hasAttribute("x-data")) return node;
+
+        return closestRootEl(node.parentNode);
+    };
+
+    return closestRootEl(el);
+});
+
 Alpine.data("carousel", (options = {}) => ({
     gap: options.gap ?? 16,
     stepPx: 0,
@@ -167,24 +177,24 @@ Alpine.data("leadForm", () => ({
 Alpine.data("chatbot", () => ({
     isOpen: false,
     isOnline: true,
-    messages: [
-        {
-            id: 1,
-            type: "bot",
-            text: "Hello! How can I help you today? Feel free to ask me anything about AI agent creators and our platform.",
-            timestamp: new Date().toLocaleTimeString("en-US", {
-                hour: "2-digit",
-                minute: "2-digit",
-            }),
-            read: true,
-        },
-    ],
+    messages: [],
     messageInput: "",
     isTyping: false,
     activeTab: null,
+    quickSuggestions: [],
 
     init() {
-        // Any initialization logic
+        setTimeout(() => {
+            if (!this.isOpen) {
+                this.isOpen = true;
+                this.scrollToBottom();
+            }
+        }, 3000);
+
+        const messages = JSON.parse(this.$root.dataset.messages);
+        this.messages = messages;
+
+        this.scrollToBottom();
     },
 
     toggleChat() {
@@ -217,13 +227,12 @@ Alpine.data("chatbot", () => ({
 
         const userMessage = {
             id: Date.now(),
-            type: "user",
+            role: "user",
             text: this.messageInput.trim(),
-            timestamp: new Date().toLocaleTimeString("en-US", {
+            created_at: new Date().toLocaleTimeString("en-US", {
                 hour: "2-digit",
                 minute: "2-digit",
             }),
-            read: false,
         };
 
         this.messages.push(userMessage);
@@ -235,7 +244,7 @@ Alpine.data("chatbot", () => ({
         this.isTyping = true;
 
         try {
-            const response = await fetch(this.$el.dataset.url, {
+            const response = await fetch(this.$root.dataset.url, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -258,11 +267,10 @@ Alpine.data("chatbot", () => ({
             const data = await response.json();
 
             const botMessage = {
-                id: Date.now() + 1,
-                type: "bot",
-                text: data.message,
-                timestamp: data.timestamp,
-                read: true,
+                id: data.id,
+                role: data.role,
+                text: data.text,
+                created_at: data.created_at,
             };
 
             this.messages.push(botMessage);
@@ -274,13 +282,12 @@ Alpine.data("chatbot", () => ({
             // Add error message
             const errorMessage = {
                 id: Date.now() + 1,
-                type: "bot",
+                role: "assistant",
                 text: "Sorry, I'm having trouble connecting right now. Please try again later.",
-                timestamp: new Date().toLocaleTimeString("en-US", {
+                created_at: new Date().toLocaleTimeString("en-US", {
                     hour: "2-digit",
                     minute: "2-digit",
                 }),
-                read: true,
             };
 
             this.messages.push(errorMessage);
@@ -288,23 +295,10 @@ Alpine.data("chatbot", () => ({
         }
     },
 
-    getConversationId() {
-        // Get or create conversation ID from localStorage
-        let conversationId = localStorage.getItem("chatbot_conversation_id");
-        if (!conversationId) {
-            conversationId =
-                "conv_" +
-                Date.now() +
-                "_" +
-                Math.random().toString(36).substring(7);
-            localStorage.setItem("chatbot_conversation_id", conversationId);
-        }
-        return conversationId;
-    },
-
-    selectQuickAction(action) {
-        this.messageInput = action;
-        this.$refs.messageInput?.focus();
+    askSuggestion(question) {
+        this.messageInput = question;
+        // Immediately send on click (no need to press Enter)
+        this.sendMessage();
     },
 }));
 

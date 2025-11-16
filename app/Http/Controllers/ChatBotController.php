@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use OpenAI\Laravel\Facades\OpenAI;
@@ -109,8 +110,10 @@ class ChatBotController extends Controller
         $responseText = $this->removeMarkdownFormatting($responseText);
 
         return response()->json([
-            'message' => $responseText,
-            'timestamp' => now()->format('h:i A'),
+            'id' => $assistantMessage->id,
+            'role' => $assistantMessage->role,
+            'text' => $responseText,
+            'created_at' => isset($assistantMessage->createdAt) ? Carbon::createFromTimestamp($assistantMessage->createdAt)->format('h:i A') : null,
         ]);
     }
 
