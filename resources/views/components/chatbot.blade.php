@@ -15,8 +15,7 @@
         x-transition:leave-start="opacity-100 transform translate-y-0 scale-100"
         x-transition:leave-end="opacity-0 transform translate-y-4 scale-95"
         class="absolute bottom-18 right-0 w-108 h-[690px] max-md:fixed max-md:inset-0
-        max-md:w-full max-md:h-full max-md:z-[60] bg-white
-        dark:bg-gray-900 rounded-2xl max-md:rounded-none shadow-2xl flex flex-col overflow-hidden"
+        max-md:w-full max-md:h-full max-md:z-[60] bg-gray-900 rounded-2xl max-md:rounded-none shadow-2xl flex flex-col overflow-hidden"
         style="display: none;"
     >
         <!-- Chat Header -->
@@ -55,7 +54,7 @@
         <!-- Messages Container -->
         <div
             x-ref="messagesContainer"
-            class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-800"
+            class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-800"
         >
             <!-- Message Loop -->
             <template x-for="message in messages" :key="message.id">
@@ -71,7 +70,7 @@
                         <div
                             class="px-4 py-2.5 rounded-2xl shadow-sm"
                             :class="message.role === 'assistant'
-                                ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100'
+                                ? 'bg-gray-700 text-gray-100'
                                 : 'bg-gradient-to-r from-blue-600 to-violet-600 text-white'"
                         >
                             <p class="text-sm leading-relaxed whitespace-pre-wrap" x-text="message.text"></p>
@@ -79,7 +78,7 @@
                         <!-- Timestamp -->
                         <div class="flex items-center gap-1 mt-1 px-1">
                             <span
-                                class="text-xs text-gray-500 dark:text-gray-400"
+                                class="text-xs text-gray-400"
                                 x-text="message.created_at"
                             ></span>
                         </div>
@@ -91,20 +90,19 @@
             @if (count($messages) <= 1)
             <div
                 x-show="messages.length <= 1"
-                class="bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-2xl p-4 shadow-sm"
+                class="bg-gray-700 border border-gray-600 rounded-2xl p-4 shadow-sm"
             >
-                <h4 class="text-sm font-semibold text-gray-800 dark:text-gray-100">{{ __("Try asking:") }}</h4>
+                <h4 class="text-sm font-semibold text-gray-100">{{ __("Try asking:") }}</h4>
                 <div class="mt-3 grid grid-cols-1 gap-2">
                     @foreach(config('chatbot.question_suggestions') as $suggestion)
                         <button
                             type="button"
                             @click='askSuggestion(@json(__($suggestion)))'
-                            class="group w-full text-left px-4 py-2.5 rounded-xl border border-gray-200
-                            dark:border-gray-600 bg-gradient-to-r from-blue-50 to-violet-50
-                            dark:from-gray-700/60 dark:to-gray-700/20 text-gray-800 dark:text-gray-100 cursor-pointer
-                            transition-all duration-200 hover:shadow-lg hover:from-blue-100 hover:to-violet-100
-                            dark:hover:from-gray-600 dark:hover:to-gray-600/60 hover:-translate-y-0.5 focus:outline-none
-                            focus:ring-2 focus:ring-blue-500/40 dark:focus:ring-violet-500/40"
+                            class="group w-full text-left px-4 py-2.5 rounded-xl border border-gray-600
+                            bg-gradient-to-r from-gray-700/60 to-gray-700/20 text-gray-100 cursor-pointer
+                            transition-all duration-200 hover:shadow-lg
+                            hover:from-gray-600 hover:to-gray-600/60 hover:-translate-y-0.5 focus:outline-none
+                            focus:ring-2 focus:ring-violet-500/40"
                         >
                             <span class="inline-flex items-center gap-2">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-500 transition-colors group-hover:bg-violet-500"></span>
@@ -123,7 +121,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                 </div>
-                <div class="bg-white dark:bg-gray-700 px-4 py-3 rounded-2xl shadow-sm">
+                <div class="bg-gray-700 px-4 py-3 rounded-2xl shadow-sm">
                     <div class="flex gap-1">
                         <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0ms;"></span>
                         <span class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 150ms;"></span>
@@ -134,14 +132,14 @@
         </div>
 
         <!-- Message Input -->
-        <div class="p-4 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+        <div class="p-4 bg-gray-900 border-t border-gray-700">
             <form @submit.prevent="sendMessage" @keydown.prevent.enter="sendMessage" class="flex gap-2 items-center">
                 <input
                     x-ref="messageInput"
                     x-model="messageInput"
                     type="text"
                     placeholder="Type your message here..."
-                    class="flex-1 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-violet-500 placeholder-gray-500 dark:placeholder-gray-400"
+                    class="flex-1 px-4 py-2.5 bg-gray-800 text-gray-100 rounded-full focus:outline-none focus:ring-2 focus:ring-violet-500 placeholder-gray-400"
                 />
                 <button
                     type="submit"

@@ -185,7 +185,7 @@ Alpine.data("chatbot", () => ({
 
     init() {
         setTimeout(() => {
-            if (!this.isOpen) {
+            if (!this.isOpen && window.location.pathname !== "/contact") {
                 this.isOpen = true;
                 this.scrollToBottom();
             }

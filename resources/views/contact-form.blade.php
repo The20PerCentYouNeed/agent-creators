@@ -2,11 +2,11 @@
 
 @section('content')
     {{-- CTA Section --}}
-    <section id="contact" class="py-30 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 via-violet-600 to-pink-600 relative overflow-hidden">
+    <section id="contact" class="py-30 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden">
         {{-- Animated Background Elements --}}
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-[-8rem] left-[-4rem] w-[28rem] h-[28rem] bg-blue-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-[-10rem] right-[-6rem] w-[32rem] h-[32rem] bg-violet-500/25 rounded-full blur-3xl"></div>
         </div>
 
         <div class="relative max-w-7xl mx-auto">
@@ -18,7 +18,7 @@
                     <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                         {{ __('Ready to Transform Your Business?') }}
                     </h1>
-                    <p class="text-lg md:text-xl text-blue-100 mb-6 leading-relaxed">
+                    <p class="text-lg md:text-xl text-slate-200 mb-6 leading-relaxed">
                         {{ __('Join hundreds of companies already using AI agents to automate workflows and scale operations.') }}
                     </p>
 
@@ -56,9 +56,9 @@
                     </div>
 
                     {{-- Contact Information --}}
-                    <div class="border-t border-white/20 pt-6 mt-6">
+                    <div class="border-t border-white/10 pt-6 mt-6">
                         <h3 class="text-base font-semibold text-white mb-4">{{ __('Get in Touch') }}</h3>
-                        <div class="space-y-3">
+                        <div class="space-y-3 text-slate-200">
                             {{-- Email --}}
                             <a href="mailto:info@eliaskalyvas.gr" class="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors group">
                                 <div class="flex-shrink-0 w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center group-hover:bg-white/30 transition-colors">
@@ -270,8 +270,9 @@
                             <button
                                 type="submit"
                                 :disabled="loading"
-                                class="px-10 py-4 text-lg font-semibold text-blue-600 bg-white rounded-lg
-                                hover:bg-blue-50 hover:-translate-y-0.5 transition-all duration-200 shadow-lg hover:shadow-xl
+                                class="px-10 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600/80 to-violet-600/80 backdrop-blur-sm  rounded-lg
+                                hover:from-blue-600 hover:to-violet-600 hover:border-blue-400/50 hover:-translate-y-0.5 transition-all duration-200
+                                shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30
                                 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed disabled:hover:-translate-y-0"
                             >
                                 <span x-show="!loading">{{ __('Submit Request') }}</span>

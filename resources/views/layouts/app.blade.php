@@ -21,7 +21,7 @@
         <!-- Styles / Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 antialiased">
+    <body class="bg-gray-950 text-gray-100 antialiased">
         <x-header />
 
         @yield('content')
