@@ -90,6 +90,7 @@
             <!-- Suggested Questions (appear under the initial bot message) -->
             @if (count($messages) <= 1)
             <div
+                x-show="messages.length <= 1"
                 class="bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-2xl p-4 shadow-sm"
             >
                 <h4 class="text-sm font-semibold text-gray-800 dark:text-gray-100">{{ __("Try asking:") }}</h4>
