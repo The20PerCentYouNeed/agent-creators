@@ -98,7 +98,7 @@
                     @foreach(config('chatbot.question_suggestions') as $suggestion)
                         <button
                             type="button"
-                            @click='askSuggestion(@json($suggestion))'
+                            @click='askSuggestion(@json(__($suggestion)))'
                             class="group w-full text-left px-4 py-2.5 rounded-xl border border-gray-200
                             dark:border-gray-600 bg-gradient-to-r from-blue-50 to-violet-50
                             dark:from-gray-700/60 dark:to-gray-700/20 text-gray-800 dark:text-gray-100 cursor-pointer
