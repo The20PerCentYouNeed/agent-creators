@@ -184,12 +184,16 @@ Alpine.data("chatbot", () => ({
     quickSuggestions: [],
 
     init() {
-        setTimeout(() => {
-            if (!this.isOpen && window.location.pathname !== "/contact") {
-                this.isOpen = true;
-                this.scrollToBottom();
-            }
-        }, 3000);
+        const shouldAutoOpen = this.$root.dataset.shouldAutoOpen === "true";
+
+        if (shouldAutoOpen) {
+            setTimeout(() => {
+                if (!this.isOpen && window.location.pathname !== "/contact") {
+                    this.isOpen = true;
+                    this.scrollToBottom();
+                }
+            }, 3000);
+        }
 
         const messages = JSON.parse(this.$root.dataset.messages);
         this.messages = messages;

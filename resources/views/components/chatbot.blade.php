@@ -3,8 +3,10 @@
     x-data="chatbot"
     data-messages="{{ json_encode($messages) }}"
     data-url="{{ localized_route('chat.store') }}"
+    data-should-auto-open="{{ session('should_auto_open_chatbot') ? 'true' : 'false' }}"
     class="fixed bottom-6 md:bottom-8 right-6 md:right-8 z-50"
 >
+
     <!-- Chat Window -->
     <div
         x-show="isOpen"

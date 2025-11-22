@@ -61,7 +61,7 @@
                 </p>
 
                 <div class="grid md:grid-cols-2 gap-6 mb-8">
-                    <div class="p-4 md:p-6 rounded-xl bg-gradient-to-br to-blue-100/50 from-blue-950/30 to-blue-900/20 border border-blue-800">
+                    <div class="p-4 md:p-6 rounded-xl bg-gradient-to-br from-blue-950/30 to-blue-900/20 border border-blue-800">
                         <h3 class="text-base md:text-lg font-bold text-white mb-4">{{ __('Key Facts') }}</h3>
                         <div class="space-y-3">
                             <div class="flex items-start gap-3">
@@ -252,7 +252,7 @@
                     </div>
                 </div>
 
-                <div class="mt-8 p-4 md:p-6 bg-blue-50 bg-blue-950/30 rounded-xl border border-blue-800">
+                <div class="mt-8 p-4 md:p-6 bg-blue-950/30 rounded-xl border border-blue-800">
                     <h4 class="font-bold text-white mb-3">{{ __('Example Scenario') }}:</h4>
                     <div class="space-y-2 text-gray-300">
                         <p><span class="font-semibold">{{ __('Automated Order') }}:</span> {{ __('10 boxes of Product X') }}</p>
@@ -319,7 +319,7 @@
                     </div>
                 </div>
 
-                <div class="mt-8 p-4 md:p-6 bg-blue-50 bg-blue-950/30 rounded-xl border border-blue-800">
+                <div class="mt-8 p-4 md:p-6 bg-blue-950/30 rounded-xl border border-blue-800">
                     <h4 class="font-bold text-white mb-3">{{ __('Security & Permissions') }}:</h4>
                     <ul class="space-y-2 text-gray-300">
                         <li class="flex items-start gap-2">
@@ -350,19 +350,19 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gradient-to-br to-blue-100/50 from-blue-950/30 to-blue-900/20 rounded-2xl p-4 md:p-8 border border-blue-800">
+                <div class="bg-gradient-to-br from-blue-950/30 to-blue-900/20 rounded-2xl p-4 md:p-8 border border-blue-800">
                     <div class="text-4xl font-bold text-blue-400 mb-2">15-25%</div>
                     <h3 class="text-lg md:text-xl font-bold text-white mb-2">{{ __('Cost Reduction') }}</h3>
                     <p class="text-gray-300">{{ __('Through optimized volume purchases and policy application') }}</p>
                 </div>
 
-                <div class="bg-gradient-to-br to-blue-100/50 from-blue-950/30 to-blue-900/20 rounded-2xl p-4 md:p-8 border border-blue-800">
+                <div class="bg-gradient-to-br from-blue-950/30 to-blue-900/20 rounded-2xl p-4 md:p-8 border border-blue-800">
                     <div class="text-4xl font-bold text-blue-400 mb-2">100%</div>
                     <h3 class="text-lg md:text-xl font-bold text-white mb-2">{{ __('Policy Coverage') }}</h3>
                     <p class="text-gray-300">{{ __('Every order analyzed against all applicable supplier policies') }}</p>
                 </div>
 
-                <div class="bg-gradient-to-br to-blue-100/50 from-blue-950/30 to-blue-900/20 rounded-2xl p-4 md:p-8 border border-blue-800">
+                <div class="bg-gradient-to-br from-blue-950/30 to-blue-900/20 rounded-2xl p-4 md:p-8 border border-blue-800">
                     <div class="text-4xl font-bold text-blue-400 mb-2">{{ __('Real-time') }}</div>
                     <h3 class="text-lg md:text-xl font-bold text-white mb-2">{{ __('Decision Support') }}</h3>
                     <p class="text-gray-300">{{ __('Instant recommendations as orders are generated') }}</p>

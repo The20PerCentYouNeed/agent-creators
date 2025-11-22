@@ -92,8 +92,7 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {{-- Feature 1 --}}
-                <div class="p-8 rounded-2xl bg-gradient-to-br to-blue-100/50 from-blue-950/30
-                to-blue-900/20 border border-blue-800 hover:shadow-xl transition-all hover:-translate-y-1">
+                <div class="p-8 rounded-2xl bg-gradient-to-br from-blue-950/30 to-blue-900/20 border border-blue-800 hover:shadow-xl transition-all hover:-translate-y-1">
                     <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-6">
                         <x-heroicon-o-chat-bubble-left-right class="w-6 h-6 text-white" />
                     </div>
@@ -105,8 +104,7 @@
                     </p>
                 </div>
                 {{-- Feature 2 --}}
-                <div class="p-8 rounded-2xl bg-gradient-to-br to-violet-100/50 from-violet-950/30
-                to-violet-900/20 border border-violet-800 hover:shadow-xl transition-all hover:-translate-y-1">
+                <div class="p-8 rounded-2xl bg-gradient-to-br from-violet-950/30 to-violet-900/20 border border-violet-800 hover:shadow-xl transition-all hover:-translate-y-1">
                     <div class="w-12 h-12 bg-violet-600 rounded-lg flex items-center justify-center mb-6">
                         <x-heroicon-o-cog-6-tooth class="w-6 h-6 text-white" />
                     </div>
@@ -118,8 +116,7 @@
                     </p>
                 </div>
                 {{-- Feature 3 --}}
-                <div class="p-8 rounded-2xl bg-gradient-to-br to-pink-100/50 from-pink-950/30
-                to-pink-900/20 border border-pink-800 hover:shadow-xl transition-all hover:-translate-y-1">
+                <div class="p-8 rounded-2xl bg-gradient-to-br from-pink-950/30 to-pink-900/20 border border-pink-800 hover:shadow-xl transition-all hover:-translate-y-1">
                     <div class="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center mb-6">
                         <x-heroicon-o-chart-bar class="w-6 h-6 text-white" />
                     </div>
@@ -303,9 +300,9 @@
     </section>
 
     {{-- Dashboard Demo Section --}}
-    <section id="dashboard-demo" class="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br via-violet-50/50 to-pink-50/30 from-blue-950/30 via-violet-950/40 to-pink-950/20 overflow-hidden">
+    <section id="dashboard-demo" class="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-950/30 via-violet-950/40 to-pink-950/20 overflow-hidden">
         {{-- Subtle Static Background Accent --}}
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-violet-500/8 to-pink-500/5 from-blue-500/10 via-violet-500/15 to-pink-500/10"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-violet-500/15 to-pink-500/10"></div>
 
         <div class="relative max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -315,11 +312,11 @@
                         <div class="inline-flex items-center space-x-2 px-4 py-2 bg-blue-950/50 rounded-full mb-6 border border-blue-800">
                             <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
                             <span class="text-xs md:text-sm font-medium text-blue-300">
-                                {{ __('Live Demo Available') }}
+                                {{ __('Live Dashboard Section') }}
                             </span>
                         </div>
 
-                        <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">
+                        <h2 class="text-3xl md:text-[45px] font-bold mb-6 text-white whitespace-nowrap">
                             {{ __('Try Our Live Dashboard') }}
                         </h2>
 
@@ -381,8 +378,7 @@
                 {{-- Right: Browser Mockup --}}
                 <div class="relative group/mockup">
                     {{-- Background Glow --}}
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-violet-400/20
-                    from-blue-600/10 to-violet-600/10 rounded-3xl blur-3xl"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-violet-600/10 rounded-3xl blur-3xl"></div>
 
                     {{-- Browser Window with 3D Transform --}}
                     <div class="relative bg-gray-800 rounded-2xl
@@ -392,7 +388,7 @@
                     motion-reduce:transition-none motion-reduce:group-hover/mockup:transform-none
                     md:[transform:perspective(1500px)_rotateY(-10deg)_rotateX(5deg)_translateZ(0)]">
                         {{-- Browser Header --}}
-                        <div class="bg-gray-800 bg-gray-900 px-4 py-2 flex items-center space-x-2">
+                        <div class="bg-gray-900 px-4 py-2 flex items-center space-x-2">
                             {{-- Traffic Lights --}}
                             <div class="flex space-x-2">
                                 <div class="w-3 h-3 rounded-full bg-red-500"></div>
@@ -590,8 +586,7 @@
                 {{-- Right Column: FAQ Accordion --}}
                 <div class="space-y-3">
                     {{-- FAQ 1 --}}
-                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-gray-800 rounded-xl border border-gray-200
-                    border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
                         <button @click="active = !active" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
                         text-left focus:outline-none hover:bg-gray-700 transition-colors">
                             <span class="text-base font-bold text-white">
@@ -610,8 +605,7 @@
                     </div>
 
                     {{-- FAQ 2 --}}
-                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-gray-800 rounded-xl border border-gray-200
-                    border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
                         <button @click="active = !active" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
                         text-left focus:outline-none hover:bg-gray-700 transition-colors">
                             <span class="text-base font-bold text-white">
@@ -630,8 +624,7 @@
                     </div>
 
                     {{-- FAQ 3 --}}
-                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-gray-800 rounded-xl border border-gray-200
-                    border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
                         <button @click="active = !active" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
                         text-left focus:outline-none hover:bg-gray-700 transition-colors">
                             <span class="text-base font-bold text-white">
@@ -650,8 +643,7 @@
                     </div>
 
                     {{-- FAQ 4 --}}
-                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-gray-800 rounded-xl border border-gray-200
-                    border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
                         <button @click="active = !active" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
                         text-left focus:outline-none hover:bg-gray-700 transition-colors">
                             <span class="text-base font-bold text-white">
@@ -670,8 +662,7 @@
                     </div>
 
                     {{-- FAQ 5 --}}
-                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-gray-800 rounded-xl border border-gray-200
-                    border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
                         <button @click="active = !active" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
                         text-left focus:outline-none hover:bg-gray-700 transition-colors">
                             <span class="text-base font-bold text-white">
@@ -690,8 +681,7 @@
                     </div>
 
                     {{-- FAQ 6 --}}
-                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-gray-800 rounded-xl border border-gray-200
-                    border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                    <div x-data="{ active: false }" @click.outside="active = false" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden shadow-lg hover:shadow-xl transition-all">
                         <button @click="active = !active" class="w-full px-6 py-4 flex justify-between items-center cursor-pointer
                         text-left focus:outline-none hover:bg-gray-700 transition-colors">
                             <span class="text-base font-bold text-white">

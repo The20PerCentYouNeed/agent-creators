@@ -73,7 +73,7 @@
                 </p>
 
                 <div class="grid md:grid-cols-2 gap-6 mb-8">
-                    <div class="p-4 md:p-6 rounded-xl bg-gradient-to-br to-blue-100/50 from-blue-950/30 to-blue-900/20 border border-blue-800">
+                    <div class="p-4 md:p-6 rounded-xl bg-gradient-to-br from-blue-950/30 to-blue-900/20 border border-blue-800">
                         <h3 class="text-base md:text-lg font-bold text-white mb-4">{{ __('Key Facts') }}</h3>
                         <div class="space-y-3">
                             <div class="flex items-start gap-3">

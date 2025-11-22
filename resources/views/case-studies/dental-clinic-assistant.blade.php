@@ -61,7 +61,7 @@
                 </p>
 
                 <div class="grid md:grid-cols-2 gap-6 mb-8">
-                    <div class="p-4 md:p-6 rounded-xl bg-gradient-to-br to-blue-100/50 from-blue-950/30 to-blue-900/20 border border-blue-800">
+                    <div class="p-4 md:p-6 rounded-xl bg-gradient-to-br from-blue-950/30 to-blue-900/20 border border-blue-800">
                         <h3 class="text-lg font-bold text-white mb-4">{{ __('Research Context') }}</h3>
                         <div class="space-y-3">
                             <div class="flex items-start gap-3">
@@ -96,7 +96,7 @@
                     </div>
                 </div>
 
-                <div class="p-4 md:p-6 bg-blue-50 bg-blue-950/30 rounded-xl border border-blue-800">
+                <div class="p-4 md:p-6 bg-blue-950/30 rounded-xl border border-blue-800">
                     <div class="flex items-start gap-3">
                         <x-heroicon-o-information-circle class="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" />
                         <div>
@@ -231,20 +231,20 @@
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-6">
-                    <div class="p-4 md:p-6 bg-gradient-to-br to-blue-100/50 from-blue-950/30 to-blue-900/20 rounded-xl border border-blue-800">
+                    <div class="p-4 md:p-6 bg-gradient-to-br from-blue-950/30 to-blue-900/20 rounded-xl border border-blue-800">
                         <x-heroicon-o-envelope-open class="w-8 h-8 text-blue-400 mb-3" />
                         <h4 class="font-bold text-white mb-2">{{ __('Email Marketing') }}</h4>
                         <p class="text-sm text-gray-300">{{ __('Patient email collection, automated newsletters, service updates, and promotional campaigns') }}</p>
                     </div>
 
-                    <div class="p-4 md:p-6 bg-gradient-to-br to-violet-100/50 from-violet-950/30 to-violet-900/20 rounded-xl border border-violet-800">
-                        <x-heroicon-o-megaphone class="w-8 h-8 text-violet-600 text-violet-400 mb-3" />
+                    <div class="p-4 md:p-6 bg-gradient-to-br from-violet-950/30 to-violet-900/20 rounded-xl border border-violet-800">
+                        <x-heroicon-o-megaphone class="w-8 h-8 text-violet-400 mb-3" />
                         <h4 class="font-bold text-white mb-2">{{ __('Social Media Integration') }}</h4>
                         <p class="text-sm text-gray-300">{{ __('Connection with Facebook/Instagram for broader patient engagement and educational content distribution') }}</p>
                     </div>
 
                     <div class="p-4 md:p-6 bg-gradient-to-br from-teal-950/30 to-teal-900/20 rounded-xl border border-teal-800">
-                        <x-heroicon-o-circle-stack class="w-8 h-8 text-teal-600 text-teal-400 mb-3" />
+                        <x-heroicon-o-circle-stack class="w-8 h-8 text-teal-400 mb-3" />
                         <h4 class="font-bold text-white mb-2">{{ __('Patient Database') }}</h4>
                         <p class="text-sm text-gray-300">{{ __('Secure data collection for basic CRM functionality and communication history tracking') }}</p>
                     </div>
@@ -311,7 +311,7 @@
                     </div>
                 </div>
 
-                <div class="p-4 md:p-6 bg-blue-50 bg-blue-950/30 rounded-xl border border-blue-800">
+                <div class="p-4 md:p-6 bg-blue-950/30 rounded-xl border border-blue-800">
                     <h4 class="font-bold text-white mb-3">{{ __('Proposed Technology Stack') }}:</h4>
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
                         <div class="flex items-center gap-2 text-sm text-gray-300">
@@ -362,25 +362,25 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-gradient-to-br to-blue-100/50 from-blue-950/30 to-blue-900/20 rounded-2xl p-4 md:p-8 border border-blue-800">
+                <div class="bg-gradient-to-br from-blue-950/30 to-blue-900/20 rounded-2xl p-4 md:p-8 border border-blue-800">
                     <x-heroicon-o-clock class="w-12 h-12 text-blue-400 mb-4" />
                     <h3 class="text-lg md:text-xl font-bold text-white mb-2">{{ __('Time Savings') }}</h3>
                     <p class="text-gray-300">{{ __('Automated responses to common questions, freeing staff for complex patient needs') }}</p>
                 </div>
 
-                <div class="bg-gradient-to-br to-violet-100/50 from-violet-950/30 to-violet-900/20 rounded-2xl p-4 md:p-8 border border-violet-800">
-                    <x-heroicon-o-face-smile class="w-12 h-12 text-violet-600 text-violet-400 mb-4" />
+                <div class="bg-gradient-to-br from-violet-950/30 to-violet-900/20 rounded-2xl p-4 md:p-8 border border-violet-800">
+                    <x-heroicon-o-face-smile class="w-12 h-12 text-violet-400 mb-4" />
                     <h3 class="text-lg md:text-xl font-bold text-white mb-2">{{ __('Better Patient Experience') }}</h3>
                     <p class="text-gray-300">{{ __('24/7 support availability, clear pre/post-treatment instructions, immediate information access') }}</p>
                 </div>
 
                 <div class="bg-gradient-to-br from-teal-950/30 to-teal-900/20 rounded-2xl p-4 md:p-8 border border-teal-800">
-                    <x-heroicon-o-arrow-trending-up class="w-12 h-12 text-teal-600 text-teal-400 mb-4" />
+                    <x-heroicon-o-arrow-trending-up class="w-12 h-12 text-teal-400 mb-4" />
                     <h3 class="text-lg md:text-xl font-bold text-white mb-2">{{ __('Increased Engagement') }}</h3>
                     <p class="text-gray-300">{{ __('Regular updates about services, educational content, promotional offers, and health tips') }}</p>
                 </div>
 
-                <div class="bg-gradient-to-br to-blue-100/50 from-blue-950/30 to-blue-900/20 rounded-2xl p-4 md:p-8 border border-blue-800">
+                <div class="bg-gradient-to-br from-blue-950/30 to-blue-900/20 rounded-2xl p-4 md:p-8 border border-blue-800">
                     <x-heroicon-o-building-office-2 class="w-12 h-12 text-blue-400 mb-4" />
                     <h3 class="text-lg md:text-xl font-bold text-white mb-2">{{ __('Professional Image') }}</h3>
                     <p class="text-gray-300">{{ __('Modern, technology-forward clinic demonstrating innovation and patient care commitment') }}</p>
