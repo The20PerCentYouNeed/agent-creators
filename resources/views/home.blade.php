@@ -316,7 +316,7 @@
                             </span>
                         </div>
 
-                        <h2 class="text-3xl md:text-[45px] font-bold mb-6 text-white whitespace-nowrap">
+                        <h2 class="text-3xl md:text-[45px] font-bold mb-6 text-white lg:whitespace-nowrap">
                             {{ __('Try Our Live Dashboard') }}
                         </h2>
 
