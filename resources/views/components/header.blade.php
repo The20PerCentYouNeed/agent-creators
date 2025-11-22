@@ -75,9 +75,9 @@
                     <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg flex items-center justify-center">
                         <x-heroicon-o-bolt class="w-5 h-5 text-white" />
                     </div>
-                    <span class="text-xl font-bold text-white">
+                    <a href="{{ localized_route('home') }}" class="text-xl font-bold text-white">
                         {{ __('AI Agents') }}
-                    </span>
+                    </a>
                 </div>
 
                 <!-- Get Started Button -->
