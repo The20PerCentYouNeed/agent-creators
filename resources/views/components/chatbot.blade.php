@@ -93,7 +93,7 @@
             @if (count($messages) <= 1)
             <div
                 x-show="messages.length <= 1"
-                class="flex flex-wrap gap-2.5 max-w-[85%] ml-auto items-end"
+                class="flex flex-wrap gap-2.5 w-full lg:max-w-[85%] ml-auto items-end"
             >
                 @foreach(config('chatbot.question_suggestions') as $suggestion)
                     <button
