@@ -58,11 +58,27 @@ class Chatbot extends Component
             $messages[] = [
                 'id'         => $message->id,
                 'role'       => $message->role,
-                'text'       => trim(implode("\n", $textParts)),
+                'text'       => $this->removeMarkdownFormatting(trim(implode("\n", $textParts))),
                 'created_at' => isset($message->createdAt) ? Carbon::createFromTimestamp($message->createdAt)->format('h:i A') : null,
             ];
         }
 
         return $messages;
+    }
+
+        /**
+     * Remove markdown formatting from text but preserve HTML anchor tags.
+     */
+    private function removeMarkdownFormatting(string $text): string
+    {
+        // Remove asterisks (single and double) used for bold/italic.
+        $text = preg_replace('/\*{1,2}([^*]+)\*{1,2}/', '$1', $text);
+        $text = preg_replace('/\*{1,2}/', '', $text);
+
+        // Remove hash symbols used for headers.
+        $text = preg_replace('/^#+\s*/m', '', $text);
+
+        // Note: HTML anchor tags (<a href="...">...</a>) are preserved intentionally.
+        return $text;
     }
 }
