@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use OpenAI\Laravel\Facades\OpenAI;
@@ -28,13 +27,9 @@ class ChatBotController extends Controller
                 'role' => 'user',
                 'content' => $validated['message'],
             ]);
-
-            $run = OpenAI::threads()->runs()->create($threadId, [
-                'assistant_id' => config('openai.assistant_id'),
-            ]);
         }
         catch (\Exception $e) {
-            Log::error('Failed to create thread or run', [
+            Log::error('Failed to create thread or message', [
                 'error' => $e->getMessage(),
             ]);
 
@@ -44,82 +39,89 @@ class ChatBotController extends Controller
             ], 503);
         }
 
-        // Handle the run with function calls.
-        $maxIterations = 15;
-        $iteration = 0;
-
-        do {
-            usleep(500000);
-
+        return response()->stream(function () use ($threadId) {
             try {
-                $run = OpenAI::threads()->runs()->retrieve($threadId, $run->id);
+                $this->streamAssistantResponse($threadId);
             }
             catch (\Exception $e) {
-                Log::error('Failed to retrieve run status', [
+                Log::error('Streaming error', [
                     'error' => $e->getMessage(),
-                    'thread_id' => $threadId,
-                    'run_id' => $run->id ?? 'unknown',
+                    'trace' => $e->getTraceAsString(),
                 ]);
 
-                return response()->json([
-                    'error' => 'Connection error with AI service. Please try again.',
-                    'details' => config('app.debug') ? $e->getMessage() : null,
-                ], 503);
+                            echo 'data: ' . json_encode([
+                                'error' => 'An error occurred during streaming',
+                                'details' => config('app.debug') ? $e->getMessage() : null,
+                            ]) . "\n\n";
+                            ob_flush();
+                            flush();
+
+                            usleep(5000);
             }
-
-            Log::info('Run status', ['status' => $run->status]);
-
-            // Handle function calls.
-            if ($run->status === 'requires_action') {
-                $this->handleFunctionCalls($threadId, $run);
-            }
-
-            $iteration++;
-        } while (in_array($run->status, ['queued', 'in_progress', 'requires_action']) && $iteration < $maxIterations);
-
-        if ($run->status !== 'completed') {
-            Log::error('Failed to get response from AI', ['status' => $run->status]);
-
-            return response()->json([
-                'error' => 'Failed to get response from AI',
-                'status' => $run->status,
-            ], 500);
-        }
-
-        try {
-            $messages = OpenAI::threads()->messages()->list($threadId, [
-                'limit' => 1,
-            ]);
-
-            $assistantMessage = $messages->data[0];
-            $responseText = $assistantMessage->content[0]->text->value;
-        }
-        catch (\Exception $e) {
-            Log::error('Failed to retrieve assistant message', [
-                'error' => $e->getMessage(),
-                'thread_id' => $threadId,
-            ]);
-
-            return response()->json([
-                'error' => 'Failed to retrieve AI response. Please try again.',
-                'details' => config('app.debug') ? $e->getMessage() : null,
-            ], 503);
-        }
-
-        // Clean markdown symbols from response.
-        $responseText = $this->removeMarkdownFormatting($responseText);
-
-        return response()->json([
-            'id' => $assistantMessage->id,
-            'role' => $assistantMessage->role,
-            'text' => $responseText,
-            'created_at' => isset($assistantMessage->createdAt) ? Carbon::createFromTimestamp($assistantMessage->createdAt)->format('h:i A') : null,
+        }, 200, [
+            'Content-Type' => 'text/event-stream',
+            'Cache-Control' => 'no-cache',
+            'X-Accel-Buffering' => 'no',
+            'Connection' => 'keep-alive',
         ]);
     }
 
-    private function handleFunctionCalls(string $threadId, $run)
+    private function streamAssistantResponse(string $threadId): void
     {
-        Log::info('Handling function calls', ['run' => $run]);
+        $stream = OpenAI::threads()->runs()->createStreamed($threadId, [
+            'assistant_id' => config('openai.assistant_id'),
+        ]);
+
+        $fullText = '';
+        $messageId = null;
+
+        foreach ($stream as $response) {
+            if (connection_aborted()) {
+                break;
+            }
+
+            if ($response->event === 'thread.message.delta') {
+                if (!empty($response->response->delta->content)) {
+                    foreach ($response->response->delta->content as $content) {
+                        if ($content->type === 'text' && $content->text->value !== null) {
+                            $textChunk = $content->text->value;
+                            $cleanedChunk = $this->removeMarkdownFormatting($textChunk);
+                            $fullText .= $cleanedChunk;
+
+                            echo $cleanedChunk;
+                            ob_flush();
+                            flush();
+
+                            usleep(5000);
+                        }
+                    }
+                }
+            }
+
+            if ($response->event === 'thread.message.created') {
+                $messageId = $response->response->id;
+            }
+
+            if ($response->event === 'thread.run.requires_action') {
+                $this->handleFunctionCallsStreamed($threadId, $response->response, $fullText, $messageId);
+                break;
+            }
+
+            if ($response->event === 'thread.run.completed') {
+                break;
+            }
+
+            if ($response->event === 'thread.run.failed' || $response->event === 'thread.run.cancelled') {
+                echo 'data: ' . json_encode(['error' => 'The assistant run failed or was cancelled']) . "\n\n";
+                ob_flush();
+                flush();
+                break;
+            }
+        }
+    }
+
+    private function handleFunctionCallsStreamed(string $threadId, $run, string &$fullText, ?string &$messageId): void
+    {
         $toolCalls = $run->requiredAction->submitToolOutputs->toolCalls ?? [];
         $toolOutputs = [];
 
@@ -135,8 +137,7 @@ class ChatBotController extends Controller
                     ];
                 }
                 else {
-                    $errorMsg = 'Error: Invalid or unauthorized URL. '
-                    . 'Only agent-creators.ai URLs are allowed.';
+                    $errorMsg = 'Error: Invalid or unauthorized URL. Only agent-creators.ai URLs are allowed.';
                     $toolOutputs[] = [
                         'tool_call_id' => $toolCall->id,
                         'output' => $errorMsg,
@@ -145,12 +146,43 @@ class ChatBotController extends Controller
             }
         }
 
-        // Submit tool outputs.
         if (!empty($toolOutputs)) {
             try {
-                $run = OpenAI::threads()->runs()->submitToolOutputs($threadId, $run->id, [
+                $stream = OpenAI::threads()->runs()->submitToolOutputsStreamed($threadId, $run->id, [
                     'tool_outputs' => $toolOutputs,
                 ]);
+
+                foreach ($stream as $response) {
+                    if (connection_aborted()) {
+                        break;
+                    }
+
+                    if ($response->event === 'thread.message.delta') {
+                        if (!empty($response->response->delta->content)) {
+                            foreach ($response->response->delta->content as $content) {
+                                if ($content->type === 'text' && $content->text->value !== null) {
+                                    $textChunk = $content->text->value;
+                                    $cleanedChunk = $this->removeMarkdownFormatting($textChunk);
+                                    $fullText .= $cleanedChunk;
+
+                                    echo $cleanedChunk;
+                                    ob_flush();
+                                    flush();
+
+                                    usleep(5000);
+                                }
+                            }
+                        }
+                    }
+
+                    if ($response->event === 'thread.message.created') {
+                        $messageId = $response->response->id;
+                    }
+
+                    if ($response->event === 'thread.run.completed') {
+                        break;
+                    }
+                }
             }
             catch (\Exception $e) {
                 Log::error('Failed to submit tool outputs', [
@@ -159,7 +191,9 @@ class ChatBotController extends Controller
                     'run_id' => $run->id ?? 'unknown',
                 ]);
 
-                throw $e;
+                echo 'data: ' . json_encode(['error' => 'Failed to process function calls']) . "\n\n";
+                ob_flush();
+                flush();
             }
         }
     }

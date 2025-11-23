@@ -262,39 +262,47 @@ Alpine.data("chatbot", () => ({
                 }),
             });
 
-            this.isTyping = false;
-
             if (!response.ok) {
                 throw new Error("Failed to get response");
             }
 
-            const data = await response.json();
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+
+            const { done, value } = await reader.read();
+
+            const text = decoder.decode(value, { stream: true });
 
             const botMessage = {
-                id: data.id,
-                role: data.role,
-                text: data.text,
-                created_at: data.created_at,
-            };
-
-            this.messages.push(botMessage);
-            this.scrollToBottom();
-        } catch (error) {
-            this.isTyping = false;
-            console.error("Error sending message:", error);
-
-            // Add error message
-            const errorMessage = {
                 id: Date.now() + 1,
                 role: "assistant",
-                text: "Sorry, I'm having trouble connecting right now. Please try again later.",
+                text: text,
                 created_at: new Date().toLocaleTimeString("en-US", {
                     hour: "2-digit",
                     minute: "2-digit",
                 }),
             };
 
-            this.messages.push(errorMessage);
+            this.messages.push(botMessage);
+
+            this.isTyping = false;
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                const text = decoder.decode(value, { stream: true });
+                this.messages[this.messages.length - 1].text += text;
+
+                this.scrollToBottom();
+            }
+        } catch (error) {
+            this.isTyping = false;
+            console.error("Error sending message:", error);
+
+            // Update bot message with error
+            botMessage.text =
+                "Sorry, I'm having trouble connecting right now. Please try again later.";
             this.scrollToBottom();
         }
     },
