@@ -4,7 +4,7 @@
     data-messages="{{ json_encode($messages) }}"
     data-url="{{ localized_route('chat.store') }}"
     data-should-auto-open="{{ session('should_auto_open_chatbot') ? 'true' : 'false' }}"
-    class="fixed bottom-6 md:bottom-8 right-6 md:right-8 z-50"
+    class="fixed bottom-4 lg:bottom-8 right-4 lg:right-8 z-50"
 >
 
     <!-- Chat Window -->
@@ -16,13 +16,14 @@
         x-transition:leave="transition ease-in duration-200"
         x-transition:leave-start="opacity-100 transform translate-y-0 scale-100"
         x-transition:leave-end="opacity-0 transform translate-y-4 scale-95"
-        class="absolute bottom-18 right-0 w-108 h-[690px] max-md:fixed max-md:inset-0
-        max-md:w-full max-md:h-full max-md:z-[60] bg-gray-900 rounded-2xl max-md:rounded-none shadow-2xl flex flex-col overflow-hidden"
+        class="absolute bottom-18 right-0 w-108 h-[690px]
+        max-md:w-[calc(100vw-3rem)] max-md:h-[calc(100vh-8rem)] max-md:bottom-16
+        bg-gray-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
         style="display: none;"
     >
         <!-- Chat Header -->
         <div class="bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 text-white
-        px-6 py-2 flex items-center justify-between rounded-t-2xl max-md:rounded-none">
+        px-6 py-2 flex items-center justify-between rounded-t-2xl">
             <div class="flex items-center gap-3">
                 <!-- Bot Avatar -->
                 <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
@@ -159,7 +160,6 @@
         class="w-14 h-14 bg-gradient-to-br from-blue-600 via-violet-600 to-purple-600 text-white
         rounded-full shadow-2xl flex items-center justify-center cursor-pointer
         hover:scale-110 transition-transform duration-200 relative"
-        :class="{ 'max-md:hidden': isOpen }"
         aria-label="Open chat"
     >
         <!-- Chat Icon (when closed) -->
