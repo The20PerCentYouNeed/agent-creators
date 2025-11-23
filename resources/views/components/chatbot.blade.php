@@ -75,7 +75,7 @@
                                 ? 'bg-gray-700 text-gray-100'
                                 : 'bg-gradient-to-r from-blue-600 to-violet-600 text-white'"
                         >
-                            <p class="text-sm leading-relaxed whitespace-pre-wrap" x-text="message.text"></p>
+                            <p class="text-sm leading-relaxed whitespace-pre-wrap [&_a]:text-blue-400 [&_a]:underline [&_a]:font-medium [&_a:hover]:text-violet-400 [&_a]:transition-colors" x-html="message.text"></p>
                         </div>
                         <!-- Timestamp -->
                         <div class="flex items-center gap-1 mt-1 px-1">
@@ -92,27 +92,21 @@
             @if (count($messages) <= 1)
             <div
                 x-show="messages.length <= 1"
-                class="bg-gray-700 border border-gray-600 rounded-2xl p-4 shadow-sm"
+                class="flex flex-wrap gap-2.5 max-w-[85%] ml-auto items-end"
             >
-                <h4 class="text-sm font-semibold text-gray-100">{{ __("Try asking:") }}</h4>
-                <div class="mt-3 grid grid-cols-1 gap-2">
-                    @foreach(config('chatbot.question_suggestions') as $suggestion)
-                        <button
-                            type="button"
-                            @click='askSuggestion(@json(__($suggestion)))'
-                            class="group w-full text-left px-4 py-2.5 rounded-xl border border-gray-600
-                            bg-gradient-to-r from-gray-700/60 to-gray-700/20 text-gray-100 cursor-pointer
-                            transition-all duration-200 hover:shadow-lg
-                            hover:from-gray-600 hover:to-gray-600/60 hover:-translate-y-0.5 focus:outline-none
-                            focus:ring-2 focus:ring-violet-500/40"
-                        >
-                            <span class="inline-flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 transition-colors group-hover:bg-violet-500"></span>
-                                <span class="text-sm">{{ __($suggestion) }}</span>
-                            </span>
-                        </button>
-                    @endforeach
-                </div>
+                @foreach(config('chatbot.question_suggestions') as $suggestion)
+                    <button
+                        type="button"
+                        @click='askSuggestion(@json(__($suggestion)))'
+                        class="w-full px-5 py-3 rounded-full border-2 border-violet-500/60
+                        text-gray-100 text-sm font-medium cursor-pointer
+                        transition-all duration-200 flex items-center justify-center
+                        hover:bg-violet-500/10 hover:border-violet-400 hover:shadow-md
+                        focus:outline-none focus:ring-2 focus:ring-violet-500/40 focus:border-violet-400"
+                    >
+                        {{ __($suggestion) }}
+                    </button>
+                @endforeach
             </div>
             @endif
 

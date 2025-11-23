@@ -209,7 +209,7 @@ class ChatBotController extends Controller
     }
 
     /**
-     * Remove markdown formatting from text.
+     * Remove markdown formatting from text but preserve HTML anchor tags.
      */
     private function removeMarkdownFormatting(string $text): string
     {
@@ -220,6 +220,7 @@ class ChatBotController extends Controller
         // Remove hash symbols used for headers.
         $text = preg_replace('/^#+\s*/m', '', $text);
 
+        // Note: HTML anchor tags (<a href="...">...</a>) are preserved intentionally.
         return $text;
     }
 
