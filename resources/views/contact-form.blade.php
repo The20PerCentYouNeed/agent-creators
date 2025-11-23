@@ -14,7 +14,7 @@
             <div class="grid lg:grid-cols-2 gap-10 items-start">
 
                 {{-- Left Column: Content --}}
-                <div class="text-white">
+                <div class="text-white order-2 lg:order-1">
                     <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                         {{ __('Ready to Transform Your Business?') }}
                     </h1>
@@ -94,7 +94,7 @@
                 </div>
 
                 {{-- Right Column: Form --}}
-                <div class="w-full" x-data="leadForm()">
+                <div class="w-full order-1 lg:order-2" x-data="leadForm()">
                     <form @submit.prevent="submitForm" class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 shadow-2xl">
                         <div class="mb-5">
                             <h2 class="text-xl font-bold text-white mb-1">
