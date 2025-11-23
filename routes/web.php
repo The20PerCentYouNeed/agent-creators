@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ChatBotController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\DemoLoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home');
@@ -21,11 +20,11 @@ Route::view('/security', 'static-pages.security')->name('security');
 Route::view('/compliance', 'static-pages.compliance')->name('compliance');
 Route::view('/case-studies/ai-ecommerce-assistant', 'case-studies.e-commerce-assistant')
     ->name('case-studies.ai-ecommerce-assistant');
-Route::view('/case-studies/procurement-optimization-agent', 'case-studies.procurement-optimization-agent')
-    ->name('case-studies.procurement-optimization-agent');
+Route::view(
+    '/case-studies/procurement-optimization-agent',
+    'case-studies.procurement-optimization-agent'
+)->name('case-studies.procurement-optimization-agent');
 Route::view('/case-studies/dental-clinic-assistant', 'case-studies.dental-clinic-assistant')
     ->name('case-studies.dental-clinic-assistant');
 
 Route::post('/chat', [ChatBotController::class, 'store'])->name('chat.store');
-
-Route::get('/demo', DemoLoginController::class)->name('demo.login');
