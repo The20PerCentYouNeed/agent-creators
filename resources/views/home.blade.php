@@ -327,7 +327,7 @@
 
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a
-                            href="{{ route('demo.login') }}"
+                            href="{{ url('/admin/login') }}"
                             class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-violet-600 rounded-lg hover:from-blue-700 hover:to-violet-700 transition-all shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/40 hover:-translate-y-0.5"
                         >
                             {{ __('Visit the Demo') }}
