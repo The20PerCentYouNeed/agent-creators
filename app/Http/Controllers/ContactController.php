@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreContactRequest;
+
 class ContactController extends Controller
 {
     public function index()
@@ -9,28 +11,14 @@ class ContactController extends Controller
         return view('contact.index');
     }
 
-    // public function create(Request $request)
-    // {
-    // $data = $this->validate($request, [
-    // 'firstname' => 'required|max:255',
-    // 'lastname' => 'required|max:255',
-    // 'phone' => 'required|min:8|max:20|regex:/^(\+)?[0-9]{8,20}$/',
-    // 'email' => 'required|email',
-    // 'order_id' => 'sometimes|nullable|numeric|min:1000000',
-    // 'message' => 'required|min:10',
-    // 'contact_subject' => 'required',
-    // ]);
-    // switch ($data['contact_subject']) {
-    // case 'other-information':
-    // case 'b2b-wholesale-franchise':
-    // Notification::route('mail', 'info@lynneshop.com')
-    // ->notify(new ContactMessage($data));
-    // break;
-    // case 'website-orders':
-    // default:
-    // Notification::route('mail', config('mail.from.address'))
-    // ->notify(new ContactMessage($data));
-    // }
-    // return redirect(route('contact-thankyou'));
-    // }
+    public function create(StoreContactRequest $request)
+    {
+        $validatedData = $request->validated();
+
+        // TODO: Dispatch notification email with contact form data.
+        // Example: Notification::route('mail', config('mail.contact.address'))
+        // ->notify(new ContactFormSubmitted($validatedData)).
+        return redirect()->route('contact.thankyou')
+            ->with('success', 'Thank you for contacting us! We will get back to you soon.');
+    }
 }

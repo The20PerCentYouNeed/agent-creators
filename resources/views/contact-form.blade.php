@@ -94,8 +94,10 @@
                 </div>
 
                 {{-- Right Column: Form --}}
-                <div class="w-full order-1 lg:order-2" x-data="leadForm()">
-                    <form @submit.prevent="submitForm" class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 shadow-2xl">
+                <div class="w-full order-1 lg:order-2">
+                    <form method="POST" action="{{ route('contact.create') }}" class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 shadow-2xl">
+                        @csrf
+
                         <div class="mb-5">
                             <h2 class="text-xl font-bold text-white mb-1">
                                 {{ __('Get Started Today') }}
@@ -105,18 +107,22 @@
                             </p>
                         </div>
 
-                        {{-- Success Message --}}
-                        <div x-show="success" x-transition class="mb-5 p-3 bg-green-500/20 border border-green-400/30 rounded-lg text-green-100 text-center text-sm">
-                            <div class="flex items-center justify-center space-x-2">
-                                <x-heroicon-o-check class="w-4 h-4" />
-                                <span>{{ __('We\'ll get back to you soon!') }}</span>
+                        {{-- Global Error Message --}}
+                        @if ($errors->any())
+                            <div class="mb-5 p-3 bg-red-500/20 border border-red-400/30 rounded-lg text-red-100 text-sm">
+                                <div class="flex items-start space-x-2">
+                                    <x-heroicon-o-exclamation-circle class="w-5 h-5 shrink-0 mt-0.5" />
+                                    <div>
+                                        <p class="font-semibold mb-1">{{ __('Please correct the following errors:') }}</p>
+                                        <ul class="list-disc list-inside space-y-0.5">
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                        {{-- Error Message --}}
-                        <div x-show="error" x-transition class="mb-5 p-3 bg-red-500/20 border border-red-400/30 rounded-lg text-red-100 text-center text-sm">
-                            <span x-text="errorMessage"></span>
-                        </div>
+                        @endif
 
                         <div class="space-y-5">
                             {{-- Row 1: Full Name and Email --}}
@@ -129,14 +135,15 @@
                                     <input
                                         type="text"
                                         id="full_name"
-                                        x-model="form.full_name"
-                                        class="form-input w-full px-3 py-2.5 bg-white/20 border border-white/30 rounded-lg text-sm
-                                        text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all"
-                                        :class="{ 'border-red-400': errors.full_name }"
+                                        name="full_name"
+                                        value="{{ old('full_name') }}"
+                                        class="form-input w-full px-3 py-2.5 bg-white/20 border rounded-lg text-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all @error('full_name') border-red-400 @else border-white/30 @enderror"
                                         placeholder="{{ __('Enter your full name') }}"
                                         required
                                     >
-                                    <p x-show="errors.full_name" x-text="errors.full_name" class="mt-1 text-xs text-red-300"></p>
+                                    @error('full_name')
+                                        <p class="mt-1 text-xs text-red-300">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                                 {{-- Email --}}
@@ -147,14 +154,15 @@
                                     <input
                                         type="email"
                                         id="email"
-                                        x-model="form.email"
-                                        class="form-input w-full px-3 py-2.5 bg-white/20 border border-white/30 rounded-lg text-sm text-white
-                                        placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all"
-                                        :class="{ 'border-red-400': errors.email }"
+                                        name="email"
+                                        value="{{ old('email') }}"
+                                        class="form-input w-full px-3 py-2.5 bg-white/20 border rounded-lg text-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all @error('email') border-red-400 @else border-white/30 @enderror"
                                         placeholder="{{ __('Enter your email address') }}"
                                         required
                                     >
-                                    <p x-show="errors.email" x-text="errors.email" class="mt-1 text-xs text-red-300"></p>
+                                    @error('email')
+                                        <p class="mt-1 text-xs text-red-300">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -168,30 +176,34 @@
                                     <input
                                         type="text"
                                         id="company"
-                                        x-model="form.company"
-                                        class="form-input w-full px-3 py-2.5 bg-white/20 border border-white/30 rounded-lg text-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all"
-                                        :class="{ 'border-red-400': errors.company }"
+                                        name="company"
+                                        value="{{ old('company') }}"
+                                        class="form-input w-full px-3 py-2.5 bg-white/20 border rounded-lg text-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all @error('company') border-red-400 @else border-white/30 @enderror"
                                         placeholder="{{ __('Enter your company name') }}"
                                         required
                                     >
-                                    <p x-show="errors.company" x-text="errors.company" class="mt-1 text-xs text-red-300"></p>
+                                    @error('company')
+                                        <p class="mt-1 text-xs text-red-300">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                                 {{-- Phone --}}
                                 <div>
                                     <label for="phone" class="block text-sm font-medium text-white mb-1.5">
-                                        {{ __('Phone Number') }}
+                                        {{ __('Phone Number') }} <span class="text-red-400">*</span>
                                     </label>
                                     <input
                                         type="tel"
                                         id="phone"
-                                        x-model="form.phone"
-                                        class="form-input w-full px-3 py-2.5 bg-white/20 border border-white/30 rounded-lg text-sm
-                                        text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all"
-                                        :class="{ 'border-red-400': errors.phone }"
+                                        name="phone"
+                                        value="{{ old('phone') }}"
+                                        class="form-input w-full px-3 py-2.5 bg-white/20 border rounded-lg text-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all @error('phone') border-red-400 @else border-white/30 @enderror"
                                         placeholder="{{ __('Enter your phone number') }}"
+                                        required
                                     >
-                                    <p x-show="errors.phone" x-text="errors.phone" class="mt-1 text-xs text-red-300"></p>
+                                    @error('phone')
+                                        <p class="mt-1 text-xs text-red-300">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -200,52 +212,58 @@
                                 {{-- Business Size --}}
                                 <div>
                                     <label for="business_size" class="block text-sm font-medium text-white mb-1.5">
-                                        {{ __('Business Size') }}
+                                        {{ __('Business Size') }} <span class="text-red-400">*</span>
                                     </label>
                                     <div class="relative">
                                         <select
                                             id="business_size"
-                                            x-model="form.business_size"
-                                            class="form-input w-full px-3 py-2.5 pr-10 bg-white/20 border border-white/30 rounded-lg text-sm
-                                            text-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all appearance-none"
+                                            name="business_size"
+                                            class="form-input w-full px-3 py-2.5 pr-10 bg-white/20 border rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all appearance-none @error('business_size') border-red-400 @else border-white/30 @enderror"
+                                            required
                                         >
                                             <option value="" class="bg-gray-800 text-white">{{ __('Select business size') }}</option>
-                                            <option value="small" class="bg-gray-800 text-white">{{ __('Small (1-10 employees)') }}</option>
-                                            <option value="medium" class="bg-gray-800 text-white">{{ __('Medium (11-50 employees)') }}</option>
-                                            <option value="large" class="bg-gray-800 text-white">{{ __('Large (51-200 employees)') }}</option>
-                                            <option value="enterprise" class="bg-gray-800 text-white">{{ __('Enterprise (200+ employees)') }}</option>
+                                            <option value="small" class="bg-gray-800 text-white" {{ old('business_size') == 'small' ? 'selected' : '' }}>{{ __('Small (1-10 employees)') }}</option>
+                                            <option value="medium" class="bg-gray-800 text-white" {{ old('business_size') == 'medium' ? 'selected' : '' }}>{{ __('Medium (11-50 employees)') }}</option>
+                                            <option value="large" class="bg-gray-800 text-white" {{ old('business_size') == 'large' ? 'selected' : '' }}>{{ __('Large (51-200 employees)') }}</option>
+                                            <option value="enterprise" class="bg-gray-800 text-white" {{ old('business_size') == 'enterprise' ? 'selected' : '' }}>{{ __('Enterprise (200+ employees)') }}</option>
                                         </select>
                                         <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                                             <x-heroicon-s-chevron-down class="w-4 h-4 text-white/60" />
                                         </div>
                                     </div>
+                                    @error('business_size')
+                                        <p class="mt-1 text-xs text-red-300">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                                 {{-- Industry --}}
                                 <div>
                                     <label for="industry" class="block text-sm font-medium text-white mb-1.5">
-                                        {{ __('Industry') }}
+                                        {{ __('Industry') }} <span class="text-red-400">*</span>
                                     </label>
                                     <div class="relative">
                                         <select
                                             id="industry"
-                                            x-model="form.industry"
-                                            class="form-input w-full px-3 py-2.5 pr-10 bg-white/20 border border-white/30 rounded-lg text-sm
-                                            text-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all appearance-none"
+                                            name="industry"
+                                            class="form-input w-full px-3 py-2.5 pr-10 bg-white/20 border rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all appearance-none @error('industry') border-red-400 @else border-white/30 @enderror"
+                                            required
                                         >
                                             <option value="" class="bg-gray-800 text-white">{{ __('Select industry') }}</option>
-                                            <option value="technology" class="bg-gray-800 text-white">{{ __('Technology') }}</option>
-                                            <option value="healthcare" class="bg-gray-800 text-white">{{ __('Healthcare') }}</option>
-                                            <option value="finance" class="bg-gray-800 text-white">{{ __('Finance') }}</option>
-                                            <option value="ecommerce" class="bg-gray-800 text-white">{{ __('E-commerce') }}</option>
-                                            <option value="education" class="bg-gray-800 text-white">{{ __('Education') }}</option>
-                                            <option value="manufacturing" class="bg-gray-800 text-white">{{ __('Manufacturing') }}</option>
-                                            <option value="other" class="bg-gray-800 text-white">{{ __('Other') }}</option>
+                                            <option value="technology" class="bg-gray-800 text-white" {{ old('industry') == 'technology' ? 'selected' : '' }}>{{ __('Technology') }}</option>
+                                            <option value="healthcare" class="bg-gray-800 text-white" {{ old('industry') == 'healthcare' ? 'selected' : '' }}>{{ __('Healthcare') }}</option>
+                                            <option value="finance" class="bg-gray-800 text-white" {{ old('industry') == 'finance' ? 'selected' : '' }}>{{ __('Finance') }}</option>
+                                            <option value="ecommerce" class="bg-gray-800 text-white" {{ old('industry') == 'ecommerce' ? 'selected' : '' }}>{{ __('E-commerce') }}</option>
+                                            <option value="education" class="bg-gray-800 text-white" {{ old('industry') == 'education' ? 'selected' : '' }}>{{ __('Education') }}</option>
+                                            <option value="manufacturing" class="bg-gray-800 text-white" {{ old('industry') == 'manufacturing' ? 'selected' : '' }}>{{ __('Manufacturing') }}</option>
+                                            <option value="other" class="bg-gray-800 text-white" {{ old('industry') == 'other' ? 'selected' : '' }}>{{ __('Other') }}</option>
                                         </select>
                                         <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                                             <x-heroicon-s-chevron-down class="w-4 h-4 text-white/60" />
                                         </div>
                                     </div>
+                                    @error('industry')
+                                        <p class="mt-1 text-xs text-red-300">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -256,12 +274,14 @@
                                 </label>
                                 <textarea
                                     id="project_description"
-                                    x-model="form.project_description"
+                                    name="project_description"
                                     rows="2"
-                                    class="h-24 form-input w-full px-3 py-2.5 bg-white/20 border border-white/30 rounded-lg text-sm text-white
-                                    placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all resize-none"
+                                    class="h-24 form-input w-full px-3 py-2.5 bg-white/20 border rounded-lg text-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all resize-none @error('project_description') border-red-400 @else border-white/30 @enderror"
                                     placeholder="{{ __('Describe your project requirements and goals...') }}"
-                                ></textarea>
+                                >{{ old('project_description') }}</textarea>
+                                @error('project_description')
+                                    <p class="mt-1 text-xs text-red-300">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
 
@@ -269,20 +289,13 @@
                         <div class="mt-5 flex justify-center">
                             <button
                                 type="submit"
-                                :disabled="loading"
-                                class="px-10 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600/80 to-violet-600/80 backdrop-blur-sm  rounded-lg
-                                hover:from-blue-600 hover:to-violet-600 hover:border-blue-400/50 hover:-translate-y-0.5 transition-all duration-200
-                                shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30
-                                disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed disabled:hover:-translate-y-0"
+                                class="px-10 py-4 text-lg font-semibold text-white
+                                bg-gradient-to-r from-blue-600/80 to-violet-600/80
+                                backdrop-blur-sm rounded-lg hover:from-blue-600 hover:to-violet-600
+                                hover:border-blue-400/50 hover:-translate-y-0.5 transition-all duration-200
+                                shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 cursor-pointer"
                             >
-                                <span x-show="!loading">{{ __('Submit Request') }}</span>
-                                <span x-show="loading" class="flex items-center justify-center space-x-2">
-                                    <svg class="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
-                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                    </svg>
-                                    <span>{{ __('Submitting...') }}</span>
-                                </span>
+                                {{ __('Submit Request') }}
                             </button>
                         </div>
                     </form>
