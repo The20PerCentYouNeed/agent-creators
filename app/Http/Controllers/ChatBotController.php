@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use OpenAI\Laravel\Facades\OpenAI;
+use Symfony\Component\DomCrawler\Crawler;
 
 class ChatBotController extends Controller
 {
@@ -22,6 +23,9 @@ class ChatBotController extends Controller
             }
 
             $threadId = session('openai_thread_id');
+
+            // Cancel any stuck runs before adding a new message.
+            $this->cancelActiveRuns($threadId);
 
             OpenAI::threads()->messages()->create($threadId, [
                 'role' => 'user',
@@ -198,9 +202,6 @@ class ChatBotController extends Controller
         }
     }
 
-    /**
-     * Check if URL is allowed (only agent-creators.ai).
-     */
     private function isAllowedUrl(string $url): bool
     {
         $parsedUrl = parse_url($url);
@@ -208,25 +209,16 @@ class ChatBotController extends Controller
         return isset($parsedUrl['host']) && str_ends_with($parsedUrl['host'], 'agent-creators.ai');
     }
 
-    /**
-     * Remove markdown formatting from text but preserve HTML anchor tags.
-     */
     private function removeMarkdownFormatting(string $text): string
     {
-        // Remove asterisks (single and double) used for bold/italic.
         $text = preg_replace('/\*{1,2}([^*]+)\*{1,2}/', '$1', $text);
         $text = preg_replace('/\*{1,2}/', '', $text);
 
-        // Remove hash symbols used for headers.
         $text = preg_replace('/^#+\s*/m', '', $text);
 
-        // Note: HTML anchor tags (<a href="...">...</a>) are preserved intentionally.
         return $text;
     }
 
-    /**
-     * Fetch and clean content from URL.
-     */
     private function fetchUrlContent(string $url): string
     {
         try {
@@ -238,32 +230,62 @@ class ChatBotController extends Controller
 
             $html = $response->body();
 
-            // Remove script, style, and other non-content tags.
-            $html = preg_replace('/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/mi', '', $html);
-            $html = preg_replace('/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/mi', '', $html);
-            $html = preg_replace('/<nav\b[^<]*(?:(?!<\/nav>)<[^<]*)*<\/nav>/mi', '', $html);
-            $html = preg_replace('/<header\b[^<]*(?:(?!<\/header>)<[^<]*)*<\/header>/mi', '', $html);
-            $html = preg_replace('/<footer\b[^<]*(?:(?!<\/footer>)<[^<]*)*<\/footer>/mi', '', $html);
+            $crawler = new Crawler($html);
 
-            // Remove common navigation patterns.
-            $html = preg_replace('/<a\b[^>]*>(.*?)<\/a>/i', '$1', $html);
+            $crawler->filter('script, style, nav, header, footer, aside')->each(function (Crawler $node) {
+                foreach ($node as $domNode) {
+                    $domNode->parentNode->removeChild($domNode);
+                }
+            });
 
-            // Convert HTML to text.
-            $text = strip_tags($html);
+            $text = $crawler->filter('main, article, .content, body')->first();
+            $textContent = $text->count() > 0 ? $text->text() : $crawler->filter('body')->text();
 
-            // Clean up whitespace.
-            $text = preg_replace('/\s+/', ' ', $text);
-            $text = trim($text);
+            $textContent = preg_replace('/\s+/', ' ', $textContent);
+            $textContent = trim($textContent);
 
-            // Limit length to avoid token limits (keep first 10000 characters for better context).
-            if (strlen($text) > 10000) {
-                $text = substr($text, 0, 10000) . '... [Content truncated]';
+            if (strlen($textContent) > 10000) {
+                $textContent = substr($textContent, 0, 10000) . '... [Content truncated]';
             }
 
-            return $text ?: 'No text content found on this page.';
+            Log::info('Fetched URL content', ['url' => $url, 'content' => $textContent]);
+
+            return $textContent ?: 'No text content found on this page.';
         }
         catch (\Exception $e) {
+            Log::error('Failed to fetch URL content', [
+                'url' => $url,
+                'error' => $e->getMessage(),
+            ]);
+
             return "Error fetching URL: {$e->getMessage()}";
+        }
+    }
+
+    /**
+     * Cancel any active or stuck runs on a thread before adding new messages.
+     */
+    private function cancelActiveRuns(string $threadId): void
+    {
+        try {
+            $runs = OpenAI::threads()->runs()->list($threadId, ['limit' => 5]);
+
+            foreach ($runs->data as $run) {
+                if (in_array($run->status, ['in_progress', 'requires_action', 'queued'])) {
+                    OpenAI::threads()->runs()->cancel($threadId, $run->id);
+                    Log::info('Cancelled stuck run', [
+                        'thread_id' => $threadId,
+                        'run_id' => $run->id,
+                        'status' => $run->status,
+                    ]);
+                }
+            }
+        }
+        catch (\Exception $e) {
+            Log::warning('Failed to cancel active runs', [
+                'thread_id' => $threadId,
+                'error' => $e->getMessage(),
+            ]);
         }
     }
 }
