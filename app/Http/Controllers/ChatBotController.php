@@ -245,6 +245,8 @@ class ChatBotController extends Controller
             $textContent = preg_replace('/\s+/', ' ', $textContent);
             $textContent = trim($textContent);
 
+            Log::info('Url Used', ['url' => $url]);
+
             return $textContent ?: 'No text content found on this page.';
         }
         catch (\Exception $e) {
