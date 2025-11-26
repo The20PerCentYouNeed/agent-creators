@@ -245,6 +245,10 @@ class ChatBotController extends Controller
             $textContent = preg_replace('/\s+/', ' ', $textContent);
             $textContent = trim($textContent);
 
+            if (strlen($textContent) > 10500) {
+                $textContent = substr($textContent, 0, 10500) . '... [Content truncated]';
+            }
+
             Log::info('Url Used', ['url' => $url]);
 
             return $textContent ?: 'No text content found on this page.';
