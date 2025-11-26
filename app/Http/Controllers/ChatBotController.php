@@ -189,6 +189,7 @@ class ChatBotController extends Controller
                     'error' => $e->getMessage(),
                     'thread_id' => $threadId,
                     'run_id' => $run->id ?? 'unknown',
+                    'url' => $url ?? 'unknown',
                 ]);
 
                 echo 'data: ' . json_encode(['error' => 'Failed to process function calls']) . "\n\n";
