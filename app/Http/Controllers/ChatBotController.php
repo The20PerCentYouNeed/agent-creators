@@ -24,9 +24,6 @@ class ChatBotController extends Controller
 
             $threadId = session('openai_thread_id');
 
-            // Cancel any stuck runs before adding a new message.
-            $this->cancelActiveRuns($threadId);
-
             OpenAI::threads()->messages()->create($threadId, [
                 'role' => 'user',
                 'content' => $validated['message'],
@@ -260,33 +257,6 @@ class ChatBotController extends Controller
             ]);
 
             return "Error fetching URL: {$e->getMessage()}";
-        }
-    }
-
-    /**
-     * Cancel any active or stuck runs on a thread before adding new messages.
-     */
-    private function cancelActiveRuns(string $threadId): void
-    {
-        try {
-            $runs = OpenAI::threads()->runs()->list($threadId, ['limit' => 5]);
-
-            foreach ($runs->data as $run) {
-                if (in_array($run->status, ['in_progress', 'requires_action', 'queued'])) {
-                    OpenAI::threads()->runs()->cancel($threadId, $run->id);
-                    Log::info('Cancelled stuck run', [
-                        'thread_id' => $threadId,
-                        'run_id' => $run->id,
-                        'status' => $run->status,
-                    ]);
-                }
-            }
-        }
-        catch (\Exception $e) {
-            Log::warning('Failed to cancel active runs', [
-                'thread_id' => $threadId,
-                'error' => $e->getMessage(),
-            ]);
         }
     }
 }
