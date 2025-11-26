@@ -60,7 +60,7 @@ class ChatBotController extends Controller
                             ob_flush();
                             flush();
 
-                            usleep(5000);
+                            usleep(2000);
             }
         }, 200, [
             'Content-Type' => 'text/event-stream',
@@ -96,7 +96,7 @@ class ChatBotController extends Controller
                             ob_flush();
                             flush();
 
-                            usleep(5000);
+                            usleep(2000);
                         }
                     }
                 }
@@ -173,7 +173,7 @@ class ChatBotController extends Controller
                                     ob_flush();
                                     flush();
 
-                                    usleep(5000);
+                                    usleep(2000);
                                 }
                             }
                         }
