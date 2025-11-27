@@ -4,11 +4,20 @@
             <!-- Brand Section -->
             <div class="w-full lg:w-[35%]">
                 <div class="flex items-center mb-4 space-x-2">
-                    <div class="flex items-center justify-center w-8 h-8 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg">
-                        <x-heroicon-o-bolt class="w-5 h-5 text-white" />
-                    </div>
-                    <a href="{{ localized_route('home') }}" class="text-xl font-bold text-white">
-                        {{ __('AI Agents') }}
+                    <picture>
+                        <source
+                            srcset="{{ asset('images/logo.webp') }}"
+                            type="image/webp"
+                        >
+                        <img
+                            src="{{ asset('images/logo.png') }}"
+                            alt="AI Agents Logo"
+                            class="object-contain w-8 h-8 lg:w-10 lg:h-10"
+                            loading="lazy"
+                        >
+                    </picture>
+                    <a href="{{ localized_route('home') }}" class="text-2xl font-bold text-white">
+                        {{ __('octua') }}
                     </a>
                 </div>
                 <p class="text-sm text-gray-400">

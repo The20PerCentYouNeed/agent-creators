@@ -26,13 +26,24 @@
         px-6 py-2 flex items-center justify-between rounded-t-2xl">
             <div class="flex items-center gap-3">
                 <!-- Bot Avatar -->
-                <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
+                <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center overflow-hidden">
+                    <picture>
+                        <source
+                            srcset="{{ asset('images/owl.webp') }}"
+                            type="image/webp"
+                        >
+                        <img
+                            src="{{ asset('images/owl.png') }}"
+                            alt="AI Assistant"
+                            class="w-6 h-6 object-contain"
+                            width="32"
+                            height="32"
+                            loading="eager"
+                        >
+                    </picture>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-lg">AI Assistant</h3>
+                    <h3 class="font-semibold text-lg">Nyra</h3>
                     <div class="flex items-center gap-1">
                         <span
                             class="w-2 h-2 rounded-full"
@@ -114,9 +125,20 @@
             <!-- Typing Indicator -->
             <div x-show="isTyping" class="flex gap-3">
                 <div class="w-8 h-8 bg-gradient-to-br from-violet-500 to-purple-600 rounded-full flex items-center justify-center shrink-0">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
+                    <picture>
+                        <source
+                            srcset="{{ asset('images/owl.webp') }}"
+                            type="image/webp"
+                        >
+                        <img
+                            src="{{ asset('images/owl.png') }}"
+                            alt="AI Assistant"
+                            class="w-6 h-6 object-contain"
+                            width="20"
+                            height="20"
+                            loading="lazy"
+                        >
+                    </picture>
                 </div>
                 <div class="bg-gray-700 px-4 py-3 rounded-2xl shadow-sm">
                     <div class="flex gap-1">

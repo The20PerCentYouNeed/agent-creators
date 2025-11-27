@@ -6,11 +6,22 @@
             <div class="hidden md:flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg flex items-center justify-center">
-                        <x-heroicon-o-bolt class="w-5 h-5 text-white" />
-                    </div>
-                    <a href="{{ localized_route('home') }}" class="text-xl font-bold text-white">
-                        {{ __('AI Agents') }}
+                    <picture>
+                        <source
+                            srcset="{{ asset('images/logo.webp') }}"
+                            type="image/webp"
+                        >
+                        <img
+                            src="{{ asset('images/logo.png') }}"
+                            alt="Noctua Logo"
+                            class="object-contain"
+                            width="30"
+                            height="30"
+                            loading="eager"
+                        >
+                    </picture>
+                    <a href="{{ localized_route('home') }}" class="text-2xl font-bold text-white">
+                        {{ __('octua') }}
                     </a>
                 </div>
 
@@ -72,11 +83,22 @@
 
                 <!-- Centered Logo -->
                 <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-violet-600 rounded-lg flex items-center justify-center">
-                        <x-heroicon-o-bolt class="w-5 h-5 text-white" />
-                    </div>
-                    <a href="{{ localized_route('home') }}" class="text-xl font-bold text-white">
-                        {{ __('AI Agents') }}
+                    <picture>
+                        <source
+                            srcset="{{ asset('images/logo.webp') }}"
+                            type="image/webp"
+                        >
+                        <img
+                            src="{{ asset('images/logo.png') }}"
+                            alt="Noctua Logo"
+                            class="object-contain"
+                            width="28"
+                            height="28"
+                            loading="eager"
+                        >
+                    </picture>
+                    <a href="{{ localized_route('home') }}" class="text-2xl font-bold text-white">
+                        {{ __('octua') }}
                     </a>
                 </div>
 
