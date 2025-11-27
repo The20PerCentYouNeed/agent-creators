@@ -3,7 +3,7 @@
         <div class="flex flex-col md:flex-row items-start justify-center lg:justify-between lg:gap-30">
             <!-- Brand Section -->
             <div class="w-full lg:w-[35%]">
-                <div class="flex items-center mb-4 space-x-2">
+                <a href="{{ localized_route('home') }}" class="flex items-center mb-4 space-x-2">
                     <picture>
                         <source
                             srcset="{{ asset('images/logo.webp') }}"
@@ -11,15 +11,12 @@
                         >
                         <img
                             src="{{ asset('images/logo.png') }}"
-                            alt="AI Agents Logo"
-                            class="object-contain w-8 h-8 lg:w-10 lg:h-10"
+                            alt="Noctua Logo"
+                            class="object-contain h-10"
                             loading="lazy"
                         >
                     </picture>
-                    <a href="{{ localized_route('home') }}" class="text-2xl font-bold text-white">
-                        {{ __('octua') }}
-                    </a>
-                </div>
+                </a>
                 <p class="text-sm text-gray-400">
                     {{ __('Building intelligent AI agents that transform how businesses operate.') }}
                 </p>

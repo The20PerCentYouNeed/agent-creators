@@ -3,9 +3,9 @@
     x-data="{ mobileMenuOpen: false }">
         <div class="max-w-7xl mx-auto px-4 sm:px-0 relative">
             <!-- Desktop Navigation -->
-            <div class="hidden md:flex justify-between items-center h-16">
+            <div class="hidden md:flex justify-between items-center py-[10px]">
                 <!-- Logo -->
-                <div class="flex items-center space-x-2">
+                <a href="{{ localized_route('home') }}" class="flex items-center space-x-2">
                     <picture>
                         <source
                             srcset="{{ asset('images/logo.webp') }}"
@@ -14,16 +14,11 @@
                         <img
                             src="{{ asset('images/logo.png') }}"
                             alt="Noctua Logo"
-                            class="object-contain"
-                            width="30"
-                            height="30"
+                            class="object-contain h-10"
                             loading="eager"
                         >
                     </picture>
-                    <a href="{{ localized_route('home') }}" class="text-2xl font-bold text-white">
-                        {{ __('octua') }}
-                    </a>
-                </div>
+                </a>
 
                 <!-- Centered Navigation -->
                 <div class="absolute left-1/2 -translate-x-1/2 flex items-center space-x-8">
@@ -82,7 +77,7 @@
                 </button>
 
                 <!-- Centered Logo -->
-                <div class="flex items-center space-x-2">
+                <a href="{{ localized_route('home') }}" class="flex items-center space-x-2">
                     <picture>
                         <source
                             srcset="{{ asset('images/logo.webp') }}"
@@ -91,16 +86,11 @@
                         <img
                             src="{{ asset('images/logo.png') }}"
                             alt="Noctua Logo"
-                            class="object-contain"
-                            width="28"
-                            height="28"
+                            class="object-contain h-8"
                             loading="eager"
                         >
                     </picture>
-                    <a href="{{ localized_route('home') }}" class="text-2xl font-bold text-white">
-                        {{ __('octua') }}
-                    </a>
-                </div>
+                </a>
 
                 <!-- Get Started Button -->
                 <a
