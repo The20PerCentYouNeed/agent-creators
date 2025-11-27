@@ -30,9 +30,9 @@ class Chatbot extends Component
         $messages = [];
 
         $messages[] = [
-            'id'         => 1,
-            'role'       => 'assistant',
-            'text'       => __('Hello! How can I help you today? Feel free to ask me anything about AI agent creators and our platform.'),
+            'id' => 1,
+            'role' => 'assistant',
+            'text' => __('Γεια! Είμαι η Nyra. Πώς μπορώ να βοηθήσω σήμερα; Μπορείς να με ρωτήσεις οτιδήποτε σχετικά με τους AI agents και την πλατφόρμα μας.'),
             'created_at' => now()->format('h:i A'),
         ];
 
@@ -56,9 +56,9 @@ class Chatbot extends Component
             }
 
             $messages[] = [
-                'id'         => $message->id,
-                'role'       => $message->role,
-                'text'       => $this->removeMarkdownFormatting(trim(implode("\n", $textParts))),
+                'id' => $message->id,
+                'role' => $message->role,
+                'text' => $this->removeMarkdownFormatting(trim(implode("\n", $textParts))),
                 'created_at' => isset($message->createdAt) ? Carbon::createFromTimestamp($message->createdAt)->format('h:i A') : null,
             ];
         }
@@ -66,7 +66,7 @@ class Chatbot extends Component
         return $messages;
     }
 
-        /**
+    /**
      * Remove markdown formatting from text but preserve HTML anchor tags.
      */
     private function removeMarkdownFormatting(string $text): string
