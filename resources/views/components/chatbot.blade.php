@@ -26,7 +26,6 @@
         px-6 py-2 flex items-center justify-between rounded-t-2xl">
             <div class="flex items-center gap-3">
                 <!-- Bot Avatar -->
-                <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center overflow-hidden">
                     <picture>
                         <source
                             srcset="{{ asset('images/owl.webp') }}"
@@ -35,13 +34,11 @@
                         <img
                             src="{{ asset('images/owl.png') }}"
                             alt="AI Assistant"
-                            class="w-6 h-6 object-contain"
+                            class="w-10 h-10 object-contain"
                             width="32"
-                            height="32"
                             loading="eager"
                         >
                     </picture>
-                </div>
                 <div>
                     <h3 class="font-semibold text-lg">Nyra</h3>
                     <div class="flex items-center gap-1">
