@@ -6,7 +6,7 @@
     <img
         src="{{ asset('images/logo.png') }}"
         alt="Noctua Logo"
-        class="object-contain h-8"
+        class="object-contain h-[35px] lg:h-10"
         loading="eager"
     >
 </picture>
