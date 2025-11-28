@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section class="relative pt-24 pb-12 md:pt-32 md:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {{-- Background Gradient & Animated Blobs --}}
         <div class="absolute inset-0 bg-gradient-to-br from-gray-900
         via-blue-950 to-violet-950 opacity-50"></div>
@@ -9,15 +9,15 @@
         <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
         <div class="relative max-w-7xl mx-auto text-center">
-            <div class="inline-flex items-center space-x-2 px-4 py-2 bg-blue-950/50
-            rounded-full mb-8 border border-blue-800">
+            <div class="inline-flex items-center space-x-2 px-3 py-1.5 md:px-4 md:py-2 bg-blue-950/50
+            rounded-full mb-6 md:mb-8 border border-blue-800">
                 <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
                 <span class="text-xs md:text-sm font-medium text-blue-300">
                     {{ __('Transform Your Business with AI') }}
                 </span>
             </div>
 
-            <h1 class="text-4xl md:text-7xl font-bold mb-6 leading-tight">
+            <h1 class="text-3xl sm:text-4xl md:text-7xl font-bold mb-5 md:mb-6 leading-tight">
                 <span class="text-white">
                     {{ __('Custom AI Agents') }}
                 </span>
@@ -27,17 +27,17 @@
                 </span>
             </h1>
 
-            <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
+            <p class="text-base sm:text-lg md:text-2xl text-gray-300 mb-10 md:mb-12 max-w-3xl mx-auto px-2">
                 {{ __('Automate workflows, enhance customer service, and scale operations with intelligent AI agents tailored to your specific needs.') }}
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-                <a href="{{ localized_route('contact') }}" class="px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r
+            <div class="flex flex-col sm:flex-row gap-4 md:gap-4 justify-center items-center mb-12 md:mb-16">
+                <a href="{{ localized_route('contact') }}" class="w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold text-white bg-gradient-to-r
                 from-blue-600 to-violet-600 rounded-lg hover:from-blue-700 hover:to-violet-700 transition-all
                 shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/40 hover:-translate-y-0.5 cursor-pointer">
                     {{ __('Start Your AI Journey') }}
                 </a>
-                <a href="#how-we-work" class="px-8 py-4 text-lg font-semibold text-gray-200
+                <a href="#how-we-work" class="w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold text-gray-200
                 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all
                 border border-gray-700 shadow-lg cursor-pointer">
                     {{ __('Explore Solutions') }}
@@ -45,34 +45,34 @@
             </div>
 
             {{-- Stats --}}
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto">
                 <div class="text-center">
-                    <div class="flex justify-center mb-3">
-                        <x-heroicon-o-arrow-trending-up class="w-10 h-10 text-blue-400" />
+                    <div class="flex justify-center mb-2 md:mb-3">
+                        <x-heroicon-o-arrow-trending-up class="w-8 h-8 md:w-10 md:h-10 text-blue-400" />
                     </div>
-                    <div class="text-4xl font-bold text-blue-400 mb-2">+40%</div>
-                    <div class="text-sm text-gray-400">{{ __('Increase in Productivity') }}</div>
+                    <div class="text-2xl md:text-4xl font-bold text-blue-400 mb-1 md:mb-2">+40%</div>
+                    <div class="text-xs md:text-sm text-gray-400">{{ __('Increase in Productivity') }}</div>
                 </div>
                 <div class="text-center">
-                    <div class="flex justify-center mb-3">
-                        <x-heroicon-o-currency-dollar class="w-10 h-10 text-violet-400" />
+                    <div class="flex justify-center mb-2 md:mb-3">
+                        <x-heroicon-o-currency-dollar class="w-8 h-8 md:w-10 md:h-10 text-violet-400" />
                     </div>
-                    <div class="text-4xl font-bold text-violet-400 mb-2">-30%</div>
-                    <div class="text-sm text-gray-400">{{ __('Operating Cost') }}</div>
+                    <div class="text-2xl md:text-4xl font-bold text-violet-400 mb-1 md:mb-2">-30%</div>
+                    <div class="text-xs md:text-sm text-gray-400">{{ __('Operating Cost') }}</div>
                 </div>
                 <div class="text-center">
-                    <div class="flex justify-center mb-3">
-                        <x-heroicon-o-chat-bubble-left-right class="w-10 h-10 text-pink-400" />
+                    <div class="flex justify-center mb-2 md:mb-3">
+                        <x-heroicon-o-chat-bubble-left-right class="w-8 h-8 md:w-10 md:h-10 text-pink-400" />
                     </div>
-                    <div class="text-4xl font-bold text-pink-400 mb-2">+60%</div>
-                    <div class="text-sm text-gray-400">{{ __('Improvement of Customer Experience') }}</div>
+                    <div class="text-2xl md:text-4xl font-bold text-pink-400 mb-1 md:mb-2">+60%</div>
+                    <div class="text-xs md:text-sm text-gray-400">{{ __('Improvement of Customer Experience') }}</div>
                 </div>
                 <div class="text-center">
-                    <div class="flex justify-center mb-3">
-                        <x-heroicon-o-arrow-path class="w-10 h-10 text-blue-400" />
+                    <div class="flex justify-center mb-2 md:mb-3">
+                        <x-heroicon-o-arrow-path class="w-8 h-8 md:w-10 md:h-10 text-blue-400" />
                     </div>
-                    <div class="text-4xl font-bold text-blue-400 mb-2">24/7</div>
-                    <div class="text-sm text-gray-400">{{ __('Automated Support') }}</div>
+                    <div class="text-2xl md:text-4xl font-bold text-blue-400 mb-1 md:mb-2">24/7</div>
+                    <div class="text-xs md:text-sm text-gray-400">{{ __('Automated Support') }}</div>
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@
             <!-- Desktop Navigation -->
             <div class="hidden md:flex justify-between items-center py-[10px]">
                 <!-- Logo -->
-                <a href="{{ localized_route('home') }}" class="flex items-center space-x-2">
+                <a href="{{ localized_route('home') }}" class="flex items-center gap-2">
                     <picture>
                         <source
                             srcset="{{ asset('images/logo.webp') }}"
@@ -15,6 +15,18 @@
                             src="{{ asset('images/logo.png') }}"
                             alt="Noctua Logo"
                             class="object-contain h-10"
+                            loading="eager"
+                        >
+                    </picture>
+                    <picture>
+                        <source
+                            srcset="{{ asset('images/after-logo.webp') }}"
+                            type="image/webp"
+                        >
+                        <img
+                            src="{{ asset('images/after-logo.png') }}"
+                            alt="Noctua Core.AI"
+                            class="object-contain h-6"
                             loading="eager"
                         >
                     </picture>
@@ -77,7 +89,7 @@
                 </button>
 
                 <!-- Centered Logo -->
-                <a href="{{ localized_route('home') }}" class="flex items-center space-x-2">
+                <a href="{{ localized_route('home') }}" class="flex items-center gap-2">
                     <picture>
                         <source
                             srcset="{{ asset('images/logo.webp') }}"
@@ -87,6 +99,18 @@
                             src="{{ asset('images/logo.png') }}"
                             alt="Noctua Logo"
                             class="object-contain h-8"
+                            loading="eager"
+                        >
+                    </picture>
+                    <picture>
+                        <source
+                            srcset="{{ asset('images/after-logo.webp') }}"
+                            type="image/webp"
+                        >
+                        <img
+                            src="{{ asset('images/after-logo.png') }}"
+                            alt="Noctua Core.AI"
+                            class="object-contain h-5"
                             loading="eager"
                         >
                     </picture>
