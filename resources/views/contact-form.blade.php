@@ -2,7 +2,7 @@
 
 @section('content')
     {{-- CTA Section --}}
-    <section id="contact" class="py-30 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden">
+    <section id="contact" class="pt-24 lg:pt-30 pb-30 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden">
         {{-- Animated Background Elements --}}
         <div class="absolute inset-0 opacity-10">
             <div class="absolute top-[-8rem] left-[-4rem] w-[28rem] h-[28rem] bg-blue-500/20 rounded-full blur-3xl"></div>
