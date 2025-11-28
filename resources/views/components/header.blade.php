@@ -79,15 +79,6 @@
 
             <!-- Mobile Navigation -->
             <div class="md:hidden flex justify-between items-center h-16">
-                <!-- Burger Menu Button -->
-                <button
-                    @click="mobileMenuOpen = !mobileMenuOpen"
-                    class="flex items-center justify-start w-10 h-10 text-gray-300 hover:text-blue-400 transition-colors cursor-pointer"
-                >
-                    <x-heroicon-o-bars-3 class="w-8 h-8" x-show="!mobileMenuOpen" />
-                    <x-heroicon-o-x-mark class="w-8 h-8" x-show="mobileMenuOpen" />
-                </button>
-
                 <!-- Centered Logo -->
                 <a href="{{ localized_route('home') }}" class="flex items-center gap-2">
                     <picture>
@@ -116,15 +107,26 @@
                     </picture>
                 </a>
 
-                <!-- Get Started Button -->
-                <a
-                    href="{{ localized_route('contact') }}"
-                    class="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-violet-600
-                    rounded-lg hover:from-blue-700 hover:to-violet-700 transition-all shadow-lg shadow-blue-500/25 hover:shadow-xl
-                    hover:shadow-blue-500/30 hover:-translate-y-0.5 cursor-pointer"
-                >
-                    {{ __('Get Started') }}
-                </a>
+                <div class="flex items-center justify-end gap-4">
+                    <!-- Get Started Button -->
+                    <a
+                        href="{{ localized_route('contact') }}"
+                        class="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-violet-600
+                        rounded-lg hover:from-blue-700 hover:to-violet-700 transition-all shadow-lg shadow-blue-500/25 hover:shadow-xl
+                        hover:shadow-blue-500/30 hover:-translate-y-0.5 cursor-pointer"
+                    >
+                        {{ __('Get Started') }}
+                    </a>
+
+                    <!-- Burger Menu Button -->
+                    <button
+                        @click="mobileMenuOpen = !mobileMenuOpen"
+                        class="flex items-center justify-end text-gray-300 hover:text-blue-400 transition-colors cursor-pointer -mr-1"
+                    >
+                        <x-heroicon-o-bars-3 class="w-10 h-10" x-show="!mobileMenuOpen" />
+                        <x-heroicon-o-x-mark class="w-10 h-10" x-show="mobileMenuOpen" />
+                    </button>
+                </div>
             </div>
 
             <!-- Mobile Menu Dropdown -->
