@@ -6,18 +6,7 @@
             <div class="hidden md:flex justify-between items-center py-[10px]">
                 <!-- Logo -->
                 <a href="{{ localized_route('home') }}" class="flex items-center gap-2">
-                    <picture>
-                        <source
-                            srcset="{{ asset('images/logo.webp') }}"
-                            type="image/webp"
-                        >
-                        <img
-                            src="{{ asset('images/logo.png') }}"
-                            alt="Noctua Logo"
-                            class="object-contain h-10"
-                            loading="eager"
-                        >
-                    </picture>
+                    <x-logo />
                     <picture>
                         <source
                             srcset="{{ asset('images/after-logo.webp') }}"
@@ -81,18 +70,7 @@
             <div class="md:hidden flex justify-between items-center h-16">
                 <!-- Centered Logo -->
                 <a href="{{ localized_route('home') }}" class="flex items-center gap-2">
-                    <picture>
-                        <source
-                            srcset="{{ asset('images/logo.webp') }}"
-                            type="image/webp"
-                        >
-                        <img
-                            src="{{ asset('images/logo.png') }}"
-                            alt="Noctua Logo"
-                            class="object-contain h-8"
-                            loading="eager"
-                        >
-                    </picture>
+                    <x-logo />
                     <picture>
                         <source
                             srcset="{{ asset('images/after-logo.webp') }}"
