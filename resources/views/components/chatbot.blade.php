@@ -17,7 +17,7 @@
         x-transition:leave-start="opacity-100 transform translate-y-0 scale-100"
         x-transition:leave-end="opacity-0 transform translate-y-4 scale-95"
         class="absolute bottom-18 right-0 w-108 h-[690px]
-        max-md:w-[calc(100vw-3rem)] max-md:h-[calc(100vh-8rem)] max-md:bottom-16
+        max-md:w-[calc(100vw-3rem)] max-md:h-[calc(100vh-10rem)] max-md:bottom-16
         bg-gray-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
         style="display: none;"
     >
