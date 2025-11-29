@@ -2,7 +2,6 @@
 
 namespace App\View\Components;
 
-use Illuminate\Support\Carbon;
 use Illuminate\View\Component;
 use OpenAI\Laravel\Facades\OpenAI;
 
@@ -32,8 +31,15 @@ class Chatbot extends Component
         $messages[] = [
             'id' => 1,
             'role' => 'assistant',
-            'text' => __('Γεια! Είμαι η Nyra. Πώς μπορώ να βοηθήσω σήμερα; Μπορείς να με ρωτήσεις οτιδήποτε σχετικά με τους AI agents και την πλατφόρμα μας.'),
-            'created_at' => now()->format('h:i A'),
+            'text' => __("Hi, I'm Nyra — the living case study of <a href=\":link\">noctuacore.ai</a>. I was created to show you how an AI Agent can work for you.", [
+                'link' => localized_route('home'),
+            ]),
+        ];
+
+        $messages[] = [
+            'id' => 2,
+            'role' => 'assistant',
+            'text' => __("Where do you want to start from?"),
         ];
 
         if (!$threadId) {
@@ -59,7 +65,6 @@ class Chatbot extends Component
                 'id' => $message->id,
                 'role' => $message->role,
                 'text' => $this->removeMarkdownFormatting(trim(implode("\n", $textParts))),
-                'created_at' => isset($message->createdAt) ? Carbon::createFromTimestamp($message->createdAt)->format('h:i A') : null,
             ];
         }
 

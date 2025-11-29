@@ -106,10 +106,6 @@ Alpine.data("chatbot", () => ({
             id: Date.now(),
             role: "user",
             text: this.messageInput.trim(),
-            created_at: new Date().toLocaleTimeString("en-US", {
-                hour: "2-digit",
-                minute: "2-digit",
-            }),
         };
 
         this.messages.push(userMessage);
@@ -150,10 +146,6 @@ Alpine.data("chatbot", () => ({
                 id: Date.now() + 1,
                 role: "assistant",
                 text: text,
-                created_at: new Date().toLocaleTimeString("en-US", {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                }),
             };
 
             this.messages.push(botMessage);

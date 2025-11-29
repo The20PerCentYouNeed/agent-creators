@@ -78,29 +78,29 @@
                         class="flex flex-col max-w-[80%]"
                         :class="message.role === 'user' ? 'items-end' : 'items-start'"
                     >
+                        <!-- Assistant Name (only for assistant messages) -->
+                        <div x-show="message.role === 'assistant'" class="px-1 mb-1">
+                            <span class="text-xs font-medium text-gray-400">Nyra</span>
+                        </div>
                         <div
                             class="px-4 py-2.5 rounded-2xl shadow-sm"
                             :class="message.role === 'assistant'
                                 ? 'bg-gray-700 text-gray-100'
                                 : 'bg-gradient-to-r from-blue-600 to-violet-600 text-white'"
                         >
-                            <p class="text-sm leading-relaxed whitespace-pre-wrap [&_a]:text-blue-400 [&_a]:underline [&_a]:font-medium [&_a:hover]:text-violet-400 [&_a]:transition-colors" x-html="message.text"></p>
-                        </div>
-                        <!-- Timestamp -->
-                        <div class="flex items-center gap-1 mt-1 px-1">
-                            <span
-                                class="text-xs text-gray-400"
-                                x-text="message.created_at"
-                            ></span>
+                            <p class="text-sm leading-relaxed whitespace-pre-wrap
+                                [&_a]:text-blue-400 [&_a]:underline [&_a]:font-medium
+                                [&_a:hover]:text-violet-400 [&_a]:transition-colors" x-html="message.text">
+                            </p>
                         </div>
                     </div>
                 </div>
             </template>
 
             <!-- Suggested Questions (appear under the initial bot message) -->
-            @if (count($messages) <= 1)
+            @if (count($messages) <= 2)
             <div
-                x-show="messages.length <= 1"
+                x-show="messages.length <= 2"
                 class="flex flex-wrap gap-2.5 w-full lg:max-w-[85%] ml-auto items-end"
             >
                 @foreach(config('chatbot.question_suggestions') as $suggestion)
