@@ -2,8 +2,10 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Agent;
 use App\Models\AgentInteraction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget;
 
@@ -20,16 +22,20 @@ class RecentErrorsTable extends TableWidget
         return $table
             ->query(
                 AgentInteraction::query()
-                    ->whereIn('status', ['error', 'timeout'])
+                    ->whereIn('agent_interactions.status', ['error', 'timeout'])
                     ->with('agent')
-                    ->latest()
-                    ->limit(20)
             )
+            ->paginated([10, 20, 50])
+            ->defaultPaginationPageOption(20)
             ->columns([
                 TextColumn::make('agent.name')
                     ->label('Agent')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable(query: function ($query, string $direction): void {
+                        $query->leftJoin('agents', 'agent_interactions.agent_id', '=', 'agents.id')
+                            ->orderBy('agents.name', $direction)
+                            ->select('agent_interactions.*');
+                    }),
 
                 TextColumn::make('status')
                     ->badge()
@@ -63,6 +69,20 @@ class RecentErrorsTable extends TableWidget
                     ->label('Occurred At')
                     ->dateTime('M d, Y H:i')
                     ->sortable(),
+            ])
+            ->filters([
+                SelectFilter::make('agent_id')
+                    ->label('Agent')
+                    ->options(fn (): array => Agent::query()->pluck('name', 'id')->toArray())
+                    ->searchable()
+                    ->preload(),
+
+                SelectFilter::make('status')
+                    ->label('Error Type')
+                    ->options([
+                        'error' => 'Error',
+                        'timeout' => 'Timeout',
+                    ]),
             ])
             ->defaultSort('created_at', 'desc')
             ->emptyStateHeading('No errors or alerts 🎉')
