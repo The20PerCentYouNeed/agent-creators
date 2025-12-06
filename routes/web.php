@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ChatBotController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CvUploadController;
 use App\Http\Controllers\DetailedForm\Step1Controller;
 use App\Http\Controllers\DetailedForm\Step2Controller;
 use App\Http\Controllers\DetailedForm\Step3Controller;
@@ -12,13 +13,17 @@ use App\Http\Controllers\DetailedForm\Step7Controller;
 use App\Http\Controllers\DetailedForm\Step8Controller;
 use App\Http\Controllers\DetailedForm\Step9Controller;
 use Illuminate\Support\Facades\Route;
-use OpenAI\Laravel\Facades\OpenAI;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 Route::view('/', 'home')->name('home');
 
 Route::view('/contact', 'contact-form')->name('contact');
 Route::post('/contact', [ContactController::class, 'create'])->name('contact.create');
 Route::view('/contact/thank-you', 'contact-thankyou')->name('contact.thankyou');
+
+Route::post('/careers/cv', [CvUploadController::class, 'store'])
+    ->middleware(ProtectAgainstSpam::class)
+    ->name('careers.cv.store');
 
 Route::view('/privacy-policy', 'static-pages.privacy-policy')->name('privacy-policy');
 Route::view('/terms', 'static-pages.terms')->name('terms');
@@ -39,7 +44,6 @@ Route::view('/case-studies/dental-clinic-assistant', 'case-studies.dental-clinic
     ->name('case-studies.dental-clinic-assistant');
 
 Route::post('/chat', [ChatBotController::class, 'store'])->name('chat.store');
-
 
 Route::prefix('detailed-form')->name('detailed-form.')->group(function () {
     Route::get('/step-1', [Step1Controller::class, 'show'])->name('step1.show');
