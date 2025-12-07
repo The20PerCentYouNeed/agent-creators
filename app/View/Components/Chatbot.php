@@ -2,25 +2,41 @@
 
 namespace App\View\Components;
 
+use App\Models\NyraConversation;
 use Illuminate\View\Component;
 use OpenAI\Laravel\Facades\OpenAI;
 
 class Chatbot extends Component
 {
-    public $threadId;
+    public ?string $threadId;
+
+    public int $messageCount;
+
+    public bool $hasRated;
 
     public function __construct()
     {
         $this->threadId = session('openai_thread_id');
+        $this->messageCount = 0;
+        $this->hasRated = false;
+
+        if ($this->threadId) {
+            $conversation = NyraConversation::where('thread_id', $this->threadId)->first();
+            if ($conversation) {
+                $this->messageCount = $conversation->message_count;
+                $this->hasRated = $conversation->rating !== null;
+            }
+        }
     }
 
     public function render()
     {
-
         $messages = $this->fetchAllThreadMessages($this->threadId);
 
         return view('components.chatbot', [
             'messages' => $messages,
+            'messageCount' => $this->messageCount,
+            'hasRated' => $this->hasRated,
         ]);
     }
 
@@ -39,7 +55,7 @@ class Chatbot extends Component
         $messages[] = [
             'id' => 2,
             'role' => 'assistant',
-            'text' => __("Where do you want to start from?"),
+            'text' => __('Where do you want to start from?'),
         ];
 
         if (!$threadId) {

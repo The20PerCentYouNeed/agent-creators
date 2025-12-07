@@ -55,6 +55,16 @@ Alpine.data("chatbot", () => ({
     isTyping: false,
     activeTab: null,
     quickSuggestions: [],
+    messageCount: 0,
+    maxMessages: 5,
+    hasRated: false,
+    ratingSubmitted: false,
+    hoverRating: 0,
+    selectedRating: 0,
+
+    get hasReachedLimit() {
+        return this.messageCount >= this.maxMessages;
+    },
 
     init() {
         const shouldAutoOpen = this.$root.dataset.shouldAutoOpen === "true";
@@ -70,6 +80,9 @@ Alpine.data("chatbot", () => ({
 
         const messages = JSON.parse(this.$root.dataset.messages);
         this.messages = messages;
+
+        this.messageCount = parseInt(this.$root.dataset.messageCount) || 0;
+        this.hasRated = this.$root.dataset.hasRated === "true";
 
         this.scrollToBottom();
     },
@@ -98,7 +111,7 @@ Alpine.data("chatbot", () => ({
     },
 
     async sendMessage() {
-        if (!this.messageInput.trim()) {
+        if (!this.messageInput.trim() || this.hasReachedLimit) {
             return;
         }
 
@@ -161,6 +174,8 @@ Alpine.data("chatbot", () => ({
 
                 this.scrollToBottom();
             }
+
+            this.messageCount++;
         } catch (error) {
             this.isTyping = false;
             console.error("Error sending message:", error);
@@ -172,9 +187,33 @@ Alpine.data("chatbot", () => ({
         }
     },
 
+    async submitRating(rating) {
+        this.selectedRating = rating;
+
+        try {
+            const response = await fetch(this.$root.dataset.rateUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN":
+                        document
+                            .querySelector('meta[name="csrf-token"]')
+                            ?.getAttribute("content") || "",
+                },
+                body: JSON.stringify({ rating }),
+            });
+
+            if (response.ok) {
+                this.ratingSubmitted = true;
+            }
+        } catch (error) {
+            console.error("Error submitting rating:", error);
+        }
+    },
+
     askSuggestion(question) {
+        if (this.hasReachedLimit) return;
         this.messageInput = question;
-        // Immediately send on click (no need to press Enter)
         this.sendMessage();
     },
 }));

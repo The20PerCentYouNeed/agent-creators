@@ -1,4 +1,7 @@
 {
+    "filament-panels::error-notifications.title": "Σφάλμα",
+    "filament-panels::error-notifications.body": "Παρουσιάστηκε ένα σφάλμα. Παρακαλώ δοκιμάστε ξανά.",
+
     "Transform your business with custom AI agents. Automate workflows, enhance customer service, and scale operations with intelligent automation.": "Μεταμορφώστε την επιχείρησή σας με προσαρμοσμένους AI agents. Αυτοματοποιήστε ροές εργασίας, βελτιώστε την εξυπηρέτηση πελατών και κλιμακώστε τις λειτουργίες σας με έξυπνη αυτοματοποίηση.",
 
     "Capabilities": "Δυνατότητες",
@@ -793,5 +796,11 @@
 
     "Γεια! Είμαι η Nyra. Πώς μπορώ να βοηθήσω σήμερα; Μπορείς να με ρωτήσεις οτιδήποτε σχετικά με τους AI agents και την πλατφόρμα μας.": "Γεια! Είμαι η Nyra. Πώς μπορώ να βοηθήσω σήμερα; Μπορείς να με ρωτήσεις οτιδήποτε σχετικά με τους AI agents και την πλατφόρμα μας.",
     "Hi, I'm Nyra — the living case study of <a href=\":link\">noctuacore.ai</a>. I was created to show you how an AI Agent can work for you.": "Γεια, είμαι η Nyra — το ζωντανό case study της <a href=\":link\">noctuacore.ai</a>. Δημιουργήθηκα για να σου δείξω πώς ένας AI Agent μπορεί να δουλεύει για εσένα.",
-    "Where do you want to start from?": "Από πού θέλεις να ξεκινήσουμε;"
+    "Where do you want to start from?": "Από πού θέλεις να ξεκινήσουμε;",
+
+    "How was your experience with Nyra?": "Πώς ήταν η εμπειρία σου με τη Nyra;",
+    "Click a star to rate": "Κάνε κλικ σε ένα αστέρι για αξιολόγηση",
+    "Thank you for your feedback!": "Ευχαριστούμε για τα σχόλιά σου!",
+    "We appreciate you taking the time to rate your experience.": "Εκτιμούμε που αφιέρωσες χρόνο για να αξιολογήσεις την εμπειρία σου.",
+    "Feel free to contact us for more information <a href=\":link\">here</a>.": "Μη διστάσεις να επικοινωνήσεις μαζί μας για περισσότερες πληροφορίες <a href=\":link\">εδώ</a>."
 }

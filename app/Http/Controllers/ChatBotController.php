@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NyraConversation;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use OpenAI\Laravel\Facades\OpenAI;
 use Symfony\Component\DomCrawler\Crawler;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ChatBotController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request): StreamedResponse|JsonResponse
     {
         $validated = $request->validate([
             'message' => 'required|string|max:1000',
@@ -21,10 +24,14 @@ class ChatBotController extends Controller
                 $thread = OpenAI::threads()->create([]);
                 session(['openai_thread_id' => $thread->id]);
 
-                Log::channel('nyra')->info('New conversation started', [
+                NyraConversation::create([
                     'thread_id' => $thread->id,
-                    'ip' => $request->ip(),
+                    'message_count' => 1,
                 ]);
+            }
+            else {
+                NyraConversation::where('thread_id', session('openai_thread_id'))
+                    ->increment('message_count');
             }
 
             $threadId = session('openai_thread_id');
@@ -69,6 +76,40 @@ class ChatBotController extends Controller
             'Cache-Control' => 'no-cache',
             'X-Accel-Buffering' => 'no',
             'Connection' => 'keep-alive',
+        ]);
+    }
+
+    public function rate(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'rating' => 'required|integer|min:1|max:5',
+        ]);
+
+        $threadId = session('openai_thread_id');
+
+        if (!$threadId) {
+            return response()->json([
+                'success' => false,
+                'message' => 'No active conversation found.',
+            ], 404);
+        }
+
+        $conversation = NyraConversation::where('thread_id', $threadId)->first();
+
+        if (!$conversation) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Conversation not found.',
+            ], 404);
+        }
+
+        $conversation->update([
+            'rating' => $validated['rating'],
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Thank you for your rating!',
         ]);
     }
 

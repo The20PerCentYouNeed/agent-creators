@@ -3,6 +3,9 @@
     x-data="chatbot"
     data-messages="{{ json_encode($messages) }}"
     data-url="{{ localized_route('chat.store') }}"
+    data-rate-url="{{ route('chat.rate') }}"
+    data-message-count="{{ $messageCount }}"
+    data-has-rated="{{ $hasRated ? 'true' : 'false' }}"
     data-should-auto-open="{{ session('should_auto_open_chatbot') ? 'true' : 'false' }}"
     class="fixed bottom-4 lg:bottom-8 right-4 lg:right-8 z-50"
 >
@@ -147,9 +150,15 @@
             </div>
         </div>
 
-        <!-- Message Input -->
+        <!-- Message Input / Rating Section -->
         <div class="p-4 bg-gray-900 border-t border-gray-700">
-            <form @submit.prevent="sendMessage" @keydown.prevent.enter="sendMessage" class="flex gap-2 items-center">
+            <!-- Normal Message Input (when under limit and not rated) -->
+            <form
+                x-show="!hasReachedLimit"
+                @submit.prevent="sendMessage"
+                @keydown.prevent.enter="sendMessage"
+                class="flex gap-2 items-center"
+            >
                 <input
                     x-ref="messageInput"
                     x-model="messageInput"
@@ -170,6 +179,46 @@
                     </svg>
                 </button>
             </form>
+
+            <!-- Rating UI (when limit reached and not yet rated) -->
+            <div x-show="hasReachedLimit && !hasRated && !ratingSubmitted" class="text-center py-2">
+                <p class="text-gray-300 text-sm mb-3">{{ __('How was your experience with Nyra?') }}</p>
+                <div class="flex justify-center gap-1">
+                    <template x-for="star in 5" :key="star">
+                        <button
+                            @click="submitRating(star)"
+                            @mouseenter="hoverRating = star"
+                            @mouseleave="hoverRating = 0"
+                            class="p-1 transition-transform hover:scale-110 focus:outline-none cursor-pointer"
+                            :aria-label="'Rate ' + star + ' stars'"
+                        >
+                            <svg
+                                class="w-8 h-8 transition-colors duration-150"
+                                :class="(hoverRating >= star || selectedRating >= star) ? 'text-amber-400' : 'text-gray-600'"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </button>
+                    </template>
+                </div>
+                <p class="text-gray-500 text-xs mt-2">{{ __('Click a star to rate') }}</p>
+            </div>
+
+            <!-- Thank You Message (after rating submitted) -->
+            <div x-show="hasReachedLimit && (hasRated || ratingSubmitted)" class="text-center py-3">
+                <div class="flex justify-center mb-2">
+                    <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <p class="text-gray-200 font-medium">{{ __('Thank you for your feedback!') }}</p>
+                <p class="text-gray-400 text-sm mt-1">{{ __('We appreciate you taking the time to rate your experience.') }}</p>
+                <p class="text-gray-400 text-sm mt-1 [&_a]:text-violet-400 [&_a]:underline [&_a:hover]:text-violet-300">
+                    {!! __('Feel free to contact us for more information <a href=":link">here</a>.', ['link' => localized_route('contact')]) !!}
+                </p>
+            </div>
         </div>
     </div>
 

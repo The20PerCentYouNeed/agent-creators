@@ -44,6 +44,7 @@ Route::view('/case-studies/dental-clinic-assistant', 'case-studies.dental-clinic
     ->name('case-studies.dental-clinic-assistant');
 
 Route::post('/chat', [ChatBotController::class, 'store'])->name('chat.store');
+Route::post('/chat/rate', [ChatBotController::class, 'rate'])->name('chat.rate');
 
 Route::prefix('detailed-form')->name('detailed-form.')->group(function () {
     Route::get('/step-1', [Step1Controller::class, 'show'])->name('step1.show');
