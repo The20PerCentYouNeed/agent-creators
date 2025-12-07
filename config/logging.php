@@ -131,6 +131,7 @@ return [
             'driver' => 'daily',
             'path' => storage_path('logs/nyra.log'),
             'level' => 'info',
+            'days' => 30,
             'replace_placeholders' => true,
         ],
 
