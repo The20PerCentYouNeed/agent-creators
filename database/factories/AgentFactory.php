@@ -4,51 +4,31 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Agent>
- */
 class AgentFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
-        // MARKETING-OPTIMIZED: Diverse, high-value business AI agents
         $agentProfiles = [
-            // Customer Experience & Support
             ['name' => 'Customer Support Specialist', 'type' => 'customer_support', 'description' => 'Handle customer inquiries 24/7, resolve issues instantly, and maintain 98% satisfaction ratings across all channels.'],
             ['name' => 'Live Chat Assistant', 'type' => 'customer_support', 'description' => 'Engage website visitors in real-time, answer product questions, and convert browsers into buyers with intelligent conversations.'],
             ['name' => 'Technical Support Expert', 'type' => 'customer_support', 'description' => 'Troubleshoot technical issues, guide users through complex processes, and escalate critical problems to human engineers.'],
-
-            // Sales & Revenue
             ['name' => 'Lead Qualification Agent', 'type' => 'sales', 'description' => 'Score and qualify inbound leads automatically, schedule demos with hot prospects, and increase sales team efficiency by 40%.'],
             ['name' => 'Sales Outreach Assistant', 'type' => 'sales', 'description' => 'Craft personalized sales emails, follow up with prospects automatically, and book 3x more meetings than manual outreach.'],
             ['name' => 'Product Recommender', 'type' => 'sales', 'description' => 'Analyze customer needs and recommend perfect products, increasing average order value by 35% through intelligent upselling.'],
-
-            // Data & Analytics
             ['name' => 'Business Intelligence Agent', 'type' => 'data_analysis', 'description' => 'Transform raw data into actionable insights, generate executive reports automatically, and predict trends with 85% accuracy.'],
             ['name' => 'Financial Analysis Bot', 'type' => 'data_analysis', 'description' => 'Monitor cash flow, detect anomalies in real-time, and provide CFOs with instant financial health snapshots.'],
             ['name' => 'Customer Analytics AI', 'type' => 'data_analysis', 'description' => 'Segment customers by behavior, predict churn risk, and identify expansion opportunities worth millions in revenue.'],
-
-            // Automation & Productivity
             ['name' => 'Workflow Automation Engine', 'type' => 'automation', 'description' => 'Automate repetitive tasks across 50+ tools, eliminate manual data entry, and save 20+ hours per employee weekly.'],
             ['name' => 'Document Processing Agent', 'type' => 'automation', 'description' => 'Extract data from invoices, contracts, and forms with 99% accuracy, processing 1000+ documents per hour.'],
             ['name' => 'Email Management Assistant', 'type' => 'automation', 'description' => 'Prioritize inbox automatically, draft intelligent replies, and reduce email time by 60% for busy executives.'],
-
-            // Research & Insights
             ['name' => 'Market Research Agent', 'type' => 'research', 'description' => 'Monitor competitors, track industry trends, and deliver weekly intelligence reports that drive strategic decisions.'],
             ['name' => 'Content Research Assistant', 'type' => 'research', 'description' => 'Research topics deeply, fact-check information instantly, and compile comprehensive briefs for content creators.'],
             ['name' => 'Legal Research Bot', 'type' => 'research', 'description' => 'Search through millions of legal documents, find relevant precedents, and reduce legal research time by 80%.'],
         ];
 
-        // Pick a random profile (shuffle ensures variety)
         static $usedIndices = [];
         $availableIndices = array_diff(array_keys($agentProfiles), $usedIndices);
 
-        // If all used, reset for additional agents
         if (empty($availableIndices)) {
             $usedIndices = [];
             $availableIndices = array_keys($agentProfiles);
