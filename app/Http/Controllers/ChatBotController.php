@@ -20,6 +20,11 @@ class ChatBotController extends Controller
             if (!session()->has('openai_thread_id')) {
                 $thread = OpenAI::threads()->create([]);
                 session(['openai_thread_id' => $thread->id]);
+
+                Log::channel('nyra')->info('New conversation started', [
+                    'thread_id' => $thread->id,
+                    'ip' => $request->ip(),
+                ]);
             }
 
             $threadId = session('openai_thread_id');
