@@ -26,7 +26,7 @@ class AlertsStatsWidget extends StatsOverviewWidget
             ->whereDate('created_at', $yesterday)
             ->count();
 
-        $trend = $yesterdayErrors > 0 ? (($todayErrors - $yesterdayErrors) / $yesterdayErrors) * 100 : 0;
+        $trend = $yesterdayErrors > 0 ? round((($todayErrors - $yesterdayErrors) / $yesterdayErrors) * 100, 1) : 0;
 
         $last24HoursStart = DemoDateService::today()->subDay();
         $last24Hours = AgentInteraction::whereIn('status', ['error', 'timeout'])
