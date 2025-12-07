@@ -2,8 +2,9 @@
 
 namespace App\Filament\Widgets;
 
-use Carbon\Carbon;
 use App\Models\AgentMetric;
+use App\Services\DemoDateService;
+use Carbon\Carbon;
 use Filament\Widgets\ChartWidget;
 
 class RequestsChart extends ChartWidget
@@ -16,9 +17,12 @@ class RequestsChart extends ChartWidget
 
     protected function getData(): array
     {
+        $endDate = DemoDateService::today();
+        $startDate = DemoDateService::daysAgo(29);
+
         $data = AgentMetric::query()
             ->selectRaw('DATE(date) as date, SUM(total_requests) as total_requests, SUM(successful_requests) as successful, SUM(failed_requests) as failed')
-            ->whereBetween('date', [now()->subDays(29), now()])
+            ->whereBetween('date', [$startDate, $endDate])
             ->groupBy('date')
             ->orderBy('date')
             ->get();

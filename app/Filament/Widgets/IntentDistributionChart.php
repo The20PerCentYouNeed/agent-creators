@@ -3,6 +3,7 @@
 namespace App\Filament\Widgets;
 
 use App\Models\AgentInteraction;
+use App\Services\DemoDateService;
 use Filament\Widgets\ChartWidget;
 
 class IntentDistributionChart extends ChartWidget
@@ -20,9 +21,11 @@ class IntentDistributionChart extends ChartWidget
     protected function getData(): array
     {
         $days = (int) $this->filter;
+        $endDate = DemoDateService::now();
+        $startDate = DemoDateService::daysAgo($days);
 
         $intents = AgentInteraction::query()
-            ->whereBetween('created_at', [now()->subDays($days), now()])
+            ->whereBetween('created_at', [$startDate, $endDate])
             ->whereNotNull('intent')
             ->selectRaw('intent, COUNT(*) as count')
             ->groupBy('intent')

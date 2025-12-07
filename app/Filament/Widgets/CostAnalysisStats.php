@@ -3,6 +3,7 @@
 namespace App\Filament\Widgets;
 
 use App\Models\AgentMetric;
+use App\Services\DemoDateService;
 use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
@@ -15,8 +16,11 @@ class CostAnalysisStats extends StatsOverviewWidget
 
     protected function getStats(): array
     {
-        $startDate = $this->pageFilters['startDate'] ?? now()->subDays(30)->format('Y-m-d');
-        $endDate = $this->pageFilters['endDate'] ?? now()->format('Y-m-d');
+        $defaultStart = DemoDateService::daysAgo(30)->format('Y-m-d');
+        $defaultEnd = DemoDateService::today()->format('Y-m-d');
+
+        $startDate = $this->pageFilters['startDate'] ?? $defaultStart;
+        $endDate = $this->pageFilters['endDate'] ?? $defaultEnd;
         $agentId = $this->pageFilters['agentId'] ?? null;
 
         $query = AgentMetric::query()
@@ -33,17 +37,17 @@ class CostAnalysisStats extends StatsOverviewWidget
         $dailyAverage = $dailyCosts > 0 ? $totalCost / $dailyCosts : 0;
 
         return [
-            Stat::make('Total Cost', '$'.number_format($totalCost, 2))
-                ->description(number_format($totalRequests).' requests')
+            Stat::make('Total Cost', '$' . number_format($totalCost, 2))
+                ->description(number_format($totalRequests) . ' requests')
                 ->icon('heroicon-o-currency-dollar')
                 ->color('primary'),
 
-            Stat::make('Cost per Request', '$'.number_format($costPerRequest, 4))
+            Stat::make('Cost per Request', '$' . number_format($costPerRequest, 4))
                 ->description('Average across all agents')
                 ->icon('heroicon-o-calculator')
                 ->color('success'),
 
-            Stat::make('Daily Average', '$'.number_format($dailyAverage, 2))
+            Stat::make('Daily Average', '$' . number_format($dailyAverage, 2))
                 ->description('Per day average cost')
                 ->icon('heroicon-o-chart-bar')
                 ->color('warning'),

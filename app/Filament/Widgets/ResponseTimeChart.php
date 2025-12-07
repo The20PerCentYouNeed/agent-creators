@@ -2,8 +2,9 @@
 
 namespace App\Filament\Widgets;
 
-use Carbon\Carbon;
 use App\Models\AgentMetric;
+use App\Services\DemoDateService;
+use Carbon\Carbon;
 use Filament\Widgets\ChartWidget;
 
 class ResponseTimeChart extends ChartWidget
@@ -16,9 +17,12 @@ class ResponseTimeChart extends ChartWidget
 
     protected function getData(): array
     {
+        $endDate = DemoDateService::today();
+        $startDate = DemoDateService::daysAgo(29);
+
         $data = AgentMetric::query()
             ->selectRaw('DATE(date) as date, AVG(avg_response_time_ms) as avg_time, AVG(p50_response_time_ms) as p50, AVG(p95_response_time_ms) as p95, AVG(p99_response_time_ms) as p99')
-            ->whereBetween('date', [now()->subDays(29), now()])
+            ->whereBetween('date', [$startDate, $endDate])
             ->groupBy('date')
             ->orderBy('date')
             ->get();

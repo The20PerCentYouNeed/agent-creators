@@ -2,9 +2,9 @@
 
 namespace App\Filament\Widgets;
 
-use Filament\Tables\Columns\TextColumn;
 use App\Models\Agent;
-use Filament\Tables;
+use App\Services\DemoDateService;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Illuminate\Database\Eloquent\Builder;
@@ -17,25 +17,28 @@ class AgentPerformanceOverview extends BaseWidget
 
     public function table(Table $table): Table
     {
+        $startDate = DemoDateService::daysAgo(7);
+        $endDate = DemoDateService::now();
+
         return $table
             ->query(
                 Agent::query()
-                    ->withCount(['interactions as total_interactions' => function (Builder $query) {
-                        $query->whereDate('created_at', '>=', now()->subDays(7));
+                    ->withCount(['interactions as total_interactions' => function (Builder $query) use ($startDate, $endDate) {
+                        $query->whereBetween('created_at', [$startDate, $endDate]);
                     },
                     ])
-                    ->withCount(['interactions as successful_interactions' => function (Builder $query) {
-                        $query->whereDate('created_at', '>=', now()->subDays(7))
+                    ->withCount(['interactions as successful_interactions' => function (Builder $query) use ($startDate, $endDate) {
+                        $query->whereBetween('created_at', [$startDate, $endDate])
                             ->where('status', 'success');
                     },
                     ])
-                    ->withAvg(['interactions as avg_response_time' => function (Builder $query) {
-                        $query->whereDate('created_at', '>=', now()->subDays(7))
+                    ->withAvg(['interactions as avg_response_time' => function (Builder $query) use ($startDate, $endDate) {
+                        $query->whereBetween('created_at', [$startDate, $endDate])
                             ->where('status', 'success');
                     },
                     ], 'response_time_ms')
-                    ->withSum(['interactions as total_cost' => function (Builder $query) {
-                        $query->whereDate('created_at', '>=', now()->subDays(7));
+                    ->withSum(['interactions as total_cost' => function (Builder $query) use ($startDate, $endDate) {
+                        $query->whereBetween('created_at', [$startDate, $endDate]);
                     },
                     ], 'cost')
                     ->active()
@@ -75,7 +78,7 @@ class AgentPerformanceOverview extends BaseWidget
                         $total = $record->total_interactions ?? 0;
                         $successful = $record->successful_interactions ?? 0;
 
-                        return $total > 0 ? round(($successful / $total) * 100, 1).'%' : 'N/A';
+                        return $total > 0 ? round(($successful / $total) * 100, 1) . '%' : 'N/A';
                     })
                     ->sortable(query: function (Builder $query, string $direction): Builder {
                         return $query->orderByRaw('
@@ -83,12 +86,12 @@ class AgentPerformanceOverview extends BaseWidget
                                 WHEN total_interactions > 0
                                 THEN (successful_interactions / total_interactions)
                                 ELSE 0
-                            END '.$direction);
+                            END ' . $direction);
                     }),
 
                 TextColumn::make('avg_response_time')
                     ->label('Avg Response')
-                    ->formatStateUsing(fn ($state) => $state ? round($state).'ms' : 'N/A')
+                    ->formatStateUsing(fn ($state) => $state ? round($state) . 'ms' : 'N/A')
                     ->sortable(),
 
                 TextColumn::make('total_cost')

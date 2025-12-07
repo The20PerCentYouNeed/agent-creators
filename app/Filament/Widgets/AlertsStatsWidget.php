@@ -3,7 +3,7 @@
 namespace App\Filament\Widgets;
 
 use App\Models\AgentInteraction;
-use Carbon\Carbon;
+use App\Services\DemoDateService;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
@@ -15,33 +15,29 @@ class AlertsStatsWidget extends StatsOverviewWidget
 
     protected function getStats(): array
     {
-        $today = Carbon::today();
-        $yesterday = Carbon::yesterday();
+        $today = DemoDateService::today();
+        $yesterday = DemoDateService::yesterday();
 
-        // Today's errors.
         $todayErrors = AgentInteraction::whereIn('status', ['error', 'timeout'])
             ->whereDate('created_at', $today)
             ->count();
 
-        // Yesterday's errors for comparison.
         $yesterdayErrors = AgentInteraction::whereIn('status', ['error', 'timeout'])
             ->whereDate('created_at', $yesterday)
             ->count();
 
-        // Calculate trend.
         $trend = $yesterdayErrors > 0 ? (($todayErrors - $yesterdayErrors) / $yesterdayErrors) * 100 : 0;
 
-        // Last 24 hours errors.
+        $last24HoursStart = DemoDateService::today()->subDay();
         $last24Hours = AgentInteraction::whereIn('status', ['error', 'timeout'])
-            ->where('created_at', '>=', now()->subDay())
+            ->where('created_at', '>=', $last24HoursStart)
             ->count();
 
-        // Last 7 days errors.
+        $last7DaysStart = DemoDateService::daysAgo(7);
         $last7Days = AgentInteraction::whereIn('status', ['error', 'timeout'])
-            ->where('created_at', '>=', now()->subDays(7))
+            ->where('created_at', '>=', $last7DaysStart)
             ->count();
 
-        // Current error rate.
         $totalToday = AgentInteraction::whereDate('created_at', $today)->count();
         $errorRate = $totalToday > 0 ? round(($todayErrors / $totalToday) * 100, 2) : 0;
 

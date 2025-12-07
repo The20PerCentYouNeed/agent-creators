@@ -3,6 +3,7 @@
 namespace App\Filament\Widgets;
 
 use App\Models\AgentInteraction;
+use App\Services\DemoDateService;
 use Filament\Widgets\ChartWidget;
 
 class PeakHoursChart extends ChartWidget
@@ -20,9 +21,11 @@ class PeakHoursChart extends ChartWidget
     protected function getData(): array
     {
         $days = (int) $this->filter;
+        $endDate = DemoDateService::now();
+        $startDate = DemoDateService::daysAgo($days);
 
         $hourlyData = AgentInteraction::query()
-            ->whereBetween('created_at', [now()->subDays($days), now()])
+            ->whereBetween('created_at', [$startDate, $endDate])
             ->selectRaw('HOUR(created_at) as hour, COUNT(*) as count')
             ->groupBy('hour')
             ->orderBy('hour')
@@ -41,7 +44,7 @@ class PeakHoursChart extends ChartWidget
                     'backgroundColor' => 'rgb(59, 130, 246)',
                 ],
             ],
-            'labels' => array_map(fn ($h) => $h.':00', $hours),
+            'labels' => array_map(fn ($h) => $h . ':00', $hours),
         ];
     }
 

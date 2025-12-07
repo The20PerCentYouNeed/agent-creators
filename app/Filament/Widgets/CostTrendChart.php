@@ -2,8 +2,9 @@
 
 namespace App\Filament\Widgets;
 
-use Carbon\Carbon;
 use App\Models\AgentMetric;
+use App\Services\DemoDateService;
+use Carbon\Carbon;
 use Filament\Widgets\ChartWidget;
 
 class CostTrendChart extends ChartWidget
@@ -21,10 +22,12 @@ class CostTrendChart extends ChartWidget
     protected function getData(): array
     {
         $days = (int) $this->filter;
+        $endDate = DemoDateService::today();
+        $startDate = DemoDateService::daysAgo($days - 1);
 
         $data = AgentMetric::query()
             ->selectRaw('DATE(date) as date, SUM(total_cost) as cost')
-            ->whereBetween('date', [now()->subDays($days - 1), now()])
+            ->whereBetween('date', [$startDate, $endDate])
             ->groupBy('date')
             ->orderBy('date')
             ->get();

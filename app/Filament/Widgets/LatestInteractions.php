@@ -2,10 +2,10 @@
 
 namespace App\Filament\Widgets;
 
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\BadgeColumn;
 use App\Models\AgentInteraction;
-use Filament\Tables;
+use App\Services\DemoDateService;
+use Filament\Tables\Columns\BadgeColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 
@@ -53,7 +53,7 @@ class LatestInteractions extends BaseWidget
 
                 TextColumn::make('response_time_ms')
                     ->label('Response Time')
-                    ->formatStateUsing(fn ($state) => $state.'ms')
+                    ->formatStateUsing(fn ($state) => $state . 'ms')
                     ->sortable(),
 
                 TextColumn::make('tokens_total')
@@ -70,9 +70,14 @@ class LatestInteractions extends BaseWidget
 
                 TextColumn::make('created_at')
                     ->label('Time')
-                    ->dateTime()
+                    ->dateTime('M d, Y H:i')
                     ->sortable()
-                    ->since(),
+                    ->description(function (AgentInteraction $record): string {
+                        $referenceNow = DemoDateService::now();
+                        $diff = $record->created_at->diffForHumans($referenceNow);
+
+                        return $diff;
+                    }),
             ])
             ->defaultSort('created_at', 'desc');
     }

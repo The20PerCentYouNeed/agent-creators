@@ -3,6 +3,7 @@
 namespace App\Filament\Widgets;
 
 use App\Models\AgentMetric;
+use App\Services\DemoDateService;
 use Filament\Widgets\ChartWidget;
 
 class CostByAgentChart extends ChartWidget
@@ -20,9 +21,11 @@ class CostByAgentChart extends ChartWidget
     protected function getData(): array
     {
         $days = (int) $this->filter;
+        $endDate = DemoDateService::today();
+        $startDate = DemoDateService::daysAgo($days - 1);
 
         $costs = AgentMetric::query()
-            ->whereBetween('date', [now()->subDays($days - 1), now()])
+            ->whereBetween('date', [$startDate, $endDate])
             ->join('agents', 'agent_metrics_daily.agent_id', '=', 'agents.id')
             ->selectRaw('agents.name, SUM(total_cost) as cost')
             ->groupBy('agents.name')

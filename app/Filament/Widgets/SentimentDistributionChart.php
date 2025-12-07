@@ -3,6 +3,7 @@
 namespace App\Filament\Widgets;
 
 use App\Models\AgentInteraction;
+use App\Services\DemoDateService;
 use Filament\Widgets\ChartWidget;
 
 class SentimentDistributionChart extends ChartWidget
@@ -20,9 +21,11 @@ class SentimentDistributionChart extends ChartWidget
     protected function getData(): array
     {
         $days = (int) $this->filter;
+        $endDate = DemoDateService::now();
+        $startDate = DemoDateService::daysAgo($days);
 
         $sentiments = AgentInteraction::query()
-            ->whereBetween('created_at', [now()->subDays($days), now()])
+            ->whereBetween('created_at', [$startDate, $endDate])
             ->whereNotNull('sentiment')
             ->selectRaw('sentiment, COUNT(*) as count')
             ->groupBy('sentiment')
