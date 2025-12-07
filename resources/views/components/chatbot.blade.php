@@ -206,7 +206,7 @@
             </div>
 
             <!-- Thank You Message (after rating submitted) -->
-            <div x-show="hasReachedLimit && (hasRated || ratingSubmitted)" class="text-center py-3">
+            <div x-show="hasReachedLimit && (hasRated || ratingSubmitted)" class="text-center py-1">
                 <div class="flex justify-center mb-2">
                     <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
