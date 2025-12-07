@@ -203,7 +203,6 @@
                         </button>
                     </template>
                 </div>
-                <p class="text-gray-500 text-xs mt-2">{{ __('Click a star to rate') }}</p>
             </div>
 
             <!-- Thank You Message (after rating submitted) -->
