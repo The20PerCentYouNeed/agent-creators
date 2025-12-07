@@ -213,7 +213,8 @@
                     </svg>
                 </div>
                 <p class="text-gray-200 font-medium">{{ __('Thank you for your feedback!') }}</p>
-                <p class="text-gray-400 text-sm mt-1 [&_a]:text-violet-400 [&_a]:underline [&_a:hover]:text-violet-300">
+                <p class="text-gray-400 text-sm mt-1 [&_a]:text-blue-400 [&_a]:underline [&_a]:font-medium
+                [&_a:hover]:text-violet-400 [&_a]:transition-colors">
                     {!! __('Feel free to contact us for more information <a href=":link">here</a>.', ['link' => localized_route('contact')]) !!}
                 </p>
             </div>
