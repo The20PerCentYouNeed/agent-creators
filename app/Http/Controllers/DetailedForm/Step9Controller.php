@@ -4,6 +4,7 @@ namespace App\Http\Controllers\DetailedForm;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DetailedForm\StoreStep9Request;
+use RalphJSmit\Laravel\SEO\Support\SEOData;
 
 class Step9Controller extends Controller
 {
@@ -11,7 +12,9 @@ class Step9Controller extends Controller
     {
         $data = session('detailed_form.step_9', []);
 
-        return view('detailed-form.step-9', compact('data'));
+        $seoData = (new SEOData)->markAsNoindex();
+
+        return view('detailed-form.step-9', compact('data', 'seoData'));
     }
 
     public function submit(StoreStep9Request $request)
@@ -40,6 +43,8 @@ class Step9Controller extends Controller
 
     public function thankYou()
     {
-        return view('detailed-form.thank-you');
+        $seoData = (new SEOData)->markAsNoindex();
+
+        return view('detailed-form.thank-you', compact('seoData'));
     }
 }

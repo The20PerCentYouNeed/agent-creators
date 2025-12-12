@@ -4,6 +4,7 @@ namespace App\Http\Controllers\DetailedForm;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DetailedForm\StoreStep2Request;
+use RalphJSmit\Laravel\SEO\Support\SEOData;
 
 class Step2Controller extends Controller
 {
@@ -11,7 +12,9 @@ class Step2Controller extends Controller
     {
         $data = session('detailed_form.step_2', []);
 
-        return view('detailed-form.step-2', compact('data'));
+        $seoData = (new SEOData)->markAsNoindex();
+
+        return view('detailed-form.step-2', compact('data', 'seoData'));
     }
 
     public function store(StoreStep2Request $request)

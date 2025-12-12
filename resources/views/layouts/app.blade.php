@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>AI Agents for Your Business | Custom AI Solutions</title>
-        <meta name="description" content="{{ __('Transform your business with custom AI agents. Automate workflows, enhance customer service, and scale operations with intelligent automation.') }}">
+        <!-- SEO Package: Meta Tags, OpenGraph, Twitter Cards, Structured Data -->
+        {!! seo($seoData ?? null) !!}
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -17,6 +17,9 @@
             <link rel="alternate" hreflang="{{ $locale }}" href="{{ locale_route($locale) }}" />
         @endforeach
         <link rel="alternate" hreflang="x-default" href="{{ locale_route(config('app.locale')) }}" />
+
+        <!-- Theme Color -->
+        <meta name="theme-color" content="#0f172a">
 
         <!-- Styles / Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])

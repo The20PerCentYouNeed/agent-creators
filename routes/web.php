@@ -71,3 +71,18 @@ Route::prefix('detailed-form')->name('detailed-form.')->group(function () {
 Route::get('/detailed-form', function () {
     return redirect()->route('detailed-form.step1.show');
 })->name('detailed-form');
+
+Route::get('/sitemap.xml', function () {
+    $sitemapPath = public_path('sitemap.xml');
+
+    if (file_exists($sitemapPath)) {
+        $content = file_get_contents($sitemapPath);
+
+        return response($content, 200, [
+            'Content-Type' => 'application/xml; charset=utf-8',
+            'Content-Length' => strlen($content),
+        ]);
+    }
+
+    return response('Sitemap not found', 404);
+})->name('sitemap');
