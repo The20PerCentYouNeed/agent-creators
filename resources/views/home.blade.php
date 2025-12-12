@@ -407,6 +407,8 @@
                                 src="{{ asset('images/dashboard.webp') }}"
                                 alt="Dashboard Preview"
                                 class="w-full h-full object-cover object-top rounded-lg"
+                                width="1200"
+                                height="800"
                                 loading="lazy"
                             />
                         </div>
@@ -519,7 +521,7 @@
                         <div class="w-full lg:h-46 bg-gradient-to-br {{ $caseStudy['gradient'] }} rounded-lg mb-6 flex items-center justify-center overflow-hidden">
                             <picture>
                                 <source srcset="{{ $caseStudy['image_url'] }}" type="image/webp">
-                                <img src="{{ str_replace('.webp', '.jpg', $caseStudy['image_url']) }}" alt="{{ __($caseStudy['title']) }}" class="w-full h-full object-cover" loading="lazy">
+                                <img src="{{ str_replace('.webp', '.jpg', $caseStudy['image_url']) }}" alt="{{ __($caseStudy['title']) }}" class="w-full h-full object-cover" width="600" height="400" loading="lazy">
                             </picture>
                         </div>
                         @else
@@ -530,7 +532,7 @@
 
                         @if($caseStudy['logo_url'])
                         <div class="flex justify-center mb-4">
-                            <img src="{{ $caseStudy['logo_url'] }}" alt="{{ __($caseStudy['title']) }} logo" class="h-12">
+                            <img src="{{ $caseStudy['logo_url'] }}" alt="{{ __($caseStudy['title']) }} logo" class="h-12" width="48" height="48" loading="lazy">
                         </div>
                         @endif
 

@@ -16,6 +16,8 @@
                             src="{{ asset('images/after-logo.png') }}"
                             alt="Noctua Core.AI"
                             class="object-contain h-6"
+                            width="102"
+                            height="24"
                             loading="eager"
                         >
                     </picture>
@@ -80,6 +82,8 @@
                             src="{{ asset('images/after-logo.png') }}"
                             alt="Noctua Core.AI"
                             class="object-contain h-5"
+                            width="100"
+                            height="20"
                             loading="eager"
                         >
                     </picture>
