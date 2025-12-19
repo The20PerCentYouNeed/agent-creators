@@ -5,7 +5,7 @@
             <!-- Desktop Navigation -->
             <div class="hidden md:flex justify-between items-center py-[10px]">
                 <!-- Logo -->
-                <a href="{{ localized_route('home') }}" class="flex items-center">
+                <a href="{{ localized_route('home') }}" class="flex items-center gap-2">
                     <x-logo />
                     <picture>
                         <source
