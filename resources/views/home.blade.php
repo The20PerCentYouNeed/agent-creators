@@ -644,7 +644,7 @@
                     motion-reduce:transition-none motion-reduce:group-hover/mockup:transform-none
                     md:[transform:perspective(1500px)_rotateY(-10deg)_rotateX(5deg)_translateZ(0)]
                     w-fit mx-auto">
-                        <div class="bg-gray-900 px-2 py-1 overflow-hidden flex items-center justify-center max-h-[500px] w-fit">
+                        <div class="bg-gray-900 p-2 overflow-hidden flex items-center justify-center max-h-[500px] w-fit">
                             <picture>
                                 <source srcset="{{ asset('images/aegis-link.webp') }}" type="image/webp">
                                 <img
