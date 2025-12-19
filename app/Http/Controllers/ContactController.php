@@ -17,8 +17,10 @@ class ContactController extends Controller
     {
         $validatedData = $request->validated();
 
-        Notification::route('mail', config('mail.from.address'))
-            ->notify(new ContactFormSubmitted($validatedData));
+        dispatch(function () use ($validatedData) {
+            Notification::route('mail', config('mail.from.address'))
+                ->notify(new ContactFormSubmitted($validatedData));
+        })->afterResponse();
 
         return redirect()->route('contact.thankyou')
             ->with('success', 'Thank you for contacting us! We will get back to you soon.');
