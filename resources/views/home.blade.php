@@ -637,7 +637,7 @@
                     <div class="absolute inset-0 bg-gradient-to-br from-red-600/10 to-orange-600/10 rounded-3xl blur-3xl"></div>
 
                     {{-- Image Container with 3D Transform --}}
-                    <div class="relative bg-gray-800 rounded-2xl
+                    <div class="relative bg-gray-800 rounded-lg
                     shadow-lg overflow-hidden transition-all duration-1000
                     [transform-style:preserve-3d] group-hover/mockup:[transform:perspective(1500px)_rotateY(0deg)_rotateX(0deg)_translateZ(0)_scale(1.02)]
                     group-hover/mockup:shadow-xl
