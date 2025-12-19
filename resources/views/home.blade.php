@@ -677,18 +677,32 @@
 
             <div class="grid lg:grid-cols-[5fr_7fr] gap-8 lg:items-start">
                 {{-- Left Column: Branding Card --}}
-                <div class="bg-gradient-to-br from-blue-600 via-violet-600 to-pink-600 rounded-2xl px-8 py-8
-                text-white shadow-2xl flex flex-col justify-center lg:sticky lg:top-8 lg:self-start">
-                    <div class="flex justify-center mb-6 md:mb-8">
-                        <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center
-                        backdrop-blur-sm">
-                            <x-heroicon-o-bolt class="w-10 h-10" />
-                        </div>
+                <div class="bg-gradient-to-br from-blue-950/50 via-violet-950/60 to-pink-950/40 rounded-2xl px-8 py-8
+                text-white shadow-2xl flex flex-col justify-center lg:sticky lg:top-8 lg:self-start relative overflow-hidden">
+                    {{-- Subtle Accent Overlay --}}
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/15 via-violet-500/20 to-pink-500/15 rounded-2xl pointer-events-none"></div>
+                    <div class="relative z-10 flex justify-center mb-6 md:mb-8">
+                        <a href="{{ localized_route('home') }}" class="flex items-center">
+                            <picture>
+                                <source
+                                    srcset="{{ asset('images/logo.webp') }}"
+                                    type="image/webp"
+                                >
+                                <img
+                                    src="{{ asset('images/logo.png') }}"
+                                    alt="Noctua Logo"
+                                    class="object-contain"
+                                    width="40"
+                                    height="50"
+                                    loading="eager"
+                                >
+                            </picture>
+                        </a>
                     </div>
-                    <h3 class="text-2xl font-bold text-center mb-4 md:mb-6">
+                    <h3 class="relative z-10 text-2xl font-bold text-center mb-4 md:mb-6">
                         {{ __('Expert AI Solutions') }}
                     </h3>
-                    <p class="text-base leading-relaxed text-white/90 text-center">
+                    <p class="relative z-10 text-base leading-relaxed text-white/90 text-center">
                         {{ __('We deliver cutting-edge custom AI agents that transform business operations. Our expert team harnesses the power of artificial intelligence to automate workflows, enhance decision-making, and drive measurable growth for enterprises across industries.') }}
                     </p>
                 </div>
