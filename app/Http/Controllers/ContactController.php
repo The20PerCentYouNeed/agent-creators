@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContactRequest;
+use App\Notifications\ContactFormSubmitted;
+use Illuminate\Support\Facades\Notification;
 
 class ContactController extends Controller
 {
@@ -15,9 +17,9 @@ class ContactController extends Controller
     {
         $validatedData = $request->validated();
 
-        // TODO: Dispatch notification email with contact form data.
-        // Example: Notification::route('mail', config('mail.contact.address'))
-        // ->notify(new ContactFormSubmitted($validatedData)).
+        Notification::route('mail', config('mail.from.address'))
+            ->notify(new ContactFormSubmitted($validatedData));
+
         return redirect()->route('contact.thankyou')
             ->with('success', 'Thank you for contacting us! We will get back to you soon.');
     }

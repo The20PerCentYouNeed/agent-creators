@@ -43,7 +43,6 @@
                     <!-- Language Switcher -->
                     <div class="relative" x-data="{ open: false }">
                         <button @click="open = !open" class="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-200 hover:text-blue-400 transition-colors cursor-pointer">
-                            <x-heroicon-o-language class="w-5 h-5" />
                             <span>{{ strtoupper(current_locale()) }}</span>
                             <x-heroicon-s-chevron-down class="w-4 h-4 transition-transform" x-bind:class="open ? 'rotate-180' : ''" />
                         </button>

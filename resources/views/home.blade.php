@@ -555,6 +555,114 @@
         </div>
     </section>
 
+    {{-- Aegis Link Live Project Section --}}
+    <section id="aegis-link" class="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-red-950/30 via-orange-950/40 to-amber-950/20 overflow-hidden">
+        {{-- Subtle Static Background Accent --}}
+        <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 via-orange-500/15 to-amber-500/10"></div>
+
+        <div class="relative max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                {{-- Left: Text & Buttons --}}
+                <div class="space-y-8">
+                    <div>
+                        <div class="inline-flex items-center space-x-2 px-4 py-2 bg-red-950/50 rounded-full mb-6 border border-red-800">
+                            <span class="w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
+                            <span class="text-xs md:text-sm font-medium text-red-300">
+                                {{ __('Live Project') }}
+                            </span>
+                        </div>
+
+                        <h2 class="text-3xl md:text-[45px] font-bold mb-6 text-white">
+                            {{ __('Aegis Link') }}
+                        </h2>
+
+                        <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-4">
+                            {{ __('An active AI-powered real-time risk notification system. Designed for real-world situations. In real-time.') }}
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a
+                            href="{{ localized_route('contact') }}"
+                            class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-red-600 to-orange-600 rounded-lg hover:from-red-700 hover:to-orange-700 transition-all shadow-xl shadow-red-500/25 hover:shadow-2xl hover:shadow-red-500/40 hover:-translate-y-0.5 lg:whitespace-nowrap"
+                        >
+                            {{ __('View Live Project') }}
+                            <x-heroicon-o-arrow-right class="w-5 h-5 ml-2" />
+                        </a>
+
+                        <a
+                            href="mailto:contact@noctuacore.ai"
+                            class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-gray-200 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all border border-gray-700 shadow-lg lg:whitespace-nowrap"
+                        >
+                            {{ __('Contact Us for Customization') }}
+                        </a>
+                    </div>
+
+                    {{-- Features List --}}
+                    <div class="grid sm:grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-start space-x-3">
+                            <x-heroicon-o-shield-check class="w-6 h-6 text-red-500 flex-shrink-0 mt-0.5" />
+                            <div>
+                                <h4 class="font-semibold text-white">{{ __('For Security Companies') }}</h4>
+                                <p class="text-sm text-gray-400">{{ __('Immediate incident notification') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <x-heroicon-o-users class="w-6 h-6 text-red-500 flex-shrink-0 mt-0.5" />
+                            <div>
+                                <h4 class="font-semibold text-white">{{ __('For Individuals & Groups') }}</h4>
+                                <p class="text-sm text-gray-400">{{ __('Safety for those who need it most') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <x-heroicon-o-sparkles class="w-6 h-6 text-red-500 flex-shrink-0 mt-0.5" />
+                            <div>
+                                <h4 class="font-semibold text-white">{{ __('AI-Driven Logic') }}</h4>
+                                <p class="text-sm text-gray-400">{{ __('Not just a panic button') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <x-heroicon-o-heart class="w-6 h-6 text-red-500 flex-shrink-0 mt-0.5" />
+                            <div>
+                                <h4 class="font-semibold text-white">{{ __('Human-Centered Design') }}</h4>
+                                <p class="text-sm text-gray-400">{{ __('Warm, not cold system') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Right: Image Display --}}
+                <div class="relative group/mockup">
+                    {{-- Background Glow --}}
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-600/10 to-orange-600/10 rounded-3xl blur-3xl"></div>
+
+                    {{-- Image Container with 3D Transform --}}
+                    <div class="relative bg-gray-800 rounded-2xl
+                    shadow-lg overflow-hidden transition-all duration-1000
+                    [transform-style:preserve-3d] group-hover/mockup:[transform:perspective(1500px)_rotateY(0deg)_rotateX(0deg)_translateZ(0)_scale(1.02)]
+                    group-hover/mockup:shadow-xl
+                    motion-reduce:transition-none motion-reduce:group-hover/mockup:transform-none
+                    md:[transform:perspective(1500px)_rotateY(-10deg)_rotateX(5deg)_translateZ(0)]
+                    w-fit mx-auto">
+                        <div class="bg-gray-900 px-2 py-1 overflow-hidden flex items-center justify-center max-h-[500px] w-fit">
+                            <picture>
+                                <source srcset="{{ asset('images/aegis-link.webp') }}" type="image/webp">
+                                <img
+                                    src="{{ asset('images/aegis-link.jpg') }}"
+                                    alt="Aegis Link - Intelligent Safety Connection"
+                                    class="w-auto h-auto max-w-[280px] sm:max-w-[320px] max-h-[480px] object-contain rounded-lg"
+                                    width="816"
+                                    height="1440"
+                                    loading="lazy"
+                                />
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- FAQ Section --}}
     <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-950">
         <div class="max-w-7xl mx-auto">
