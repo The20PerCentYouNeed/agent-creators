@@ -5,7 +5,7 @@
             <!-- Desktop Navigation -->
             <div class="hidden md:flex justify-between items-center py-[10px]">
                 <!-- Logo -->
-                <a href="{{ localized_route('home') }}" class="flex items-center gap-2">
+                <a href="{{ localized_route('home') }}" class="flex items-center">
                     <x-logo />
                     <picture>
                         <source
@@ -70,7 +70,7 @@
             <!-- Mobile Navigation -->
             <div class="md:hidden flex justify-between items-center h-16">
                 <!-- Centered Logo -->
-                <a href="{{ localized_route('home') }}" class="flex items-center gap-2">
+                <a href="{{ localized_route('home') }}" class="flex items-center">
                     <x-logo />
                     <picture>
                         <source
@@ -81,7 +81,7 @@
                             src="{{ asset('images/after-logo.png') }}"
                             alt="Noctua Core.AI"
                             class="object-contain h-5"
-                            width="100"
+                            width="80"
                             height="20"
                             loading="eager"
                         >
