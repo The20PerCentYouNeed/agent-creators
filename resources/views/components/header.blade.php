@@ -151,7 +151,6 @@
                                 bg-blue-950' : 'text-gray-300
                                 hover:text-blue-400 hover:bg-gray-700' }}
                                 rounded-lg transition-colors cursor-pointer">
-                                    <x-heroicon-o-language class="w-5 h-5 mr-3" />
                                     {{ locale_name($locale) }}
                                     @if(current_locale() === $locale)
                                         <x-heroicon-o-check class="w-5 h-5 ml-auto" />
