@@ -157,7 +157,7 @@
                 <div class="p-8 rounded-2xl bg-gradient-to-br from-indigo-950/30
                 to-indigo-900/20 border border-indigo-800 hover:shadow-xl transition-all hover:-translate-y-1">
                     <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-6">
-                        <x-heroicon-o-language class="w-6 h-6 text-white" />
+                        <x-heroicon-o-globe-alt class="w-6 h-6 text-white" />
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">
                         {{ __('Multi-language Support') }}
