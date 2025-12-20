@@ -13,6 +13,7 @@
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicons/apple-touch-icon.png') }}">
         <meta name="apple-mobile-web-app-title" content="NoctuaCore">
         <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('favicons/favicon-96x96.png') }}">
         <link rel="manifest" href="{{ asset('favicons/site.webmanifest') }}">
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
