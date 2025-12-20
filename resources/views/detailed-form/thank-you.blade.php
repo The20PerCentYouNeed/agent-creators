@@ -88,12 +88,6 @@
                         <span>{{ config('mail.from.address') }}</span>
                     </a>
 
-                    <a href="https://www.eliaskalyvas.gr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-blue-200 hover:text-white hover:bg-white/20 transition-all">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.513-.737.85.242.266.36.539.435.806.071.264.145.597.293 1.095.073.25.061.535.093.777.029.249.077.485.14.707.044.152.096.29.142.407.047.113.09.198.121.261.033.063.052.097.057.104L10 12.5a8 8 0 01-4.084-1.936 6.003 6.003 0 01.837-4.118A8 8 0 0110 2z" clip-rule="evenodd"/>
-                        </svg>
-                        <span>www.eliaskalyvas.gr</span>
-                    </a>
                 </div>
             </div>
 

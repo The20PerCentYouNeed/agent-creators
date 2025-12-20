@@ -6,11 +6,11 @@
                 <a href="{{ localized_route('home') }}" class="flex items-center mb-4 space-x-2">
                     <picture>
                         <source
-                            srcset="{{ asset('images/logo.webp') }}"
+                            srcset="{{ asset('images/noctuacore.webp') }}"
                             type="image/webp"
                         >
                         <img
-                            src="{{ asset('images/logo.png') }}"
+                            src="{{ asset('images/noctuacore.png') }}"
                             alt="Noctua Logo"
                             class="object-contain h-[35px] lg:h-10"
                             width="33"

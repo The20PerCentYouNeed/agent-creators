@@ -15,7 +15,7 @@ class StoreStep2Request extends FormRequest
     {
         return [
             'platform' => 'nullable|string|in:wordpress,shopify,custom,wix,other',
-            'has_live_chat' => 'nullable|string|in:yes,no,dont_know',
+            'has_live_chat' => 'nullable|string|in:yes,no,unknown',
         ];
     }
 

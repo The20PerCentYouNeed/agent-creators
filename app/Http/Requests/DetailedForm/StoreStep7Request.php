@@ -17,8 +17,8 @@ class StoreStep7Request extends FormRequest
             'software_type' => 'nullable|string|in:erp,crm,both,no,dont_know',
             'software_name' => 'nullable|string|max:255',
             'desired_functions' => 'nullable|array',
-            'desired_functions.*' => 'string|in:lead_tracking,order_updates,status_tracking,follow_up_automation,customer_info_updates,other',
-            'api_access' => 'nullable|string|in:no,yes,dont_know',
+            'desired_functions.*' => 'string|in:lead_tracking,order_updates,status_tracking,follow_up,customer_info_updates,other',
+            'api_access' => 'nullable|string|in:no,yes,unknown',
         ];
     }
 

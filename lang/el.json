@@ -303,7 +303,7 @@
     "You can disable cookies from your browser settings at any time.": "Μπορείτε να απενεργοποιήσετε τα cookies από τις ρυθμίσεις του browser σας οποιαδήποτε στιγμή.",
 
     "Data Retention & Deletion": "Διατήρηση & Διαγραφή Δεδομένων",
-    "Data is stored for as long as necessary to fulfill the purpose for which it was collected or until you request its deletion. You can exercise your rights (access, correction, deletion, restriction, portability) by sending an email to info@eliaskalyvas.gr.": "Τα δεδομένα αποθηκεύονται για όσο διάστημα απαιτείται ώστε να εκπληρωθεί ο σκοπός για τον οποίο συλλέχθηκαν ή μέχρι να ζητήσετε τη διαγραφή τους. Μπορείτε να ασκήσετε τα δικαιώματά σας (πρόσβαση, διόρθωση, διαγραφή, περιορισμός, φορητότητα) αποστέλλοντας email στο info@eliaskalyvas.gr.",
+    "Data is stored for as long as necessary to fulfill the purpose for which it was collected or until you request its deletion. You can exercise your rights (access, correction, deletion, restriction, portability) by sending an email to {{ config('mail.from.address') }}.": "Τα δεδομένα αποθηκεύονται για όσο διάστημα απαιτείται ώστε να εκπληρωθεί ο σκοπός για τον οποίο συλλέχθηκαν ή μέχρι να ζητήσετε τη διαγραφή τους. Μπορείτε να ασκήσετε τα δικαιώματά σας (πρόσβαση, διόρθωση, διαγραφή, περιορισμός, φορητότητα) αποστέλλοντας email στο {{ config('mail.from.address') }}.",
 
     "Policy Updates": "Ενημερώσεις Πολιτικής",
     "This Privacy Policy is updated regularly to reflect changes in legislation or our services. The date of the last update is noted at the end of this page.": "Η παρούσα Πολιτική ενημερώνεται τακτικά ώστε να αντικατοπτρίζει αλλαγές στη νομοθεσία ή στις υπηρεσίες μας. Η ημερομηνία τελευταίας ενημέρωσης αναγράφεται στο τέλος της σελίδας.",
@@ -817,5 +817,6 @@
     "Not just a panic button": "Όχι απλό panic button",
     "Human-Centered Design": "Ανθρώπινο κέντρο σχεδιασμού",
     "Warm, not cold system": "Όχι ψυχρό σύστημα",
-    "When time is critical, silence is not an option. Aegis Link exists to break the silence — immediately.": "Όταν ο χρόνος είναι κρίσιμος, η σιωπή δεν είναι επιλογή. Το Aegis Link υπάρχει για να σπάει τη σιωπή — άμεσα."
+    "When time is critical, silence is not an option. Aegis Link exists to break the silence — immediately.": "Όταν ο χρόνος είναι κρίσιμος, η σιωπή δεν είναι επιλογή. Το Aegis Link υπάρχει για να σπάει τη σιωπή — άμεσα.",
+    "Industry Sector": "Κλάδος Επιχείρησης"
 }

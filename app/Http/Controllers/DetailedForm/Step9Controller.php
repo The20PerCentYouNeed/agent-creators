@@ -4,6 +4,8 @@ namespace App\Http\Controllers\DetailedForm;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DetailedForm\StoreStep9Request;
+use App\Notifications\DetailedFormSubmitted;
+use Illuminate\Support\Facades\Notification;
 use RalphJSmit\Laravel\SEO\Support\SEOData;
 
 class Step9Controller extends Controller
@@ -22,20 +24,26 @@ class Step9Controller extends Controller
         $data = $request->validated();
 
         if ($request->hasFile('additional_files')) {
-            $filePaths = [];
+            $fileNames = [];
             foreach ($request->file('additional_files') as $file) {
-                $filePaths[] = $file->store('detailed-form-uploads', 'public');
+                $file->store('detailed-form-uploads');
+                $fileNames[] = $file->getClientOriginalName();
             }
-            $data['additional_file_paths'] = $filePaths;
+            $data['additional_file_names'] = $fileNames;
         }
 
         session()->put('detailed_form.step_9', $data);
 
         $allData = session('detailed_form');
 
-        // TODO: Send notification email with all form data.
-        // Notification::route('mail', config('mail.contact.address'))
-        // ->notify(new DetailedFormSubmitted($allData)).
+        // Ensure data is serializable for the queue.
+        $serializableData = json_decode(json_encode($allData), true);
+
+        dispatch(function () use ($serializableData) {
+            Notification::route('mail', config('mail.from.address'))
+                ->notify(new DetailedFormSubmitted($serializableData));
+        })->afterResponse();
+
         session()->forget('detailed_form');
 
         return redirect()->route('detailed-form.thankyou');
