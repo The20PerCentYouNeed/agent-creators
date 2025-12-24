@@ -52,18 +52,18 @@ class ContactFormSubmitted extends Notification
         ];
 
         $message = (new MailMessage)
-            ->subject('New Contact Form Submission - '.$this->data['company'])
+            ->subject('New Contact Form Submission - ' . $this->data['company'])
             ->greeting('New Contact Form Submission')
             ->line('You have received a new contact form submission from your website.')
             ->line('**Contact Information**')
-            ->line('**Name:** '.$this->data['full_name'])
-            ->line('**Email:** '.$this->data['email'])
-            ->line('**Phone:** '.$this->data['phone'])
-            ->line('**Company:** '.$this->data['company'])
-            ->line('**Business Size:** '.($businessSizeLabels[$this->data['business_size']] ?? $this->data['business_size']))
-            ->line('**Industry:** '.($industryLabels[$this->data['industry']] ?? $this->data['industry']));
+            ->line('**Name:** ' . $this->data['full_name'])
+            ->line('**Email:** ' . $this->data['email'])
+            ->line('**Phone:** ' . $this->data['phone'])
+            ->line('**Company:** ' . $this->data['company'])
+            ->line('**Business Size:** ' . ($businessSizeLabels[$this->data['business_size']] ?? $this->data['business_size']))
+            ->line('**Industry:** ' . ($industryLabels[$this->data['industry']] ?? $this->data['industry']));
 
-        if (! empty($this->data['project_description'])) {
+        if (!empty($this->data['project_description'])) {
             $message->line('**Project Description:**')
                 ->line($this->data['project_description']);
         }
