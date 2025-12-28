@@ -42,4 +42,10 @@ return [
         'redirect' => env('GOOGLE_REDIRECT_URI'),
     ],
 
+    'social' => [
+        'facebook' => env('FACEBOOK_URL', 'https://www.facebook.com/noctuacore'),
+        'instagram' => env('INSTAGRAM_URL', 'https://www.instagram.com/noctuacore'),
+        'linkedin' => env('LINKEDIN_URL', 'https://www.linkedin.com/company/noctuacore/'),
+    ],
+
 ];
