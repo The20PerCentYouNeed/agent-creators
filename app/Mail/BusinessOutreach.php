@@ -26,7 +26,7 @@ class BusinessOutreach extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Business Outreach',
+            subject: 'Επανεκτίμηση της λύσης AI | Noctua Core',
         );
     }
 
