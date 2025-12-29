@@ -1,14 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html dir="ltr" lang="en">
   <head>
-    <link
-      rel="preload"
-      as="image"
-            href="{{ asset('images/logo.png') }}" />
-    <link
-      rel="preload"
-      as="image"
-            href="{{ asset('images/after-logo.png') }}" />
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
     <meta name="x-apple-disable-message-reformatting" />
     <!--$-->
@@ -39,7 +31,7 @@
                       <img
                         alt="{{ config('app.name') }}"
                         height="auto"
-                        src="{{ asset('images/logo.png') }}"
+                        src="{{ $message->embed(public_path('images/logo.png')) }}"
                         style="display:inline-block;outline:none;border:none;text-decoration:none;vertical-align:middle;max-width:70px;width:70px;height:auto"
                         width="70" />
                     </a>
@@ -47,7 +39,7 @@
                       <img
                         alt="{{ config('app.name') }}"
                         height="auto"
-                        src="{{ asset('images/after-logo.png') }}"
+                        src="{{ $message->embed(public_path('images/after-logo.png')) }}"
                         style="display:inline-block;outline:none;border:none;text-decoration:none;vertical-align:middle;max-width:110px;width:110px;height:auto"
                         width="110" />
                     </a>
@@ -187,7 +179,7 @@
                                       target="_blank"
                                       rel="noopener noreferrer"
                                       style="text-decoration:none;display:inline-block;max-width:100%"
-                                      ><img src="{{ asset('images/facebook.png') }}" alt="Facebook" width="32" height="32" style="width:32px;height:32px;max-width:32px;max-height:32px;min-width:32px;min-height:32px;display:block;border:none;outline:none" /></a
+                                      ><img src="{{ $message->embed(public_path('images/facebook.png')) }}" alt="Facebook" width="32" height="32" style="width:32px;height:32px;max-width:32px;max-height:32px;min-width:32px;min-height:32px;display:block;border:none;outline:none" /></a
                                     >
                                   </td>
                                   <td align="center" style="text-align:center;padding:0 10px">
@@ -196,7 +188,7 @@
                                       target="_blank"
                                       rel="noopener noreferrer"
                                       style="text-decoration:none;display:inline-block;max-width:100%;background-color:#ffffff"
-                                      ><img src="{{ asset('images/instagram.png') }}" alt="Instagram" width="32" height="32" style="width:32px;height:32px;max-width:32px;max-height:32px;min-width:32px;min-height:32px;display:block;border:none;outline:none" /></a
+                                      ><img src="{{ $message->embed(public_path('images/instagram.png')) }}" alt="Instagram" width="32" height="32" style="width:32px;height:32px;max-width:32px;max-height:32px;min-width:32px;min-height:32px;display:block;border:none;outline:none" /></a
                                     >
                                   </td>
                                   <td align="center" style="text-align:center;padding:0 10px">
@@ -205,7 +197,7 @@
                                       target="_blank"
                                       rel="noopener noreferrer"
                                       style="text-decoration:none;display:inline-block;max-width:100%"
-                                      ><img src="{{ asset('images/linkedIn-logo.png') }}" alt="LinkedIn" width="35" height="35" style="width:35px;height:35px;max-width:35px;max-height:35px;min-width:35px;min-height:35px;display:block;border:none;outline:none" /></a
+                                      ><img src="{{ $message->embed(public_path('images/linkedIn-logo.png')) }}" alt="LinkedIn" width="35" height="35" style="width:35px;height:35px;max-width:35px;max-height:35px;min-width:35px;min-height:35px;display:block;border:none;outline:none" /></a
                                     >
                                   </td>
                                 </tr>
