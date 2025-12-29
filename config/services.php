@@ -43,7 +43,7 @@ return [
     ],
 
     'social' => [
-        'facebook' => env('FACEBOOK_URL', 'https://www.facebook.com/noctuacore'),
+        'facebook' => env('FACEBOOK_URL', 'https://www.facebook.com/share/1KFKeaDENf/'),
         'instagram' => env('INSTAGRAM_URL', 'https://www.instagram.com/noctuacore'),
         'linkedin' => env('LINKEDIN_URL', 'https://www.linkedin.com/company/noctua-core-system/'),
     ],
