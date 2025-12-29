@@ -5,7 +5,7 @@
     <meta name="x-apple-disable-message-reformatting" />
     <!--$-->
   </head>
-  <body style="background-color:rgb(250,251,251)">
+  <body style="background-color:#000000">
     <table
       border="0"
       width="100%"
@@ -16,14 +16,14 @@
       <tbody>
         <tr>
           <td
-            style='background-color:rgb(250,251,251);font-family:ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:16px;line-height:24px'>
+            style='background-color:#000000;font-family:ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:16px;line-height:24px;color:#ffffff'>
             <table
               align="center"
               border="0"
               cellpadding="0"
               cellspacing="0"
               role="presentation"
-              style="margin:20px auto">
+              style="margin:40px auto 10px auto">
               <tbody>
                 <tr>
                   <td align="center" style="text-align:center">
@@ -54,7 +54,7 @@
               cellpadding="0"
               cellspacing="0"
               role="presentation"
-              style="max-width:37.5em;background-color:rgb(255,255,255);padding:45px">
+              style="max-width:37.5em;background-color:#000000;padding:45px">
               <tbody>
                 <tr style="width:100%">
                   <td>
@@ -77,51 +77,55 @@
                               role="presentation">
                               <tbody style="width:100%">
                                 <tr style="width:100%">
-                                  <td>
-                                    <p
-                                      style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px">
+                                  <td style="color:#ffffff">
+                                    <p style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px;color:#ffffff">
                                       Καλησπέρα σας και Χρόνια Πολλά,
                                     </p>
-                                    <p
-                                      style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px">
+                                    <p style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px;color:#ffffff">
                                       Επανέρχομαι μετά από καιρό, αυτή τη φορά με σαφώς πληρέστερη και πιο ώριμη εικόνα της δουλειάς μας γύρω από τους AI Agents.
                                     </p>
-                                    <p
-                                      style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px">
+                                    <p style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px;color:#ffffff">
                                       Όταν είχαμε επικοινωνήσει, βρισκόμασταν σε πρώιμο στάδιο υλοποίησης λύσεων και δεν υπήρχε ακόμη ένα ενιαίο, ξεκάθαρο πλαίσιο παρουσίασης της δραστηριότητάς μας. Αυτό πλέον έχει αλλάξει.
                                     </p>
-                                    <p
-                                      style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px">
-                                      Στο <a href="{{ config('app.url') }}/" style="color:#2563eb;text-decoration-line:none">{{ config('app.url') }}/</a> μπορείτε να δείτε:
+                                    <p style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px;color:#ffffff">
+                                      Στο <a href="{{ config('app.url') }}/" style="color:#8ab4f8;text-decoration:none">{{ config('app.url') }}/</a> μπορείτε να δείτε:
                                     </p>
-                                    <p
-                                      style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px">
-                                      τη φιλοσοφία πίσω από τους AI Agents που σχεδιάζουμε,<br>
-                                      πραγματικά case studies,<br>
-                                      ένα live project σε λειτουργία,<br>
-                                      και τη Nyra, την AI Agent που λειτουργεί ως παράδειγμα πραγματικής επιχειρησιακής χρήσης — όχι demo ή chatbot.
+                                    <ul style="margin:16px 0 24px 20px;padding:0;color:#ffffff;">
+                                      <li style="margin-bottom:8px;color:#ffffff;">
+                                        τη φιλοσοφία πίσω από τους AI Agents που σχεδιάζουμε,
+                                      </li>
+                                      <li style="margin-bottom:8px;color:#ffffff;">
+                                        πραγματικά case studies,
+                                      </li>
+                                      <li style="margin-bottom:8px;color:#ffffff;">
+                                        ένα live project σε λειτουργία,
+                                      </li>
+                                      <li style="margin-bottom:0;color:#ffffff;">
+                                        και τη <strong style="color:#ffffff;">Nyra</strong>, την AI Agent που λειτουργεί ως παράδειγμα πραγματικής επιχειρησιακής χρήσης — όχι demo ή chatbot.
+                                      </li>
+                                    </ul>
+                                    <p style="margin-bottom:8px;font-size:16px;line-height:24px;color:#ffffff;">
+                                      Ο στόχος μας παραμένει ο ίδιος:
                                     </p>
-                                    <p
-                                      style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px">
-                                      Ο στόχος μας παραμένει ο ίδιος:<br>
-                                      να σχεδιάζουμε custom AI Agents που ενσωματώνονται στις επιχειρήσεις και λειτουργούν πρακτικά, υποστηρίζοντας πωλήσεις, εξυπηρέτηση, εσωτερικές διαδικασίες και decision support.
-                                    </p>
-                                    <p
-                                      style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px">
+                                    <ul style="margin:0 0 24px 20px;padding:0;color:#ffffff;">
+                                      <li style="color:#ffffff;">
+                                        να σχεδιάζουμε <strong style="color:#ffffff;">custom AI Agents</strong> που ενσωματώνονται στις επιχειρήσεις και λειτουργούν πρακτικά, υποστηρίζοντας πωλήσεις, εξυπηρέτηση, εσωτερικές διαδικασίες και decision support.
+                                      </li>
+                                    </ul>
+                                    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin:32px 0 24px 0;">
+                                      <tr>
+                                        <td style="border-top:1px solid #2a2a2a;"></td>
+                                      </tr>
+                                    </table>
+                                    <p style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px;color:#ffffff">
                                       Η παρούσα επικοινωνία αφορά μια επανεκτίμηση της λύσης, αυτή τη φορά μέσα από ενεργά use cases και πραγματικές υλοποιήσεις, πέρα από την τεχνική μελέτη που είχαμε εξετάσει στο παρελθόν.
                                     </p>
-                                    <p
-                                      style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px">
+                                    <p style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px;color:#ffffff">
                                       Αν θεωρήσετε ότι αξίζει μια σύντομη και στοχευμένη συζήτηση, θα χαρώ να το δούμε συγκεκριμένα.
                                     </p>
-                                    <p
-                                      style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px">
-                                      Αναμένω την απάντησή σας.
-                                    </p>
-                                    <p
-                                      style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px">
+                                    <p style="font-size:16px;line-height:24px;margin-top:16px;margin-bottom:16px;color:#ffffff">
                                       Καλή συνέχεια,<br>
-                                      Ηλίας Καλύβας
+                                      <strong style="color:#ffffff;">Ηλίας Καλύβας</strong>
                                     </p>
                                   </td>
                                 </tr>
@@ -142,7 +146,7 @@
               cellpadding="0"
               cellspacing="0"
               role="presentation"
-              style="max-width:37.5em;margin-top:30px;border-top:1px solid #e5e7eb">
+              style="max-width:37.5em;margin-top:30px;border-top:1px solid #2a2a2a">
               <tbody>
                 <tr style="width:100%">
                   <td style="padding-top:30px;padding-bottom:20px">
@@ -156,9 +160,9 @@
                       <tbody>
                         <tr>
                           <td style="text-align:center;padding-bottom:20px">
-                            <p style="font-size:14px;line-height:24px;margin:0;color:rgb(107,114,128)">
-                              📞 <a href="tel:+306983513060" style="color:#2563eb;text-decoration:none">+30 698 351 3060</a> |
-                              ✉️ <a href="mailto:{{ config('mail.from.address') }}" style="color:#2563eb;text-decoration:none">{{ config('mail.from.address') }}</a>
+                            <p style="font-size:14px;line-height:24px;margin:0;color:#ffffff">
+                              📞 <a href="tel:+306983513060" style="color:#8ab4f8;text-decoration:none">+30 698 351 3060</a> |
+                              ✉️ <a href="mailto:{{ config('mail.from.address') }}" style="color:#8ab4f8;text-decoration:none">{{ config('mail.from.address') }}</a>
                             </p>
                           </td>
                         </tr>
@@ -187,7 +191,7 @@
                                       href="{{ config('services.social.instagram', 'https://www.instagram.com/noctuacore') }}"
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      style="text-decoration:none;display:inline-block;max-width:100%;background-color:#ffffff"
+                                      style="text-decoration:none;display:inline-block;max-width:100%"
                                       ><img src="{{ $message->embed(public_path('images/instagram.png')) }}" alt="Instagram" width="32" height="32" style="width:32px;height:32px;max-width:32px;max-height:32px;min-width:32px;min-height:32px;display:block;border:none;outline:none" /></a
                                     >
                                   </td>
@@ -197,7 +201,7 @@
                                       target="_blank"
                                       rel="noopener noreferrer"
                                       style="text-decoration:none;display:inline-block;max-width:100%"
-                                      ><img src="{{ $message->embed(public_path('images/linkedIn-logo.png')) }}" alt="LinkedIn" width="35" height="35" style="width:35px;height:35px;max-width:35px;max-height:35px;min-width:35px;min-height:35px;display:block;border:none;outline:none" /></a
+                                      ><img src="{{ $message->embed(public_path('images/linkedIn-logo.png')) }}" alt="LinkedIn" width="35" height="35" style="width:33px;height:33px;max-width:33px;max-height:33px;min-width:33px;min-height:33px;display:block;border:none;outline:none" /></a
                                     >
                                   </td>
                                 </tr>
@@ -208,7 +212,7 @@
                         <tr>
                           <td style="text-align:center;padding-top:10px">
                             <p
-                              style="font-size:14px;line-height:24px;margin:0;text-align:center;color:rgb(153,161,175)">
+                              style="font-size:14px;line-height:24px;margin:0;text-align:center;color:#888888">
                               © {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
                             </p>
                           </td>
