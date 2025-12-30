@@ -36,6 +36,9 @@ class ChatBotController extends Controller
 
             $threadId = session('openai_thread_id');
 
+            // Cancel any active runs before creating a new message.
+            $this->cancelActiveRuns($threadId);
+
             OpenAI::threads()->messages()->create($threadId, [
                 'role' => 'user',
                 'content' => $validated['message'],
@@ -150,7 +153,12 @@ class ChatBotController extends Controller
             }
 
             if ($response->event === 'thread.run.requires_action') {
-                $this->handleFunctionCallsStreamed($threadId, $response->response, $fullText, $messageId);
+                $this->handleFunctionCallsStreamed(
+                    $threadId,
+                    $response->response,
+                    $fullText,
+                    $messageId
+                );
                 break;
             }
 
@@ -158,8 +166,11 @@ class ChatBotController extends Controller
                 break;
             }
 
-            if ($response->event === 'thread.run.failed' || $response->event === 'thread.run.cancelled') {
-                echo 'data: ' . json_encode(['error' => 'The assistant run failed or was cancelled']) . "\n\n";
+            if ($response->event === 'thread.run.failed' ||
+                $response->event === 'thread.run.cancelled') {
+                echo 'data: ' . json_encode([
+                    'error' => 'The assistant run failed or was cancelled',
+                ]) . "\n\n";
                 ob_flush();
                 flush();
                 break;
@@ -167,8 +178,12 @@ class ChatBotController extends Controller
         }
     }
 
-    private function handleFunctionCallsStreamed(string $threadId, $run, string &$fullText, ?string &$messageId): void
-    {
+    private function handleFunctionCallsStreamed(
+        string $threadId,
+        $run,
+        string &$fullText,
+        ?string &$messageId
+    ): void {
         $toolCalls = $run->requiredAction->submitToolOutputs->toolCalls ?? [];
         $toolOutputs = [];
 
@@ -184,7 +199,8 @@ class ChatBotController extends Controller
                     ];
                 }
                 else {
-                    $errorMsg = 'Error: Invalid or unauthorized URL. Only agent-creators.ai URLs are allowed.';
+                    $errorMsg = 'Error: Invalid or unauthorized URL. ' .
+                    'Only agent-creators.ai URLs are allowed.';
                     $toolOutputs[] = [
                         'tool_call_id' => $toolCall->id,
                         'output' => $errorMsg,
@@ -195,9 +211,13 @@ class ChatBotController extends Controller
 
         if (!empty($toolOutputs)) {
             try {
-                $stream = OpenAI::threads()->runs()->submitToolOutputsStreamed($threadId, $run->id, [
-                    'tool_outputs' => $toolOutputs,
-                ]);
+                $stream = OpenAI::threads()->runs()->submitToolOutputsStreamed(
+                    $threadId,
+                    $run->id,
+                    [
+                        'tool_outputs' => $toolOutputs,
+                    ]
+                );
 
                 foreach ($stream as $response) {
                     if (connection_aborted()) {
@@ -263,8 +283,57 @@ class ChatBotController extends Controller
         return $text;
     }
 
+    private function cancelActiveRuns(string $threadId): void
+    {
+        try {
+            $runs = OpenAI::threads()->runs()->list($threadId, [
+                'limit' => 5,
+                'order' => 'desc',
+            ]);
+
+            $activeStatuses = ['queued', 'in_progress', 'requires_action'];
+            $canceledCount = 0;
+
+            foreach ($runs->data as $run) {
+                if (in_array($run->status, $activeStatuses, true)) {
+                    try {
+                        OpenAI::threads()->runs()->cancel($threadId, $run->id);
+                        $canceledCount++;
+
+                        Log::info('Canceled active run', [
+                            'thread_id' => $threadId,
+                            'run_id' => $run->id,
+                            'status' => $run->status,
+                        ]);
+                    }
+                    catch (\Exception $e) {
+                        Log::warning('Failed to cancel run', [
+                            'thread_id' => $threadId,
+                            'run_id' => $run->id,
+                            'error' => $e->getMessage(),
+                        ]);
+                    }
+                }
+            }
+
+            if ($canceledCount > 0) {
+                Log::info('Canceled active runs', [
+                    'thread_id' => $threadId,
+                    'count' => $canceledCount,
+                ]);
+            }
+        }
+        catch (\Exception $e) {
+            Log::error('Failed to check or cancel active runs', [
+                'thread_id' => $threadId,
+                'error' => $e->getMessage(),
+            ]);
+        }
+    }
+
     private function fetchUrlContent(string $url): string
     {
+        // Here we are gonna use an API for better web scraping data called Firecrawl.dev.
         try {
             $response = Http::timeout(10)->get($url);
 
