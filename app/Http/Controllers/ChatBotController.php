@@ -272,7 +272,7 @@ class ChatBotController extends Controller
     {
         $parsedUrl = parse_url($url);
 
-        return isset($parsedUrl['host']) && str_ends_with($parsedUrl['host'], 'agent-creators.ai');
+        return isset($parsedUrl['host']) && str_ends_with($parsedUrl['host'], 'noctuacore.ai');
     }
 
     private function removeMarkdownFormatting(string $text): string
