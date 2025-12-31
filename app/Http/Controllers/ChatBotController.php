@@ -184,12 +184,40 @@ class ChatBotController extends Controller
         string &$fullText,
         ?string &$messageId
     ): void {
+        Log::info('handleFunctionCallsStreamed called', [
+            'thread_id' => $threadId,
+            'run_id' => $run->id ?? 'unknown',
+            'run_status' => $run->status ?? 'unknown',
+        ]);
+
         $toolCalls = $run->requiredAction->submitToolOutputs->toolCalls ?? [];
         $toolOutputs = [];
 
-        foreach ($toolCalls as $toolCall) {
-            if ($toolCall->function->name === 'fetch_url') {
+        Log::info('Tool calls received', [
+            'tool_calls_count' => count($toolCalls),
+            'tool_calls_structure' => json_encode($toolCalls),
+            'has_required_action' => isset($run->requiredAction),
+            'has_submit_tool_outputs' => isset($run->requiredAction->submitToolOutputs),
+        ]);
+
+        foreach ($toolCalls as $index => $toolCall) {
+            $functionName = $toolCall->function->name ?? 'unknown';
+            Log::info('Processing tool call', [
+                'index' => $index,
+                'function_name' => $functionName,
+                'tool_call_id' => $toolCall->id ?? 'unknown',
+                'arguments' => $toolCall->function->arguments ?? 'none',
+            ]);
+
+            if ($functionName === 'fetch_url') {
                 $url = json_decode($toolCall->function->arguments, true)['url'] ?? null;
+
+                Log::info('fetch_url tool call', [
+                    'url' => $url,
+                    'url_is_null' => is_null($url),
+                    'url_is_empty' => empty($url),
+                    'is_allowed' => $url ? $this->isAllowedUrl($url) : false,
+                ]);
 
                 if ($url && $this->isAllowedUrl($url)) {
                     $content = $this->fetchUrlContent($url);
@@ -197,6 +225,10 @@ class ChatBotController extends Controller
                         'tool_call_id' => $toolCall->id,
                         'output' => $content,
                     ];
+                    Log::info('Added tool output for allowed URL', [
+                        'tool_call_id' => $toolCall->id,
+                        'content_length' => strlen($content),
+                    ]);
                 }
                 else {
                     $errorMsg = 'Error: Invalid or unauthorized URL. ' .
@@ -205,11 +237,30 @@ class ChatBotController extends Controller
                         'tool_call_id' => $toolCall->id,
                         'output' => $errorMsg,
                     ];
+                    Log::warning('Added error output for invalid URL', [
+                        'tool_call_id' => $toolCall->id,
+                        'url' => $url,
+                        'is_allowed' => $url ? $this->isAllowedUrl($url) : false,
+                    ]);
                 }
+            }
+            else {
+                Log::warning('Unknown function name, skipping', [
+                    'function_name' => $functionName,
+                    'tool_call_id' => $toolCall->id ?? 'unknown',
+                ]);
             }
         }
 
+        Log::info('Tool outputs prepared', [
+            'tool_outputs_count' => count($toolOutputs),
+            'tool_outputs_empty' => empty($toolOutputs),
+        ]);
+
         if (!empty($toolOutputs)) {
+            Log::info('Submitting tool outputs', [
+                'count' => count($toolOutputs),
+            ]);
             try {
                 $stream = OpenAI::threads()->runs()->submitToolOutputsStreamed(
                     $threadId,
@@ -265,6 +316,13 @@ class ChatBotController extends Controller
                 ob_flush();
                 flush();
             }
+        }
+        else {
+            Log::error('Tool outputs is empty, cannot submit', [
+                'thread_id' => $threadId,
+                'run_id' => $run->id ?? 'unknown',
+                'tool_calls_count' => count($toolCalls),
+            ]);
         }
     }
 
