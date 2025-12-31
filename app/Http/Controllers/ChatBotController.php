@@ -259,7 +259,9 @@ class ChatBotController extends Controller
                     'url' => $url ?? 'unknown',
                 ]);
 
-                echo 'data: ' . json_encode(['error' => 'Failed to process function calls']) . "\n\n";
+                echo 'data: ' . json_encode([
+                    'error' => 'Failed to process function calls',
+                ]) . "\n\n";
                 ob_flush();
                 flush();
             }
@@ -291,7 +293,9 @@ class ChatBotController extends Controller
                 'order' => 'desc',
             ]);
 
-            $activeStatuses = ['queued', 'in_progress', 'requires_action'];
+            // Only cancel runs that are queued or in progress.
+            // Don't cancel 'requires_action' - those are waiting for function outputs.
+            $activeStatuses = ['queued', 'in_progress'];
             $canceledCount = 0;
 
             foreach ($runs->data as $run) {
