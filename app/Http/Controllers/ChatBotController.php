@@ -295,7 +295,7 @@ class ChatBotController extends Controller
 
             // Only cancel runs that are queued or in progress.
             // Don't cancel 'requires_action' - those are waiting for function outputs.
-            $activeStatuses = ['queued', 'in_progress'];
+            $activeStatuses = ['queued', 'in_progress', 'requires_action'];
             $canceledCount = 0;
 
             foreach ($runs->data as $run) {
