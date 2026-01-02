@@ -40,11 +40,74 @@
                 </p>
             </div>
 
-            {{-- Founder Info --}}
+            {{-- Founder Info with Team Images --}}
             <div class="bg-gray-800 rounded-2xl p-6 md:p-8 border border-gray-700 shadow-lg">
-                <p class="text-base md:text-lg text-gray-300 leading-relaxed">
+                <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-8">
                     {{ __('The company was founded by Elias Kalyvas, Learning and Development and AI Strategist, with a mission to help businesses grow with clarity, strategy, and substance.') }}
                 </p>
+
+                {{-- Team Members --}}
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-40 mt-8">
+                    {{-- Elias Kalyvas --}}
+                    <div class="flex flex-col items-center text-center">
+                        <a href="https://eliaskalyvas.gr/" target="_blank" rel="noopener noreferrer" class="group">
+                            <div class="relative mb-4">
+                                {{-- Circular background --}}
+                                <div class="w-48 h-48 rounded-full p-1">
+                                    <div class="w-full h-full rounded-full overflow-hidden">
+                                        <picture>
+                                            <source srcset="{{ asset('images/elias.webp') }}" type="image/webp">
+                                            <img
+                                                src="{{ asset('images/elias.png') }}"
+                                                alt="Elias Kalyvas"
+                                                class="w-full h-full object-cover rounded-full"
+                                                width="200"
+                                                height="200"
+                                                loading="lazy"
+                                            />
+                                        </picture>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-1">
+                            {{ __('Elias Kalyvas') }}
+                        </h3>
+                        <p class="text-sm md:text-base text-gray-400">
+                            {{ __('Founder & Strategist') }}
+                        </p>
+                    </div>
+
+                    {{-- Apostolis Moustakis --}}
+                    <div class="flex flex-col items-center text-center">
+                        <a href="https://www.linkedin.com/in/apostolis-moustakis-b82bab294/" target="_blank" rel="noopener noreferrer" class="group">
+                            <div class="relative mb-4">
+                                {{-- Circular background --}}
+                                <div class="w-48 h-48 rounded-full p-1">
+                                    <div class="w-full h-full rounded-full overflow-hidden">
+                                        <picture>
+                                            <source srcset="{{ asset('images/apostolis.webp') }}" type="image/webp">
+                                            <img
+                                                src="{{ asset('images/apostolis.png') }}"
+                                                alt="Apostolis Moustakis"
+                                                class="w-full h-full object-cover rounded-full"
+                                                width="200"
+                                                height="200"
+                                                loading="lazy"
+                                            />
+                                        </picture>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-1">
+                            {{ __('Apostolis Moustakis') }}
+                        </h3>
+                        <p class="text-sm md:text-base text-gray-400">
+                            {{ __('Developer & Co-founder') }}
+                        </p>
+                    </div>
+                </div>
             </div>
 
             {{-- Team Information --}}
